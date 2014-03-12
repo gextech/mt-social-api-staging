@@ -9,8 +9,8 @@ API de MT Fan test (hello dudes)
 
 To login into the MTSocial API API, use following calls:
 
-- 1. `POST` your credentials in JSON body to the *api/login* resource. An **X-Auth-Token** is returned back in SetCookie header.
-- 2. Use the **X-Auth-Token** in your API calls header.
+- 1. `POST` your credentials in JSON body to the *api/login* resource. An **token** is returned back.
+- 2. Use the **token** in your API calls header **X-Auth-Token**.
 
 Remember that TT Token has **limited validity**. Once you received 401 Unauthorized Response, you need to GET new TT Token.
 
@@ -35,18 +35,31 @@ This resource is the first. Use it to log into the API.
             {"username":"user@company.com","password":"YourPassword"}
 
 + Response 200 (application/json)
-    + Headers
-
-            Set-Cookie: GDCAuthTT=; path=/gdc; expires=Mon, 30-Jul-2012 09:12:42 GMT; secure; HttpOnly, GDCAuthSST={super-secured-token}; path=/gdc/account; secure; HttpOnly
-
+ 
     + Body
 
             {"username":"tsalazar@expansion.com.mx","token":"o5245j7tn44hf1gvalbvkvgjk5t9s9cv","roles":["ROLE_ADMIN","ROLE_ROOT”]}
 
 
+## /api/validate
+Basic service to validate token, this is for testing.
+
+Use the token retrive from login call as header X-Auth-Token.
+### GET
++ Headers
+
+            X-Auth-Token: {token}
 
 
++ Response 200 (application/json)
+ 
+    + Body
+
+            {"token":"o5245j7tn44hf1gvalbvkvgjk5t9s9cv","roles":["ROLE_ADMIN","ROLE_ROOT”]}
+
+             
 ## /api/person/{idUser}
+
 Info person 
 + Parameters
     + idUser (required, number, `666`) ... Numeric `idUser` to perform action with. Has example value.
