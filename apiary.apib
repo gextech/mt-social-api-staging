@@ -1,0 +1,115 @@
+FORMAT: 1A
+HOST: http://www.google.com
+
+# MTSocial API
+API de MT Fan 
+
+# Group Notes
+Servicios prototipos para  **MTSocial API**
+
+
+## List of teams to follow classified by league [/teams/Listfollow{idUser, token}]
++ Parameters
+    + idUser (required, number, `666`) ... Numeric `idUser` to perform action with. Has example value.
+    + token (required, number, `ASDLNALDSKASDASdl34`) ... String `token` to validate authentication. Has example value.
+
+
+### List of teams to follow  [GET]
++ Response 200 (application/json)
+
+        [
+        {"idLeague":23434,
+        "name":"Primera Division",
+         "teams":[{"id": 56456, "name": "América", "follower":1,"urlImagen":"http://gex.mediotiempo.media/23123.jpg"}, {"id": 2234234, "name": "Cruz Azul", "follower":0,"urlImage":"http://gex.mediotiempo.media/23123.jpg"}]
+         },
+        {
+        "idLeague":234542,
+        "name": "Liga Española",
+        "teams":[{"id":23123, "Real Madrid", "follower":1, "urlImage":"http://gex.mediotiempo.media/23123.jpg"},{"id":435345, "Barcelona", "follower":0, "urlImage":"http://gex.mediotiempo.media/23123.jpg"},{"id":879899,"Sevilla", "follower":1, "urlImage":"http://gex.mediotiempo.media/23123.jpg"}]
+        }]
+
+### List of teams to follow [POST]
++ Request (application/json)
+
+        { "idUser": 666,"token":"ADASqwe21312323ADFf" }
+
++ Response 201 (application/json)
+
+         [
+        {"idLeague":23434,
+        "name":"Primera Division",
+         "teams":[{"id": 56456, "name": "América", "follower":1,"urlImagen":"http://gex.mediotiempo.media/23123.jpg"}, {"id": 2234234, "name": "Cruz Azul", "follower":0,"urlImage":"http://gex.mediotiempo.media/23123.jpg"}]
+         },
+        {
+        "idLeague":234542,
+        "name": "Liga Española",
+        "teams":[{"id":23123, "Real Madrid", "follower":1, "urlImage":"http://gex.mediotiempo.media/23123.jpg"},{"id":435345, "Barcelona", "follower":0, "urlImage":"http://gex.mediotiempo.media/23123.jpg"},{"id":879899,"Sevilla", "follower":1, "urlImage":"http://gex.mediotiempo.media/23123.jpg"}]
+        }]
+
+## Request Team Follow [/teams/follow{idUser,idTeam,token}]
+Request Team Follow 
+
++ Parameters
+    + idUser (required, number, `666`) ... Numeric `idUser` to perform action with. Has example value.
+    + idTeam (required, number, `2234234`) ... Numeric `idTeam`  of the team that we want to follow
+    + token (required, number, `ASDLNALDSKASDASdl34`) ... String `token` to validate authentication. Has example value.
+
+### Request a team follow [GET]
++ Response 200 (application/json)
+
+    + Header
+
+            X-My-Header: The Value
+
+    + Body
+
+            { "code": 0, "message": "Successful" }
+
+### List of teams to follow  [POST]
++ Response 200 (application/json)
+ + Header
+
+            X-My-Header: The Value
+
+    + Body
+
+            { "code": 0, "message": "Successful" }
+            
+
+## Request of recommendation friends [/social/listFriends{idUser}]
+Request of recommendation friends
+### List of people to follow  [GET]
++ Response 201 (application/json)
+
+         [
+        {"idUser":43234,
+        "name":"Pedro Perez",
+         "urlImagen":"http://gex.mediotiempo.media/32323.jpg"
+         },
+         {"idUser":32234,
+        "name":"Daniel Ramos",
+         "urlImagen":"http://gex.mediotiempo.media/32323.jpg"
+         },
+         {"idUser":43234,
+        "name":"Moises Vélez",
+         "urlImagen":"http://gex.mediotiempo.media/32323.jpg"
+         }]
+
+### List of people to follow  [POST]
++ Response 201 (application/json)
+         
+        [
+        {"idUser":43234,
+        "name":"Pedro Perez",
+         "urlImagen":"http://gex.mediotiempo.media/32323.jpg"
+         },
+         {"idUser":32234,
+        "name":"Daniel Ramos",
+         "urlImagen":"http://gex.mediotiempo.media/32323.jpg"
+         },
+         {"idUser":43234,
+        "name":"Moises Vélez",
+         "urlImagen":"http://gex.mediotiempo.media/32323.jpg"
+         }]
+
+
