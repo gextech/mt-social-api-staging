@@ -1,60 +1,38 @@
 FORMAT: 1A
-HOST: http://staging.api.mtfan.mediotiempo.com
+HOST: http://staging.api.mtfan.mediotiempo.com.mx
 
-# MTSocial API testing
-API de MT Fan 
+# mt-social-api
+Notes API is a *short texts saving* service similar to its physical paper presence on your table.
 
 # Group Notes
-Servicios prototipos para  **MTSocial API**
+Notes related resources of the **Notes API**
 
-
-## List of teams to follow classified by league [/teams/Listfollow{idUser, token}]
-+ Parameters
-    + idUser (required, number, `666`) ... Numeric `idUser` to perform action with. Has example value.
-    + token (required, number, `ASDLNALDSKASDASdl34`) ... String `token` to validate authentication. Has example value.
-
-
-### List of teams to follow  [GET]
+## Notes Collection [/notes]
+### List all Notes [GET]
 + Response 200 (application/json)
 
-        [
-        {"idLeague":23434,
-        "name":"Primera Division",
-         "teams":[{"id": 56456, "name": "América", "follower":1,"urlImagen":"http://gex.mediotiempo.media/23123.jpg"}, {"id": 2234234, "name": "Cruz Azul", "follower":0,"urlImage":"http://gex.mediotiempo.media/23123.jpg"}]
-         },
-        {
-        "idLeague":234542,
-        "name": "Liga Española",
-        "teams":[{"id":23123, "Real Madrid", "follower":1, "urlImage":"http://gex.mediotiempo.media/23123.jpg"},{"id":435345, "Barcelona", "follower":0, "urlImage":"http://gex.mediotiempo.media/23123.jpg"},{"id":879899,"Sevilla", "follower":1, "urlImage":"http://gex.mediotiempo.media/23123.jpg"}]
+        [{
+          "id": 1, "title": "Jogging in park"
+        }, {
+          "id": 2, "title": "Pick-up posters from post-office"
         }]
 
-### List of teams to follow [POST]
+### Create a Note [POST]
 + Request (application/json)
 
-        { "idUser": 666,"token":"ADASqwe21312323ADFf" }
+        { "title": "Buy cheese and bread for breakfast." }
 
 + Response 201 (application/json)
 
-         [
-        {"idLeague":23434,
-        "name":"Primera Division",
-         "teams":[{"id": 56456, "name": "América", "follower":1,"urlImagen":"http://gex.mediotiempo.media/23123.jpg"}, {"id": 2234234, "name": "Cruz Azul", "follower":0,"urlImage":"http://gex.mediotiempo.media/23123.jpg"}]
-         },
-        {
-        "idLeague":234542,
-        "name": "Liga Española",
-        "teams":[{"id":23123, "Real Madrid", "follower":1, "urlImage":"http://gex.mediotiempo.media/23123.jpg"},{"id":435345, "Barcelona", "follower":0, "urlImage":"http://gex.mediotiempo.media/23123.jpg"},{"id":879899,"Sevilla", "follower":1, "urlImage":"http://gex.mediotiempo.media/23123.jpg"}]
-        }]
+        { "id": 3, "title": "Buy cheese and bread for breakfast." }
 
-## Request Team Follow [/teams/follow{idUser,idTeam,token}]
-Request Team Follow 
+## Note [/notes/{id}]
+A single Note object with all its details
 
 + Parameters
-    + idUser (required, number, `666`) ... Numeric `idUser` to perform action with. Has example value.
-    + idTeam (required, number, `2234234`) ... Numeric `idTeam`  of the team that we want to follow
-    + token (required, number, `ASDLNALDSKASDASdl34`) ... String `token` to validate authentication. Has example value.
+    + id (required, number, `1`) ... Numeric `id` of the Note to perform action with. Has example value.
 
-### Request a team follow [GET]
+### Retrieve a Note [GET]
 + Response 200 (application/json)
 
     + Header
@@ -63,53 +41,7 @@ Request Team Follow
 
     + Body
 
-            { "code": 0, "message": "Successful" }
+            { "id": 2, "title": "Pick-up posters from post-office" }
 
-### List of teams to follow  [POST]
-+ Response 200 (application/json)
- + Header
-
-            X-My-Header: The Value
-
-    + Body
-
-            { "code": 0, "message": "Successful" }
-            
-
-## Request of recommendation friends [/social/listFriends{idUser}]
-Request of recommendation friends
-### List of people to follow  [GET]
-+ Response 201 (application/json)
-
-         [
-        {"idUser":43234,
-        "name":"Pedro Perez",
-         "urlImagen":"http://gex.mediotiempo.media/32323.jpg"
-         },
-         {"idUser":32234,
-        "name":"Daniel Ramos",
-         "urlImagen":"http://gex.mediotiempo.media/32323.jpg"
-         },
-         {"idUser":43234,
-        "name":"Moises Vélez",
-         "urlImagen":"http://gex.mediotiempo.media/32323.jpg"
-         }]
-
-### List of people to follow  [POST]
-+ Response 201 (application/json)
-         
-        [
-        {"idUser":43234,
-        "name":"Pedro Perez",
-         "urlImagen":"http://gex.mediotiempo.media/32323.jpg"
-         },
-         {"idUser":32234,
-        "name":"Daniel Ramos",
-         "urlImagen":"http://gex.mediotiempo.media/32323.jpg"
-         },
-         {"idUser":43234,
-        "name":"Moises Vélez",
-         "urlImagen":"http://gex.mediotiempo.media/32323.jpg"
-         }]
-
-
+### Remove a Note [DELETE]
++ Response 204
