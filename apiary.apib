@@ -215,3 +215,538 @@ Request User Follow
 
             { "code": 0, "message": "Successful" }
             
+
+
+# Group Sprint 3
+Partidos (en vivo, anteriores, proximos) , Torneos y Mis Partidos
+
+## Partidos [/matches]
+### Listado de partidos [GET]
+Este servicio trae como respuesta los partidos de las diferentes ligas. Se pide un criterio de tiempo (pasado, presente, futuro) para listarlos. Valor esperado:  `option` ( `past` <b>partidos anteriores</b> , `next` <b>partidos proximos</b>  y`today`  <b>partidos en vivo</b> ).
+
+
++ Request (application/json)
+
+    + Headers
+    
+            X-Auth-Token: {token}
+
+    + Body
+    
+            
+            {"option": "optionMatch"}
+
+
++ Response 200 (application/json)
+
+
+        {
+        timestamp: "2014-03-12T15:43:59Z",
+        torneos: {
+            429: {
+                nombre: "English Barclays Premier League 2013",
+                fases: {
+                    1: {
+                        nombre: "Regular",
+                        jornadas: {
+                            29: {
+                            nombre: "Jornada 29",
+                            nombreCorto: "J29",
+                            partidos: {
+                                50143: {
+                                    linkPrevio: null,
+                                    linkCronica: null,
+                                    linkGaleria: null,
+                                    linkFicha: null,
+                                    local: "Newcastle",
+                                    localCorto: "NEW",
+                                    localCss: "Newcastle",
+                                    federacionLocal: "FA",
+                                    visitante: "Everton",
+                                    visitanteCorto: "EVE",
+                                    visitanteCss: "Everton",
+                                    federacionVisitante: "FA",
+                                    goles_local: null,
+                                    goles_visitante: null,
+                                    penales_local: null,
+                                    penales_visitante: null,
+                                    startTime: "2014-03-09T16:00:00Z",
+                                    startTimeT1: null,
+                                    endTimeT1: null,
+                                    startTimeT2: null,
+                                    endTimeT2: null,
+                                    startTimeTE1: null,
+                                    endTimeTE1: null,
+                                    startTimeTE2: null,
+                                    endTimeTE2: null,
+                                    endTimeGame: null,
+                                    compTimeT1: 0,
+                                    compTimeT2: 0,
+                                    compTimeTE1: 0,
+                                    compTimeTE2: 0,
+                                    hasExtraTime: false,
+                                    hasPenalties: false,
+                                    esFavorito: true,
+                                    comentariosCantidad: 45
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        432: {},
+        447: {}
+        }
+
+
++ Response 404 (application/json)
+ 
+        {
+            timestamp: "2014-03-12T16:03:40Z",
+            portada: "noticias",
+            torneos: {
+                info: "no se encontraron partidos"
+            }
+        }
+
+
+## Ficha de partido [/reviews]
+
+### Ficha de partido [GET]
+Servicio que debe traer la info del partido, goles, anotadores, si ah sido seguido, encuesta y si ah votado en la encuesta. Traerá datos siempre y cuando el partido haya finalizado. Valor a enviar: `idMatch`
+
++ Request (application/json)
+
+    + Headers
+    
+            X-Auth-Token: {token}
+
+    + Body
+
+            {"idMatch":"50143"}
+            
+
++ Response 200 (application/json)
+
+
+        {
+            torneo: {
+                id: 447,
+                name: Clausura 2014,
+                start: "2014-01-03"
+            },
+            partido:{
+                id: 51343,
+                jornada: 7,
+                fase: 1,
+                bitacora: true,
+                galeria: true
+            },
+            fecha: "2010-08-28 18:00:00",
+            estadio: Morelos,
+            estadioLat: 19.696961,
+            estadioLon: -101.202165,
+            localId: 31,
+            localNombre: Morelos,
+            visitanteId: 20,
+            visitanteNombre: América,
+            totalGolesLocal : 2,
+            totalGolesVisitante : 3,
+            fotos: {
+                [
+                    "http://gex.mediotiempo.media/23128.jpg",
+                    "http://gex.mediotiempo.media/23126.jpg",
+                    "http://gex.mediotiempo.media/23125.jpg",
+                ]
+            },
+            haVotado: false,
+            votacion: {
+                local: 63,
+                empate: 17,
+                visitante: 20
+            },
+            goles: {
+                [
+                    gol: { 
+                        id: 1,
+                        idequipoanotado: 31,
+                        idequiporecibido: 20,
+                        min: 61
+                        tipo: 1,
+                        forma: 1,
+                        marcador: “1-0”,
+                        jugadorId: 9910,
+                        jugador: “Christian Valdez”
+                    },
+                    gol: {
+                        id: 1,
+                        idequipoanotado: 31,
+                        idequiporecibido: 20,
+                        min: 86
+                        tipo: 1,
+                        forma: 1,
+                        marcador: “1-0”,
+                        jugadorId: 9910,
+                        jugador: “Christian Valdez”
+                    }
+                ]
+            }
+        }
+
+
++ Response 404 (application/json)
+
+
+        error: {
+            timestamp: "2014-03-12T16:03:40Z",
+            info: "no se encontro ficha"
+        }
+
+
+## Votaciones de partido [/polls]
+Las votaciones son pequeñas encuestas realizadas por partido. Los elementos (`opcionEncuesta`) por votar son `local`, `empate` y `visitante`.
+
+### Listado de Votaciones[GET]
+Este servicio trae para un partido dado, las votaciones realizadas por los usuarios. Valor a enviar: `idMatch`.
+
++ Request (application/json)
+
+    + Headers
+    
+            X-Auth-Token: {token}
+    + Body
+
+            {"idMatch":"50143" }
+            
+
++ Response 200 (application/json)
+
+
+        votacion: {
+            total: 100 ,
+            local: 60 ,
+            empate: 17 ,
+            visitante: 23
+        }
+
++ Response 404 (application/json)
+
+
+        {
+            code : 404 ,
+            message: "no se encontro encuesta"
+        }
+
+
+### Agregar votacion de partido [PUT]
+Este servicio agrega un voto a la encuesta. Admite uno de tres valores para realizar la votacion: `local`, `empate` o `visitante`.
+
+
++ Request (application/json)
+
+    + Headers
+    
+            X-Auth-Token: {token}
+
+    + Body
+
+            {"idMatch":"50143" , "option": "opcionEncuesta" }
+            
+
++ Response 200 (application/json)
+
+
+        {
+            total: 104 ,
+            local: 64 ,
+            empate: 17 ,
+            visitante: 23
+        }
+
+## Comentarios de Partido [/match_comments]
+
+
+### Listado de comentarios de partido [GET]
+El servicio regresa los comentarios asociados con un partido. Valores esperado: `idMatch` , `start` (id del ultimo comentario) , `count` (cantidad de cometarios a traer). En caso de no venir `start` o `count` se asume el default: `start` = ultimo comentario de partido en BD y `count` = 20.
+
++ Request (application/json)
+
+    + Headers
+    
+            X-Auth-Token: {token}
+
+    + Body
+
+            {"idMatch":"50143" , "start":"678" , "count":"20" }
+            
+
+
++ Response 200 (application/json)
+
+
+        [
+            {
+                idComentario: 678 ,
+                idUser: 7895
+                nombreUser: "Luis Ramirez",
+                urlImagenUser: "http://gex.mediotiempo.media/32323.jpg" , 
+                timestamp: "2014-03-12T15:43:59Z",
+                titulo: "Vamos a ganar"
+                comentario: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce non nunc gravida, porta urna nec, volutpat quam. Nullam consequat lacus ante, et auctor justo congue ut. Integer viverra viverra massa id malesuada"
+            },
+            {
+                idComentario: 679 ,
+                idUser: 6544
+                nombreUser: "Alberto Castro",
+                urlImagenUser: "http://gex.mediotiempo.media/32323.jpg" , 
+                timestamp: "2014-03-12T15:43:59Z",
+                titulo: "Vamos a ganar"
+                comentario: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce non nunc gravida, porta urna nec, volutpat quam. Nullam consequat lacus ante, et auctor justo congue ut. Integer viverra viverra massa id malesuada"
+            },
+            {
+                idComentario: 680 ,
+                idUser: 1258
+                nombreUser: "Luis Garcia",
+                urlImagenUser: "http://gex.mediotiempo.media/32323.jpg" , 
+                timestamp: "2014-03-12T15:43:59Z",
+                titulo: "Vamos a ganar"
+                comentario: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce non nunc gravida, porta urna nec, volutpat quam. Nullam consequat lacus ante, et auctor justo congue ut. Integer viverra viverra massa id malesuada",
+                foto: {
+                    idFoto: 32323
+                    urlImagen: "http://gex.mediotiempo.media/32323.jpg" ,
+                    likes: 54,
+                    comentariosCantidad: 
+                }
+            }
+        ]
+
+
+### Agregar comentarios a un partido [POST]
+Servicio que agrega un comentario para un partido dado. Valores esperados: `idMatch` , `comment` , `idFoto` (opcional). Nota: para subir una foto con el comentario debe incluirse `idFoto` . `idFoto` es producto del servicio  <i>ALTA_FOTO</i>.
+
++ Request (application/json)
+
+    + Headers
+    
+            X-Auth-Token: {token}
+
+    + Body
+
+            {"idMatch":"50143" , "comment":"678" , "idFoto":"335684" }
+            
+
+
++ Response 200 (application/json)
+
+
+        {
+            code : 200 ,
+            message: Comentario agregado"
+        }
+
+
+
+## Comentarios de Foto [/picture_comments]
+
+### Listado de comentarios de una foto [GET]
+El servicio regresa un listado de comentarios para una foto. Valores esperados: `idFoto` , `start` (id del ultimo comentario) , `count` (cantidad de cometarios a traer).  Nota: este servicio no devuelve fotos
+
++ Request (application/json)
+
+    + Headers
+    
+            X-Auth-Token: {token}
+
+    + Body
+
+            {"idFoto":"7895" }
+            
+
+
++ Response 200 (application/json)
+
+
+        {
+            idComentario: 430 ,
+            idUser: 9189,
+            nombreUser: "Noel Castillo",
+            urlImagenUser: "http://gex.mediotiempo.media/32323.jpg" , 
+            timestamp: "2014-03-12T15:43:59Z",
+            titulo: "Vamos a ganar"
+            comentario: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce non nunc gravida, porta urna nec, volutpat quam. Nullam consequat lacus ante, et auctor justo congue ut. Integer viverra viverra massa id malesuada",
+        },
+        {
+            idComentario: 431 ,
+            idUser: 9189,
+            nombreUser: "Noel Castillo",
+            urlImagenUser: "http://gex.mediotiempo.media/32323.jpg" , 
+            timestamp: "2014-03-12T15:43:59Z",
+            titulo: "Vamos a ganar"
+            comentario: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce non nunc gravida, porta urna nec, volutpat quam. Nullam consequat lacus ante, et auctor justo congue ut. Integer viverra viverra massa id malesuada",
+        },
+        {
+            idComentario: 432 ,
+            idUser: 9189,
+            nombreUser: "Noel Castillo",
+            urlImagenUser: "http://gex.mediotiempo.media/32323.jpg" , 
+            timestamp: "2014-03-12T15:43:59Z",
+            titulo: "Vamos a ganar"
+            comentario: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce non nunc gravida, porta urna nec, volutpat quam. Nullam consequat lacus ante, et auctor justo congue ut. Integer viverra viverra massa id malesuada",
+        }
+
+
+## Torneos [/tournaments]
+
+### Listado de torneos [GET]
+El servicio regresa el listado de torneos. Valores esperados: `idFoto` , `start` (id del ultimo comentario) , `count` (cantidad de cometarios a traer).  Nota: este servicio no devuelve fotos
+
++ Request (application/json)
+
+    + Headers
+    
+            X-Auth-Token: {token}
+
+    + Body
+
+            {}
+
++ Response 200 (application/json)
+
+
+        [
+            {
+                idTorneo: 447,
+                nombre: "Primera División Mexicana",
+                abreviacion: "C2014",
+                faseActual: 1,
+                fechaActual: 10,
+                fase: 
+                    [ 
+                        {
+                            idFase: 1,
+                            nombre: "Jornada",
+                            abreviacion: "J",
+                            totalFechas: 15
+                        }
+                    ]
+            },
+            {
+                idTorneo: 424,
+                nombre: "Liga de Campeones CONCACAF",
+                abreviacion: "Liga de Campeones CONCACAF",
+                faseActual: 3,
+                fechaActual: 1,
+                fase: 
+                    [ 
+                        {
+                            idFase: 17,
+                            nombre: "Fase Grupos",
+                            abreviacion: "G",
+                            totalFechas: 1
+                        },
+                        {
+                            idFase: 3,
+                            nombre: "Cuartos",
+                            abreviacion: "C",
+                            totalFechas: 2
+                        }
+                    ]
+            },
+            {
+                idTorneo: 424,
+                nombre: "Copa de Oro",
+                abreviacion: "CO2013",
+                faseActual: 5,
+                fechaActual: 1,
+                fase: 
+                    [ 
+                        {
+                            idFase: 1,
+                            nombre: "Jornada",
+                            abreviacion: "J",
+                            totalFechas: 3
+                        },
+                        {
+                            idFase: 3,
+                            nombre: "Cuartos",
+                            abreviacion: "C",
+                            totalFechas: 1
+                        },
+                        {
+                            idFase: 4,
+                            nombre: "Semifinal",
+                            abreviacion: "S",
+                            totalFechas: 1
+                        },
+                        {
+                            idFase: 5,
+                            nombre: "Final",
+                            abreviacion: "F",
+                            totalFechas: 1
+                        }
+                    ]
+            }
+        ]
+
+
+## Jornadas [/journeys]
+
+### Listado de partidos por jornada [GET]
+El servicio regresa el listado de partidos por Jornada . Valores esperados: `idTournament` , `idPhase` y `numPhase` .
+
+
++ Request (application/json)
+
+    + Headers
+    
+            X-Auth-Token: {token}
+
+    + Body
+
+            {"idTournament":"447" , "idPhase":"1" , "numPhase":"12" }
+
++ Response 200 (application/json)
+
+
+        {
+            partidos: [
+                50143: {
+                linkPrevio: null,
+                linkCronica: null,
+                linkGaleria: null,
+                linkFicha: null,
+                local: "Newcastle",
+                localCorto: "NEW",
+                localCss: "Newcastle",
+                federacionLocal: "FA",
+                visitante: "Everton",
+                visitanteCorto: "EVE",
+                visitanteCss: "Everton",
+                federacionVisitante: "FA",
+                goles_local: null,
+                goles_visitante: null,
+                penales_local: null,
+                penales_visitante: null,
+                startTime: "2014-03-09T16:00:00Z",
+                startTimeT1: null,
+                endTimeT1: null,
+                startTimeT2: null,
+                endTimeT2: null,
+                startTimeTE1: null,
+                endTimeTE1: null,
+                startTimeTE2: null,
+                endTimeTE2: null,
+                endTimeGame: null,
+                compTimeT1: 0,
+                compTimeT2: 0,
+                compTimeTE1: 0,
+                compTimeTE2: 0,
+                hasExtraTime: false,
+                hasPenalties: false,
+                esFavorito: true,
+                comentariosCantidad: 45
+                }
+            ]
+        }
+
