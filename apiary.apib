@@ -144,6 +144,9 @@ Request Team Follow
 
 ## Request of recommendation friends [/social/listFriends{idUser}]
 Request of recommendation friends
++ Parameters
+    + idUser (required, number, `666`) ... Numeric `idUser` to perform action with. Has example value.
+    
 ### List of people to follow  [GET]
 + Response 201 (application/json)
 
@@ -186,4 +189,31 @@ Request of recommendation friends
          "urlImagen":"http://gex.mediotiempo.media/32323.jpg"
          }]
 
+## Request User Follow [/user/follow{idUser,idUserFollow}]
+Request Team Follow 
 
++ Parameters
+    + idUser (required, number, `666`) ... Numeric `idUser` to perform action with. Has example value.
+    + idUserFollow (required, number, `2234234`) ... Numeric `idUserFollow`  of the user that we want to follow. Has example value.
+
+### Request a team follow [GET]
++ Response 200 (application/json)
+
+    + Header
+
+            X-My-Header: The Value
+
+    + Body
+
+            { "code": 0, "message": "Successful" }
+
+### List of teams to follow  [POST]
++ Response 200 (application/json)
+ + Header
+
+            X-My-Header: The Value
+
+    + Body
+
+            { "code": 0, "message": "Successful" }
+            
