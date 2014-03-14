@@ -780,4 +780,81 @@ El servicio regresa el listado de partidos por Jornada . Valores esperados: `idT
             ]
         }
         
-        
+
+
+# Group Sprint 5
+CheckIns
+
+## Venues [/venues]
+### Listado de venues a la redonda [GET]
+Este servicio trae los venues a la redonda (distancia max 3km). Valores esperados:  `latitud` y `longitud`.
+
+
++ Request (application/json)
+
+    + Headers
+    
+            X-Auth-Token: {token}
+
+    + Body
+    
+            {"latitud": "19.3959107", "longitud": "-99.2270293"}
+
+
++ Response 200 (application/json)
+
+
+        {
+            idVenue: "4c45b1f274ffc928894277cc" ,
+            nombre: "Café Punta del Cielo",
+            lat: 19.39606153307067,
+            lng: -99.22643423080444
+        }
+
+
+### Alta Venue [PUT]
+Este agrega un venue a BD  . Valores esperados: `nombre` , `descripcion`,`direccion`, `latitud` y `longitud`. Los valores de descripcion y direccion son opcionales.
+
+
++ Request (application/json)
+
+    + Headers
+    
+            X-Auth-Token: {token}
+
+    + Body
+    
+            {"nombre": "nombreVenue","descripcion": "descripcionVenue","direccion": "direccionVenue","latitud": "19.3959107", "longitud": "-99.2270293"}
+
+
++ Response 200 (application/json)
+
+
+        {
+            code : 200 ,
+            message: "Venue agregado"
+        }
+
+## CheckIn [/checkin]
+
+### Listado de venues a la redonda [PUT]
+Servicio que agrega un checkIn. Hay de dos tipos: <br> <b>1.- CheckIn en partido</b> : debe realizar una marcacion sobre el partido (evento) <br> <b>2.- CheckIn sobre venue </b>: marcacion sobre un venue (punto) con latitud y longitud. <br><br> Valores esperados: `tipoCheckIn` (partido o venue), `idVenue` , `idPartido` , `comentario` , `idFoto` , `redesSociales` (twitter, facebook, foursquare) <br><br> <b>Notas :</b> a) Dependiendo el tipo de checkIn sera opcional idPartido(en Venue) o idVenue (por partido). b) El campo comentario debe aceptar un maximo de 140 caracteres. c) El campo redesSociales acepta valores separados por comas. d) Para agregar fotos con el checkIn es necesario apoyarse con el servicio ALTA_FOTO cuyo producto es idFoto.
+
++ Request (application/json)
+
+    + Headers
+    
+            X-Auth-Token: {token}
+
+    + Body
+    
+            {"tipoCheckIn": "tipo","descripcion": "descripcionVenue","direccion": "direccionVenue","latitud": "19.3959107", "longitud": "-99.2270293"}
+
+
++ Response 200 (application/json)
+
+
+        {
+            code : 200 ,
+            message: "CheckIn agregado"
+        }
