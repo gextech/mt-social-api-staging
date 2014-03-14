@@ -69,8 +69,8 @@ Info person
 
             {"id":1,"name":"Domingo Suarez Torres","email":"dsuarez@expansion.com.mx"}
 
-# Group Notes
-<a id="notes" ></a>
+# Group Sprint 2
+<a id="Srpint 2" ></a>
 Servicios prototipos para  **MTSocial API**
 
 
@@ -215,6 +215,36 @@ Request User Follow
 
             { "code": 0, "message": "Successful" }
             
+
+## Perfil de usuario [/user/profile{idUser}]
+Obtiene el perfil del usuario con sus últimas tres actividades
++ Parameters
+    + idUser (required, number, `666`) ... Numeric `idUser` to perform action with. Has example value.
+
+### GET
++ Headers
+
+            X-Auth-Token: {token}
+
+
++ Response 200 (application/json)
+ 
+    + Body
+
+            {
+            "name":"Cristiano Ronaldo",
+            "followings":9
+            "followers":23248,
+            "badges": 30,
+            "snapShot":[{"urlThumb":"http://mt.scoial.media.thumb/3434.jpg", "url":"http://mt.scoial.media.picture/3434.jpg"},{"urlThumb":"http://mt.scoial.media.thumb/343.jpg", "url":"http://mt.scoial.media.picture/343.jpg"}, {"urlThumb":"http://mt.scoial.media.thumb/7434.jpg", "url":"http://mt.scoial.media.picture/7434.jpg"}]
+            "activity":[{"idActivity":23423,"type":"checkin", "urlImg":{"urlThumb":"http://mt.scoial.media.picture.user.thumb/666.png", "url":"http://mt.scoial.media.picture.user/666.png"}, "text":"Hoy vamos a golear a los merengues"},
+                        {"idActivity":53453,"type":"post",  "urlImg":nil, text:"Hoy si gana mi equipo"}, 
+                        {"idActivity":666,  "type":"follow", "urlImg":{"urlThumb":"http://mt.scoial.media.picture.user.thumb/666.png", "url":"http://mt.scoial.media.picture.user/666.png"}, "text":nil}]
+            }
+
+
+
+
 
 
 # Group Sprint 3
@@ -751,30 +781,3 @@ El servicio regresa el listado de partidos por Jornada . Valores esperados: `idT
         }
         
         
-## Get User Profile [/user/profile{idUser}]
-Obtiene el perfil del usuario con sus últimas tres actividades
-+ Parameters
-    + idUser (required, number, `666`) ... Numeric `idUser` to perform action with. Has example value.
-
-### GET
-+ Headers
-
-            X-Auth-Token: {token}
-
-
-+ Response 200 (application/json)
- 
-    + Body
-
-            {
-            "name":"Cristiano Ronaldo",
-            "followings":9
-            "followers":23248,
-            "badges": 30,
-            "snapShot":[{"urlThumb":"http://mt.scoial.media.thumb/3434.jpg", "url":"http://mt.scoial.media.picture/3434.jpg"},{"urlThumb":"http://mt.scoial.media.thumb/343.jpg", "url":"http://mt.scoial.media.picture/343.jpg"}, {"urlThumb":"http://mt.scoial.media.thumb/7434.jpg", "url":"http://mt.scoial.media.picture/7434.jpg"}]
-            "activity":[{"idActivity":23423,"type":"checkin", "urlImg":{"urlThumb":"http://mt.scoial.media.picture.user.thumb/666.png", "url":"http://mt.scoial.media.picture.user/666.png"}, "text":"Hoy vamos a golear a los merengues"},
-                        {"idActivity":53453,"type":"post",  "urlImg":nil, text:"Hoy si gana mi equipo"}, 
-                        {"idActivity":666,  "type":"follow", "urlImg":{"urlThumb":"http://mt.scoial.media.picture.user.thumb/666.png", "url":"http://mt.scoial.media.picture.user/666.png"}, "text":nil}]
-            }
-
-
