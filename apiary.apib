@@ -9,7 +9,7 @@ API de MT Fan test (hello dudes)
 
 To login into the MTSocial API API, use following calls:
 
-- 1. `POST` your credentials in JSON body to the *api/login* resource. An **token** is returned back.
+- 1. `POST` your credentials in JSON body to the *login* resource. An **token** is returned back.
 - 2. Use the **token** in your API calls header **X-Auth-Token**.
 
 Remember that TT Token has **limited validity**. Once you received 401 Unauthorized Response, you need to GET new TT Token.
@@ -19,7 +19,7 @@ Remember that TT Token has **limited validity**. Once you received 401 Unauthori
 - password (string) : User's password
 
 
-## /api/login
+## /login
 ### POST
 This resource is the first. Use it to log into the API.
 
@@ -58,7 +58,7 @@ Use the token retrive from login call as header X-Auth-Token.
             {"token":"o5245j7tn44hf1gvalbvkvgjk5t9s9cv","roles":["ROLE_ADMIN","ROLE_ROOT”]}
 
              
-## /api/person/{idUser}
+## /v1/person/{idUser}
 
 Info person 
 + Parameters
