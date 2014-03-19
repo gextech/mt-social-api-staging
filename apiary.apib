@@ -1161,7 +1161,10 @@ Este agrega un venue a BD  . Valores esperados: `name` , `description`,`address`
 Servicio que agrega un checkIn. Hay de dos tipos: 
 <br> <b>1.- CheckIn en partido</b> : debe realizar una marcacion sobre el partido (evento) 
 <br> <b>2.- CheckIn sobre venue </b>: marcacion sobre un venue (punto) con latitud y longitud. 
-<br><br> Valores esperados: `checkInType` (partido o venue), `idVenue` , `idMatch` , `comment` , `idPhoto` , `socialShare` ,  (twitter, facebook) ,`latitude` y `longitude` <br><br> <b>Notas :</b> a) Dependiendo el tipo de checkIn sera opcional idPartido(en Venue) o idVenue (por partido). b) El campo comentario debe aceptar un maximo de 140 caracteres. c) El campo redesSociales acepta valores separados por comas. d) Para agregar fotos con el checkIn es necesario apoyarse con el servicio ALTA_FOTO cuyo producto es idFoto.
+<br><br> Valores esperados: `checkInType` (partido o venue), `idVenue` , `idMatch` , `comment` , `idPhoto` , `socialShare` ,  (twitter, facebook) ,`latitude` y `longitude` 
+<br><br> <b>Notas :</b> a) Dependiendo el tipo de checkIn sera opcional idMatch(en Venue) o idVenue (por partido). 
+b) El campo `comment` debe aceptar un maximo de 140 caracteres. c) El campo `socialShare` acepta valores separados por comas. 
+d) Para agregar fotos con el checkIn es necesario apoyarse con el servicio ALTA_FOTO cuyo producto es idPhoto.
 
 + Request (application/json)
 
