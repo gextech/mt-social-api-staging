@@ -873,7 +873,7 @@ El servicio regresa los comentarios asociados con un partido. Valores esperado: 
 
 
 ### Agregar comentarios a un partido [POST]
-Servicio que agrega un comentario para un partido dado. Valores esperados: `idMatch` , `comment` , `idFoto` (opcional). Nota: para subir una foto con el comentario debe incluirse `idFoto` . `idFoto` es producto del servicio  <i>ALTA_FOTO</i>.
+Servicio que agrega un comentario para un partido dado. Valores esperados: `idMatch` , `comment` , `idPhoto` (opcional). Nota: para subir una foto con el comentario debe incluirse `idPhoto` . `idPhoto` es producto del servicio  <i>ALTA_FOTO</i>.
 
 + Request (application/json)
 
@@ -883,7 +883,7 @@ Servicio que agrega un comentario para un partido dado. Valores esperados: `idMa
 
     + Body
 
-            {"idMatch":"50143" , "comment":"678" , "idFoto":"335684" }
+            {"idMatch":"50143" , "comment":"678" , "idPhoto":"335684" }
             
 
 
@@ -900,7 +900,7 @@ Servicio que agrega un comentario para un partido dado. Valores esperados: `idMa
 ## Comentarios de Foto [/picture_comments]
 
 ### Listado de comentarios de una foto [GET]
-El servicio regresa un listado de comentarios para una foto. Valores esperados: `idFoto` , `start` (id del ultimo comentario) , `count` (cantidad de cometarios a traer).  Nota: este servicio no devuelve fotos
+El servicio regresa un listado de comentarios para una foto. Valores esperados: `idPhoto` , `start` (id del ultimo comentario) , `count` (cantidad de cometarios a traer).  Nota: este servicio no devuelve fotos
 
 + Request (application/json)
 
@@ -910,7 +910,7 @@ El servicio regresa un listado de comentarios para una foto. Valores esperados: 
 
     + Body
 
-            {"idFoto":"7895" }
+            {"idPhoto":"7895" }
             
 
 
