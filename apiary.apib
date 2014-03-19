@@ -71,66 +71,62 @@ Info person
 
 # Group Sprint 2
 
-<a id="Srpint 2" ></a>
-Servicios prototipos para  **MTSocial API**
-
-
-## Listado de ligas o torneos [/equipos/torneos{idUser}]
+## List of tournaments or leagues [/v1/tournaments{idUser}]
 + Parameters
     + idUser (required, number, `666`) ... Numeric `idUser` to perform action with. Has example value.
    
 
-### Listado de ligas o torneos [GET]
+### List of tournaments or leagues [GET]
 + Response 200 (application/json)
 
         [
             {
-                "idLiga":23434,
-                "nombre":"Primera Division"
+                "idLeague":23434,
+                "name":"Primera Division"
             },
             {
-                "idLiga":234542,
-                "nombre": "Liga Española"
+                "idLeague":234542,
+                "name": "Liga Española"
             }
         ]
 
-## Listado de equipos por liga o torneos [/equipos/{idUser,idLiga}]
-### Listado de equipos  [GET]
+## List of teams of tournaments or league [/v1/teams/{idUser,idLeague}]
+### Lsit of teams  [GET]
 + Request (application/json)
 
-        { "idUser": 666,"idLiga":23434,"token":"ADASqwe21312323ADFf" }
+        { "idUser": 666,"idLeague":23434,"token":"ADASqwe21312323ADFf" }
 
 + Response 201 (application/json)
 
         {
             "idLeague":23434,
-            "nombre":"Primera Division",
-            "equipos":
+            "name":"Primera Division",
+            "teams":
                 [
                     {
-                        "id": 56456, 
-                        "nombre": "América", 
-                        "nombreCorto":"CA",
-                        "siguiendo":1,
+                        "idTeam": 56456, 
+                        "name": "América", 
+                        "shortName":"CA",
+                        "following":1,
                         "urlImagen":"http://gex.mediotiempo.media/23123.jpg"
                     }, 
                     {
-                        "id": 2234234,
-                        "nombre": "Cruz Azul", 
-                        "nombreCorto": "CAz"
-                        "siguiendo":0,
+                        "idTeam": 2234234,
+                        "name": "Cruz Azul", 
+                        "shortName": "CAz"
+                        "following":0,
                         "urlImage":"http://gex.mediotiempo.media/23123.jpg"
                     }
                 ]
          }
 
-## seguir un equipo [/teams/follow{idUser,idTeam}]
+## follow a team [/v1/teams/follow{idUser,idTeam, idLeague}]
 Request Team Follow 
 
 + Parameters
     + idUser (required, number, `666`) ... Numeric `idUser` to perform action with. Has example value.
-    + idTeam (required, number, `2234234`) ... Numeric `idTeam`  of the team that we want to follow
-    
+    + idTeam (required, number, `56456`) ... Numeric `idTeam`  of the team that we want to follow
+    + idLeague (required, number, `23434`) ... Numeric `idLeague` of league or tournament to which the football team belongs 
 
 ### Seguir un equipo [POST]
 + Response 200 (application/json)
@@ -143,8 +139,9 @@ Request Team Follow
             { "code": 0, "message": "Successful" }
             
 
-## Listado de amigos [/social/listFriends{idUser}]
-Listado de amigos
+## List of followings [/v1/followings{idUser}]
+
+List of followings
 + Parameters
     + idUser (required, number, `666`) ... Numeric `idUser` to perform action with. Has example value.
     
@@ -153,57 +150,30 @@ Listado de amigos
 
          [
             {
-                "idUsuario":43234,
-                "nombre":"Pedro Perez",
+                "idUser":43234,
+                "name":"Pedro Perez",
                 "urlImagen":"http://gex.mediotiempo.media/32323.jpg"
             },
             {
-                "idUsuario":32234,
-                "nombre":"Daniel Ramos",
+                "idUser":32234,
+                "name":"Daniel Ramos",
                 "urlImagen":"http://gex.mediotiempo.media/32323.jpg"
             },
             {
-                "idUsuario":43234,
-                "nombre":"Moises Vélez",
-             "urlImagen":"http://gex.mediotiempo.media/32323.jpg"
+                "idUser":43234,
+                "name":"Moises Vélez",
+                "urlImagen":"http://gex.mediotiempo.media/32323.jpg"
             },
             {
-                "idUsuario":43234,
-                "nombre":"Bernardino Guerrero",
+                "idUser":43234,
+                "name":"Bernardino Guerrero",
                 "urlImagen":"http://gex.mediotiempo.media/32323.jpg"
              }
         ]
 
-## Listado de sugerencias de amigos [/social/sugerencias/amigos{idUser}]
 
-###Listado de personas a las que puedo seguir [GET]
-+ Response 201 (application/json)
-         
-        [
-            {
-                "idUsuario":43234,
-                "nombre":"Pedro Perez",
-                "urlImagen":"http://gex.mediotiempo.media/32323.jpg"
-            },
-            {
-                "idUsuario":32234,
-                "nombre":"Daniel Ramos",
-                "urlImagen":"http://gex.mediotiempo.media/32323.jpg"
-            },
-            {
-                "idUsuario":43234,
-                "nombre":"Moises Vélez",
-                "urlImagen":"http://gex.mediotiempo.media/32323.jpg"
-            },
-            {
-                "idUsuario":43234,
-                "nombre":"Bernardino Guerrero",
-                "urlImagen":"http://gex.mediotiempo.media/32323.jpg"
-            }
-        ]
-
-## Seguir un usuario [/user/follow{idUser,idUserFollow}]
-Seguir un usuario 
+## Request user following [/v1/user/follow{idUser,idUserFollow}]
+Following a user 
 
 + Parameters
     + idUser (required, number, `666`) ... Numeric `idUser` to perform action with. Has example value.
@@ -222,21 +192,23 @@ Seguir un usuario
 
 
 
-## Perfil de usuario [/user/profile{idUser}]
-Obtiene el perfil del usuario con sus últimas tres actividades
+## User's profile [/v1/user/profile{idUser}]
 
-Valores para el tipo de actividades (tag <b>type</b>):
+Get user's profile with three last activities  
+
+Meaning of the values for the tag <b>type</b> in the response:
+
 <ol type="1" start="1">
 <li> Like a post </li>
-<li> Compartir un post </li>
-<li> Comentario en post o foto de otro usuario </li>
+<li> Share a post </li>
+<li> Comment a post with or without picture </li>
 <li> Checkin </li>
-<li> Seguir un usuario </li> 
-<li> Seguir partido </li>
-<li> Seguir equipo </li>
-<li> Comentario sobre partido </li>
-<li> Fotos sobre partidos</li>
-<li> Post </li>
+<li> Following a user</li> 
+<li> Following a match </li>
+<li> Following a team </li>
+<li> Comment about match </li>
+<li> Photos about event</li>
+<li> Post a comment with or without picture </li>
 </ol>
 
 + Parameters
@@ -257,14 +229,55 @@ Valores para el tipo de actividades (tag <b>type</b>):
             "followings":9
             "followers":23248,
             "badges": 30,
-            "snapShot":[{"urlThumb":"http://mt.scoial.media.thumb/3434.jpg", "url":"http://mt.scoial.media.picture/3434.jpg", "text":nil},{"urlThumb":"http://mt.scoial.media.thumb/343.jpg", "url":"http://mt.scoial.media.picture/343.jpg", text:nil}, {"urlThumb":"http://mt.scoial.media.thumb/7434.jpg", "url":"http://mt.scoial.media.picture/7434.jpg","text":nil} ]
-            "activity":[{"idActivity":23423,"type":4, "urlImg":{"urlThumb":"http://mt.scoial.media.picture.user.thumb/666.png", "url":"http://mt.scoial.media.picture.user/666.png", "text":nil}, "text":"Hoy vamos a golear a los merengues"},
-                        {"idActivity":53453,"type":10,  "urlImg":nil, text:"Hoy si gana mi equipo"}, 
-                        {"idActivity":666,  "type":5, "urlImg":{"urlThumb":"http://mt.scoial.media.picture.user.thumb/666.png", "url":"http://mt.scoial.media.picture.user/666.png", "text":nil}, "text":nil}]
+            "snapShot":[
+                {
+                    "urlThumb":"http://mt.scoial.media.thumb/3434.jpg", 
+                    "url":"http://mt.scoial.media.picture/3434.jpg", 
+                    "text":nil
+                },
+                {
+                    "urlThumb":"http://mt.scoial.media.thumb/343.jpg", 
+                    "url":"http://mt.scoial.media.picture/343.jpg", 
+                    text:nil
+                }, 
+                {
+                    "urlThumb":"http://mt.scoial.media.thumb/7434.jpg", 
+                    "url":"http://mt.scoial.media.picture/7434.jpg",
+                    "text":nil
+                }
+                ]
+            "activity":[
+                {
+                    "idActivity":23423,
+                    "type":4, 
+                    "urlImg":{
+                        "urlThumb":"http://mt.scoial.media.picture.user.thumb/666.png", 
+                        "url":"http://mt.scoial.media.picture.user/666.png", 
+                        "text":nil
+                    }, 
+                    "text":"Hoy vamos a golear a los merengues"
+                },
+                {
+                    "idActivity":53453,
+                    "type":10,  
+                    "urlImg":nil, 
+                    text:"Hoy si gana mi equipo"
+                }, 
+                {
+                    "idActivity":666,  
+                    "type":5, 
+                    "urlImg":{
+                        "urlThumb":"http://mt.scoial.media.picture.user.thumb/666.png", 
+                        "url":"http://mt.scoial.media.picture.user/666.png", 
+                        "text":nil
+                    }, 
+                    "text":nil
+                }
+                ]
             }
 
-## Fotos de usuario [/user/snaphot{idUser}]
-Obtiene un listado de fotos del usuarios
+## Get user's pictures [/v1/user/pictures{idUser}]
+Get a list of user's pictures
 
 + Parameters
     + idUser (required, number, `666`) ... Numeric `idUser` to perform action with. Has example value.
@@ -277,12 +290,32 @@ Obtiene un listado de fotos del usuarios
 + Response 200 (application/json)
     + Body
     
-            [{"urlThumb":"http://mt.scoial.media.thumb/3434.jpg", "url":"http://mt.scoial.media.picture/3434.jpg", "text":nil},
-             {"urlThumb":"http://mt.scoial.media.thumb/343.jpg", "url":"http://mt.scoial.media.picture/343.jpg", text:nil}, 
-             {"urlThumb":"http://mt.scoial.media.thumb/7434.jpg", "url":"http://mt.scoial.media.picture/7434.jpg","text":"Yo en la bombonera"}]
+            [
+                {
+                    "idPicture":23423,
+                    "urlThumb":"http://mt.scoial.media.thumb/3434.jpg", 
+                    "url":"http://mt.scoial.media.picture/3434.jpg", 
+                    "text":nil,
+                    "comments":100
+                },
+                {
+                    "idPicture":23424,
+                    "urlThumb":"http://mt.scoial.media.thumb/343.jpg", 
+                    "url":"http://mt.scoial.media.picture/343.jpg", 
+                    "text":nil,
+                    "comments":0
+                }, 
+                {   
+                    "idPicture":23425,
+                    "urlThumb":"http://mt.scoial.media.thumb/7434.jpg", 
+                    "url":"http://mt.scoial.media.picture/7434.jpg",
+                    "text":"Yo en la bombonera",
+                    "comments":3432
+                }
+            ]
 
-## Seguidores [/user/followers{idUser}]
-Obtiene la lista de seguidores de un usuario
+## Followers [/v1/user/followers{idUser}]
+Get user's followers list
 ### GET
 + Parameters
    + idUser (required, number, `666`) ... Numeric `idUser` to perform action with. Has example value.
@@ -321,12 +354,12 @@ Obtiene la lista de seguidores de un usuario
                 }
             ]
 
-## Bloquear un usuario [/user/blockUser{idUser, idUserBlocked}]
-Bloquear un usuario 
+## Block a user [/v1/user/blockUser{idUser, idUserBlocked}]
+Block a user 
 
 + Parameters
-    + idUser (required, number, `666`) ... Numérico `idUser` usuario que esta firmado en el App
-    + idUserBlocked (required, number, `966`) ... Numérico `idUserBlocked` que deseamos bloquear.
+    + idUser (required, number, `666`) ... Numérico `idUser` user logged
+    + idUserBlocked (required, number, `966`) ... Numérico `idUserBlocked` user to block.
 
 ### POST
 + Request (application/json)
@@ -343,25 +376,49 @@ Bloquear un usuario
 
             { "code": 0, "message": "Successful" }
             
-## Actividad de un usuario [/user/timeline{idUser, idUserTimeLine}]
+            
+## Unblock a user [/v1/user/unblockUser{idUser, idUserUnblock}]
+Block a user 
 
-Valores para el tipo de actividades (tag <b>tipo</b>):
++ Parameters
+    + idUser (required, number, `666`) ... Numérico `idUser` user logged
+    + idUserUnblock (required, number, `966`) ... Numérico `idUserUnblock` user to unblock.
+
+### POST
++ Request (application/json)
+
+        { "idUser": 666,"token":"ADASqwe21312323ADFf" }
+
++ Response 201 (application/json)
+
+    + Header
+
+            X-My-Header: The Value
+
+    + Body
+
+            { "code": 0, "message": "Successful" }            
+            
+## User's activity [/v1/user/timeline{idUser, idUserTimeLine}]
+
+Meaning of the values for the tag <b>type</b> in the response:
+
 <ol type="1" start="1">
 <li> Like a post </li>
-<li> Compartir un post </li>
-<li> Comentario en post o foto de otro usuario </li>
+<li> Share a post </li>
+<li> Comment a post with or without picture </li>
 <li> Checkin </li>
-<li> Seguir un usuario </li> 
-<li> Seguir partido </li>
-<li> Seguir equipo </li>
-<li> Comentario sobre partido </li>
-<li> Fotos sobre partidos</li>
-<li> Post </li>
+<li> Following a user</li> 
+<li> Following a match </li>
+<li> Following a team </li>
+<li> Comment about match </li>
+<li> Photos about event</li>
+<li> Post a comment with or without picture </li>
 </ol>
 
 + Parameters
-    + idUser (required, number, `666`) ... Numérico `idUser` usuario que esta firmado en el App
-    + idUserTimeLine (required, number, `966`) ... Numérico `idUserTimeLine` del cuál queremos consultar su actividad en la App.
+    + idUser (required, number, `666`) ... Numeric `idUser` User logged in the app
+    + idUserTimeLine (required, number, `966`) ... Numeric `idUserTimeLine` of what we want to see the activity on the App.
     
 
     
@@ -379,154 +436,168 @@ Valores para el tipo de actividades (tag <b>tipo</b>):
 
     + Body
 
-            [{"idActividad":23453, 
-                "tipo":1,  
+            [{"idActivity":23453, 
+                "type":1,  
                 "urlImg":null, 
-                "texto":"Hoy si gana mi equipo", 
-                "usuarioRelacionado":{
-                        "idUsuario":34433, 
-                        "nombre":"Cristiano Ronaldo", 
+                "text":"Hoy si gana mi equipo", 
+                "userRelated":{
+                        "idUser":34433, 
+                        "name":"Cristiano Ronaldo", 
                         "urlImagen":"http://gex.mediotiempo.media/32323.jpg"
                 }, 
-                "comentarios":0
+                "comments":0
             },
             {
-                "idActividad":23454, 
-                "tipo":2,  
+                "idActivity":23454, 
+                "type":2,  
                 "urlImg":null, 
-                "texto":"Hoy si gana mi equipo", 
-                "usuarioRelacionado":{
-                    "idUsuario":34433,
-                    "nombre":"Cristiano Ronaldo",
+                "text":"Hoy si gana mi equipo", 
+                "userRelated":{
+                    "idUser":34433,
+                    "name":"Cristiano Ronaldo",
                     "urlImagen":"http://gex.mediotiempo.media/32323.jpg"
                     }, 
-                    "comentarios":0
+                    "comments":0
             },
             {
-                "idActividad":23455,
-                "tipo":3,
+                "idActivity":23455,
+                "type":3,
                 "urlImg":null,
-                "texto":"Hoy si gana mi equipo",
-                "usuarioRelacionado":{
-                    "idUsuario":34433, 
-                    "nombre":"Cristiano Ronaldo", 
+                "text":"Hoy si gana mi equipo",
+                "userRelated":{
+                    "idUser":34433, 
+                    "name":"Cristiano Ronaldo", 
                     "urlImagen":"http://gex.mediotiempo.media/32323.jpg"}, 
-                    "comentarios":1
+                    "comments":1
             },
             {
-                "idActividad":23456, 
-                "tipo":4,  
+                "idActivity":23456, 
+                "type":4,  
                 "urlImg":{
                     "urlThumb":"http://mt.scoial.media.picture.user.thumb/666.png", 
                     "url":"http://mt.scoial.media.picture.user/666.png", "text":nil
                 }, 
-                "texto":"En el estadio Azteca", 
-                "comentarios":3450, 
+                "text":"En el estadio Azteca", 
+                "comments":3450, 
                 "checkinInfo":{
                     "idChekin":908, 
-                    "nombre":"Estadio Azteca"
+                    "name":"Estadio Azteca"
                 }
             },
             {
-                "idActividad":23457, 
-                "tipo":5,
+                "idActivity":23457, 
+                "type":5,
                 "urlImg":null, 
-                "texto":null, 
-                "comentarios":0, 
-                "usuarioRelacionado":{
+                "text":null, 
+                "comments":0, 
+                "userRelated":{
                     "idUser":34433, 
-                    "nombre":"Cristiano Ronaldo", 
+                    "name":"Cristiano Ronaldo", 
                     "urlImagen":"http://gex.mediotiempo.media/32323.jpg"}
                 },
             {
-                "idActividad":23957, 
-                "tipo":6,
+                "idActivity":23957, 
+                "type":6,
                 "urlImg":null,
-                "texto":null,
-                "comentarios":0,
-                "partido":{
-                    "idPartido":9097
-                    "idEquipoLoc":123,
-                    "EquipoLoc":"Real Madrid", 
-                    "localCorto":"RealM"
-                    "urlImagenLoc":"http://gex.mediotiempo.media/realM.jpg"
-                    "visitante": "Everton",
-                    "visitanteCorto": "EVE",
-                    "urlImagenVis":"http://gex.mediotiempo.media/Everton.jpg"
+                "text":null,
+                "comments":0,
+                "match":{
+                    "idMatch":9097
+                    local:{
+                        "idTeam":1230,
+                        "name":"Real Madrid", 
+                        "shortName":"RealM"
+                        "urlImagen":"http://gex.mediotiempo.media/realM.jpg"
+                    },
+                    visiting:{
+                        "idTeam":1237,
+                        "name":"Everton", 
+                        "shortName":"EVE"
+                        "urlImagen":"http://gex.mediotiempo.media/Everton.jpg"
+                    }
                 }
             },
             {
-                "idActividad":23458, 
-                "tipo":7,
+                "idActivity":23458, 
+                "type":7,
                 "urlImg":null,
-                "texto":null,
-                "comentarios":0,
-                "equipo":{
-                    "idEquipo":13344,
-                    "nombre":"Pumas de la UNAM",
-                    "nombreCorto":"Pumas",
+                "text":null,
+                "comments":0,
+                "team":{
+                    "idTeam":13344,
+                    "name":"Pumas de la UNAM",
+                    "shortName":"Pumas",
                     "urlImagen":"http://gex.mediotiempo.media/32323.jpg"
                 }
             },
             {
-                "idActividad":23458, 
-                "tipo":8,
-                "texto":"Este partido deja mucho que desear",
-                "comentarios":10,
-                "idUsuario":666
-                "nombreUsuario":"Bernardino Guerrero"
-               "partido":{
-                    "idPartido":9097
-                    "idEquipoLoc":123,
-                    "EquipoLoc":"Real Madrid", 
-                    "localCorto":"RealM"
-                    "urlImagenLoc":"http://gex.mediotiempo.media/realM.jpg"
-                    "visitante": "Everton",
-                    "visitanteCorto": "EVE",
-                    "urlImagenVis":"http://gex.mediotiempo.media/Everton.jpg"
+                "idActivity":23458, 
+                "type":8,
+                "text":"Este partido deja mucho que desear",
+                "comments":10,
+                "idUser":666
+                "userName":"Bernardino Guerrero"
+               "match":{
+                    "idMatch":9097
+                    local:{
+                        "idTeam":1230,
+                        "name":"Real Madrid", 
+                        "shortName":"RealM"
+                        "urlImagen":"http://gex.mediotiempo.media/realM.jpg"
+                    },
+                    visiting:{
+                        "idTeam":1237,
+                        "name":"Everton", 
+                        "shortName":"EVE"
+                        "urlImagen":"http://gex.mediotiempo.media/Everton.jpg"
+                    }
                 },
-            {## Comentarios actividad[/social/actividad/comentarios{idUser, idActividad}]
-
-                "idActividad":21479, 
-                "tipo":9,
-                "idUsuario":666
-                "nombreUsuario":"Bernardino Guerrero"
-               "partido":{
-                    "idPartido":9097
-                    "idEquipoLoc":123,
-                    "EquipoLoc":"Real Madrid", 
-                    "localCorto":"RealM"
-                    "urlImagenLoc":"http://gex.mediotiempo.media/realM.jpg"
-                    "visitante": "Everton",
-                    "visitanteCorto": "EVE",
-                    "urlImagenVis":"http://gex.mediotiempo.media/Everton.jpg"
+            {
+                "idActivity":21479, 
+                "type":9,
+                "idUser":666
+                "userName":"Bernardino Guerrero"
+               "match":{
+                    "idMatch":9097
+                    local:{
+                        "idTeam":1230,
+                        "name":"Real Madrid", 
+                        "shortName":"RealM"
+                        "urlImagen":"http://gex.mediotiempo.media/realM.jpg"
+                    },
+                    visiting:{
+                        "idTeam":1237,
+                        "name":"Everton", 
+                        "shortName":"EVE"
+                        "urlImagen":"http://gex.mediotiempo.media/Everton.jpg"
+                    }
                 },
-                "albumPartido":{
+                "photosMatch":{
                     "idAlbum":43123,
-                    fotos:[
+                    photos:[
                         {
                             "urlImg":"http://mtsocial.partidos/234234.png",
-                            "texto":null
+                            "text":null
                         },
                         {
                             "urlImg":"http://mtsocial.partidos/234235.png",
-                            "texto":"Que golazoooo...!"
+                            "text":"Que golazoooo...!"
                         }
                     ]
                 },
             {
-                "idActividad":23458,
-                "tipo":10,
+                "idActivity":23458,
+                "type":10,
                 "urlImg":"http://mtsocial.partidos/93234.png",
-                "texto":"Hoy si gana mi equipo"
+                "text":"Hoy si gana mi equipo"
             }]
 
          
 
-## Obtiene los comentarios sobre una actividad  [/user/timeline{idUser, idEvent}]
+## Get a comment's list of activity  [/v1/user/timeline{idUser, idEvent}]
 + Parameters
-    + idUser (required, number, `666`) ... Numeric `idUser` El id del usuario. 
-    + idEvent (required, number, `23458`) ... Numeric  `idEvent` el evento del cuál se quiere obtener los comentarios
+    + idUser (required, number, `666`) ... Numeric `idUser` user logged. 
+    + idEvent (required, number, `23458`) ... Numeric  `idEvent` of what we want get comments
 
 ### GET
 + Headers
@@ -540,7 +611,7 @@ Valores para el tipo de actividades (tag <b>tipo</b>):
                 "idComment":1231, 
                 "text":"Este partido deja muho que desear", 
                 "timeStamp":2342340999,
-                "usuario":{
+                "user":{
                     "name":"Bernardino Guerrero",
                     "idUser":9434, 
                     "status":"follow", 
@@ -555,7 +626,7 @@ Valores para el tipo de actividades (tag <b>tipo</b>):
                 "text":"Tú no sabes de futbol", 
                 "timeStamp":2342340909,
                 "usuario":{
-                    "name":tony Vielmas",
+                    "name":"Tony Vielmas",
                     "idUser":1334, 
                     "status":"follow", 
                     "avatar":{
@@ -565,7 +636,6 @@ Valores para el tipo de actividades (tag <b>tipo</b>):
                 }
             }
             ]
-  
 
 # Group Sprint 3
 Partidos (en vivo, anteriores, proximos) , Torneos y Mis Partidos
