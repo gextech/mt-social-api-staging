@@ -71,12 +71,15 @@ Info person
 
 # Group Sprint 2
 
-## List of tournaments or leagues [/v1/tournaments{idUser}]
-+ Parameters
-    + idUser (required, number, `666`) ... Numeric `idUser` to perform action with. Has example value.
+## List of tournaments or leagues [/v1/tournaments]
+
    
 
 ### List of tournaments or leagues [GET]
++ Headers
+
+            X-Auth-Token: {token}
+
 + Response 200 (application/json)
 
         [
@@ -90,11 +93,11 @@ Info person
             }
         ]
 
-## List of teams of tournaments or league [/v1/teams/{idUser,idLeague}]
+## List of teams of tournaments or league [/v1/tournaments/${idLeague}/teams/]
 ### Lsit of teams  [GET]
-+ Request (application/json)
++ Headers
 
-        { "idUser": 666,"idLeague":23434,"token":"ADASqwe21312323ADFf" }
+            X-Auth-Token: {token}
 
 + Response 201 (application/json)
 
