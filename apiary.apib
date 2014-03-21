@@ -1127,52 +1127,421 @@ El servicio regresa el listado de partidos por Jornada . Valores esperados: `idT
     
             X-Auth-Token: {token}
 
-    + Body
-
-            {"idTournament":"447" , "idPhase":"1" , "numPhase":"12" }
-
 + Response 200 (application/json)
 
-
         {
-            partidos: [
-                50143: {
-                linkPrevio: null,
-                linkCronica: null,
-                linkGaleria: null,
-                linkFicha: null,
-                local: "Newcastle",
-                localCorto: "NEW",
-                localCss: "Newcastle",
-                federacionLocal: "FA",
-                visitante: "Everton",
-                visitanteCorto: "EVE",
-                visitanteCss: "Everton",
-                federacionVisitante: "FA",
-                goles_local: null,
-                goles_visitante: null,
-                penales_local: null,
-                penales_visitante: null,
-                startTime: "2014-03-09T16:00:00Z",
-                startTimeT1: null,
-                endTimeT1: null,
-                startTimeT2: null,
-                endTimeT2: null,
-                startTimeTE1: null,
-                endTimeTE1: null,
-                startTimeTE2: null,
-                endTimeTE2: null,
-                endTimeGame: null,
-                compTimeT1: 0,
-                compTimeT2: 0,
-                compTimeTE1: 0,
-                compTimeTE2: 0,
-                hasExtraTime: false,
-                hasPenalties: false,
-                esFavorito: true,
-                comentariosCantidad: 45
-                }
-            ]
+            "poweredBy": "mediotiempo.com | La casa del futbol", 
+            "tournament": {
+                "fase": 1, 
+                "id": 447, 
+                "jornada": {
+                    "fecha": [
+                        {
+                            "dia": "Viernes 07 de Febrero, 2014", 
+                            "partido": {
+                                "estatus": 2, 
+                                "fecha": "2014-02-07", 
+                                "grupo": 1, 
+                                "hora": "21:30", 
+                                "id": 51332, 
+                                "local": {
+                                    "content": "Club Tijuana", 
+                                    "id": 341
+                                }, 
+                                "marcador": "2-1", 
+                                "relacionados": {
+                                    "relacionado": [
+                                        {
+                                            "content": "futbol/mexico/galerias/2014/02/xolos-muerde-en-casa-a-rayados", 
+                                            "id": 11833, 
+                                            "tipo": "galeria"
+                                        }, 
+                                        {
+                                            "content": "futbol/mexico/noticias/2014/02/05/visita-incomoda-a-la-frontera", 
+                                            "id": 255021, 
+                                            "tipo": "previa"
+                                        }, 
+                                        {
+                                            "content": "futbol/mexico/noticias/2014/02/07/tijuana-supero-a-monterrey-y-sigue-invicto-en-casa", 
+                                            "id": 255257, 
+                                            "tipo": "cronica"
+                                        }, 
+                                        {
+                                            "content": 27, 
+                                            "tipo": "ficha"
+                                        }, 
+                                        {
+                                            "content": 64, 
+                                            "tipo": "bitacora"
+                                        }
+                                    ]
+                                }, 
+                                "visitante": {
+                                    "content": "Monterrey", 
+                                    "id": 41
+                                }
+                            }
+                        }, 
+                        {
+                            "dia": "Sábado 08 de Febrero, 2014", 
+                            "partido": [
+                                {
+                                    "estatus": 2, 
+                                    "fecha": "2014-02-08", 
+                                    "grupo": 1, 
+                                    "hora": "17:00", 
+                                    "id": 51331, 
+                                    "local": {
+                                        "content": "América", 
+                                        "id": 20
+                                    }, 
+                                    "marcador": "0-1", 
+                                    "relacionados": {
+                                        "relacionado": [
+                                            {
+                                                "content": "futbol/mexico/galerias/2014/02/aguilas-pierden-invicto-en-casa", 
+                                                "id": 11837, 
+                                                "tipo": "galeria"
+                                            }, 
+                                            {
+                                                "content": "futbol/mexico/noticias/2014/02/06/aguilas-buscaran-confirmar-ante-tambaleantes-tuzos", 
+                                                "id": 255071, 
+                                                "tipo": "previa"
+                                            }, 
+                                            {
+                                                "content": "futbol/mexico/noticias/2014/02/08/debutante-tuzo-chamaqueo-al-america-en-el-azteca", 
+                                                "id": 255323, 
+                                                "tipo": "cronica"
+                                            }, 
+                                            {
+                                                "content": 28, 
+                                                "tipo": "ficha"
+                                            }, 
+                                            {
+                                                "content": 90, 
+                                                "tipo": "bitacora"
+                                            }
+                                        ]
+                                    }, 
+                                    "visitante": {
+                                        "content": "Pachuca", 
+                                        "id": 36
+                                    }
+                                }, 
+                                {
+                                    "estatus": 2, 
+                                    "fecha": "2014-02-08", 
+                                    "grupo": 1, 
+                                    "hora": "19:00", 
+                                    "id": 51335, 
+                                    "local": {
+                                        "content": "Tigres", 
+                                        "id": 45
+                                    }, 
+                                    "marcador": "1-1", 
+                                    "relacionados": {
+                                        "relacionado": [
+                                            {
+                                                "content": "futbol/mexico/galerias/2014/02/volcan-inactivo", 
+                                                "id": 11839, 
+                                                "tipo": "galeria"
+                                            }, 
+                                            {
+                                                "content": "futbol/mexico/noticias/2014/02/06/tigres-busca-revivir-en-la-liga-ante-santos", 
+                                                "id": 255061, 
+                                                "tipo": "previa"
+                                            }, 
+                                            {
+                                                "content": "futbol/mexico/noticias/2014/02/08/tigres-se-hunde-en-maldicion-santista", 
+                                                "id": 255341, 
+                                                "tipo": "cronica"
+                                            }, 
+                                            {
+                                                "content": 27, 
+                                                "tipo": "ficha"
+                                            }, 
+                                            {
+                                                "content": 120, 
+                                                "tipo": "bitacora"
+                                            }
+                                        ]
+                                    }, 
+                                    "visitante": {
+                                        "content": "Santos", 
+                                        "id": 37
+                                    }
+                                }, 
+                                {
+                                    "estatus": 2, 
+                                    "fecha": "2014-02-08", 
+                                    "grupo": 1, 
+                                    "hora": "20:00", 
+                                    "id": 51329, 
+                                    "local": {
+                                        "content": "León", 
+                                        "id": 164
+                                    }, 
+                                    "marcador": "1-2", 
+                                    "relacionados": {
+                                        "relacionado": [
+                                            {
+                                                "content": "futbol/mexico/galerias/2014/02/pumas-no-respeta-ni-al-campeon", 
+                                                "id": 11841, 
+                                                "tipo": "galeria"
+                                            }, 
+                                            {
+                                                "content": "futbol/mexico/noticias/2014/02/07/leon-buscara-volver-a-la-victoria-pumas-a-confirmarse-en-la-liga", 
+                                                "id": 255213, 
+                                                "tipo": "previa"
+                                            }, 
+                                            {
+                                                "content": "futbol/mexico/noticias/2014/02/08/pumas-confirmo-tercer-rugido-ante-el-campeon", 
+                                                "id": 255351, 
+                                                "tipo": "cronica"
+                                            }, 
+                                            {
+                                                "content": 28, 
+                                                "tipo": "ficha"
+                                            }, 
+                                            {
+                                                "content": 80, 
+                                                "tipo": "bitacora"
+                                            }
+                                        ]
+                                    }, 
+                                    "visitante": {
+                                        "content": "Pumas", 
+                                        "id": 40
+                                    }
+                                }, 
+                                {
+                                    "estatus": 2, 
+                                    "fecha": "2014-02-08", 
+                                    "grupo": 1, 
+                                    "hora": "21:00", 
+                                    "id": 51336, 
+                                    "local": {
+                                        "content": "Atlas", 
+                                        "id": 22
+                                    }, 
+                                    "marcador": "1-1", 
+                                    "relacionados": {
+                                        "relacionado": [
+                                            {
+                                                "content": "futbol/mexico/galerias/2014/02/los-hermanos-no-se-hicieron-dano", 
+                                                "id": 11843, 
+                                                "tipo": "galeria"
+                                            }, 
+                                            {
+                                                "content": "futbol/mexico/noticias/2014/02/07/atlas-recibe-a-morelia-en-duelo-de-hermanos", 
+                                                "id": 255165, 
+                                                "tipo": "previa"
+                                            }, 
+                                            {
+                                                "content": "futbol/mexico/noticias/2014/02/08/el-duelo-de-hermanos-termino-1-1", 
+                                                "id": 255353, 
+                                                "tipo": "cronica"
+                                            }, 
+                                            {
+                                                "content": 27, 
+                                                "tipo": "ficha"
+                                            }, 
+                                            {
+                                                "content": 66, 
+                                                "tipo": "bitacora"
+                                            }
+                                        ]
+                                    }, 
+                                    "visitante": {
+                                        "content": "Morelia", 
+                                        "id": 31
+                                    }
+                                }
+                            ]
+                        }, 
+                        {
+                            "dia": "Domingo 09 de Febrero, 2014", 
+                            "partido": [
+                                {
+                                    "estatus": 2, 
+                                    "fecha": "2014-02-09", 
+                                    "grupo": 1, 
+                                    "hora": "12:00", 
+                                    "id": 51328, 
+                                    "local": {
+                                        "content": "Puebla", 
+                                        "id": 168
+                                    }, 
+                                    "marcador": "0-1", 
+                                    "relacionados": {
+                                        "relacionado": [
+                                            {
+                                                "content": "futbol/mexico/noticias/2014/02/06/chivas-a-ganar-fuera-un-ano-despues", 
+                                                "id": 255147, 
+                                                "tipo": "previa"
+                                            }, 
+                                            {
+                                                "content": "futbol/mexico/galerias/2014/02/el-rebano-volvio-a-ganar-fuera-de-casa", 
+                                                "id": 11847, 
+                                                "tipo": "galeria"
+                                            }, 
+                                            {
+                                                "content": "futbol/mexico/noticias/2014/02/09/el-rebano-celebro-feliz-un-triste-aniversario", 
+                                                "id": 255401, 
+                                                "tipo": "cronica"
+                                            }, 
+                                            {
+                                                "content": 28, 
+                                                "tipo": "ficha"
+                                            }, 
+                                            {
+                                                "content": 83, 
+                                                "tipo": "bitacora"
+                                            }
+                                        ]
+                                    }, 
+                                    "visitante": {
+                                        "content": "Chivas", 
+                                        "id": 47
+                                    }
+                                }, 
+                                {
+                                    "estatus": 2, 
+                                    "fecha": "2014-02-09", 
+                                    "grupo": 1, 
+                                    "hora": "12:00", 
+                                    "id": 51330, 
+                                    "local": {
+                                        "content": "Toluca", 
+                                        "id": 34
+                                    }, 
+                                    "marcador": "2-0", 
+                                    "relacionados": {
+                                        "relacionado": [
+                                            {
+                                                "content": "futbol/mexico/noticias/2014/02/09/isaac-brizuela-es-un-crack-cardozo", 
+                                                "id": 255411, 
+                                                "tipo": "previa"
+                                            }, 
+                                            {
+                                                "content": "futbol/mexico/galerias/2014/02/los-diablos-derrotaron-a-chiapas", 
+                                                "id": 11849, 
+                                                "tipo": "galeria"
+                                            }, 
+                                            {
+                                                "content": "futbol/mexico/noticias/2014/02/07/diablos-y-jaguares-con-rachas-encontradas", 
+                                                "id": 255245, 
+                                                "tipo": "previa"
+                                            }, 
+                                            {
+                                                "content": 28, 
+                                                "tipo": "ficha"
+                                            }, 
+                                            {
+                                                "content": 99, 
+                                                "tipo": "bitacora"
+                                            }
+                                        ]
+                                    }, 
+                                    "visitante": {
+                                        "content": "Chiapas FC", 
+                                        "id": 33
+                                    }
+                                }, 
+                                {
+                                    "estatus": 2, 
+                                    "fecha": "2014-02-09", 
+                                    "grupo": 1, 
+                                    "hora": "17:00", 
+                                    "id": 51333, 
+                                    "local": {
+                                        "content": "Atlante", 
+                                        "id": 15
+                                    }, 
+                                    "marcador": "1-4", 
+                                    "relacionados": {
+                                        "relacionado": [
+                                            {
+                                                "content": "futbol/mexico/galerias/2014/02/soberbio-y-sin-piedad-cruz-azul-hunde-al-potro", 
+                                                "id": 11851, 
+                                                "tipo": "galeria"
+                                            }, 
+                                            {
+                                                "content": "futbol/mexico/noticias/2014/02/07/buscaran-potros-puntos-ante-el-lider-cruz-azul", 
+                                                "id": 255255, 
+                                                "tipo": "previa"
+                                            }, 
+                                            {
+                                                "content": "futbol/mexico/noticias/2014/02/09/cruz-azul-arrollo-a-los-potros-en-cancun", 
+                                                "id": 255451, 
+                                                "tipo": "cronica"
+                                            }, 
+                                            {
+                                                "content": 28, 
+                                                "tipo": "ficha"
+                                            }, 
+                                            {
+                                                "content": 74, 
+                                                "tipo": "bitacora"
+                                            }
+                                        ]
+                                    }, 
+                                    "visitante": {
+                                        "content": "Cruz Azul", 
+                                        "id": 1
+                                    }
+                                }, 
+                                {
+                                    "estatus": 2, 
+                                    "fecha": "2014-02-09", 
+                                    "grupo": 1, 
+                                    "hora": "17:00", 
+                                    "id": 51334, 
+                                    "local": {
+                                        "content": "Club Querétaro", 
+                                        "id": 43
+                                    }, 
+                                    "marcador": "2-0", 
+                                    "relacionados": {
+                                        "relacionado": [
+                                            {
+                                                "content": "futbol/mexico/noticias/2014/02/07/gallos-y-tiburones-a-recuperar-el-paso", 
+                                                "id": 255209, 
+                                                "tipo": "previa"
+                                            }, 
+                                            {
+                                                "content": "futbol/mexico/galerias/2014/02/queretaro-tuvo-heroico-triunfo-ante-veracruz", 
+                                                "id": 11853, 
+                                                "tipo": "galeria"
+                                            }, 
+                                            {
+                                                "content": "futbol/mexico/noticias/2014/02/09/con-dos-menos-queretaro-hunde-al-tiburon", 
+                                                "id": 255453, 
+                                                "tipo": "cronica"
+                                            }, 
+                                            {
+                                                "content": 28, 
+                                                "tipo": "ficha"
+                                            }, 
+                                            {
+                                                "content": 65, 
+                                                "tipo": "bitacora"
+                                            }
+                                        ]
+                                    }, 
+                                    "visitante": {
+                                        "content": "Veracruz", 
+                                        "id": 38
+                                    }
+                                }
+                            ]
+                        }
+                    ], 
+                    "id": 6
+                }, 
+                "name": "Clausura 2014", 
+                "start": "2014-01-03"
+            }
         }
         
 
