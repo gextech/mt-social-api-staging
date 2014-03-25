@@ -41,6 +41,29 @@ This resource is the first. Use it to log into the API.
             {"username":"tsalazar@expansion.com.mx","token":"o5245j7tn44hf1gvalbvkvgjk5t9s9cv","roles":["ROLE_ADMIN","ROLE_ROOT”]}
 
 
+## /loginfb
+### POST
+This resource is the first. Use it to log into the API.
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {"facebookId":"692189333" }
+
++ Response 200 (application/json)
+ 
+    + Body
+
+            {"username":"tsalazar@expansion.com.mx" , "token":"o5245j7tn44hf1gvalbvkvgjk5t9s9cv","roles":["ROLE_ADMIN","ROLE_ROOT”]}
+
+
+
 ## /api/validate
 Basic service to validate token, this is for testing.
 
