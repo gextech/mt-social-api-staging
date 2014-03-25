@@ -38,7 +38,7 @@ This resource is the first. Use it to log into the API.
  
     + Body
 
-            {"username":"tsalazar@expansion.com.mx","token":"o5245j7tn44hf1gvalbvkvgjk5t9s9cv","roles":["ROLE_ADMIN","ROLE_ROOT”]}
+            {"username":"tsalazar@expansion.com.mx","token":"o5245j7tn44hf1gvalbvkvgjk5t9s9cv","roles":["ROLE_ADMIN","ROLE_ROOT”] , "name":"Tomas Salazar" , "avatar":"https://scontent-a-ord.xx.fbcdn.net/hphotos-frc3/t1.0-9/1234716_10151853621234_1728386462_n.jpg" , "idUser":"68743622"}
 
 
 ## /loginfb
@@ -60,7 +60,7 @@ This resource is the first. Use it to log into the API.
  
     + Body
 
-            {"username":"tsalazar@expansion.com.mx" , "token":"o5245j7tn44hf1gvalbvkvgjk5t9s9cv","roles":["ROLE_ADMIN","ROLE_ROOT”]}
+            {"username":"tsalazar@expansion.com.mx","token":"o5245j7tn44hf1gvalbvkvgjk5t9s9cv","roles":["ROLE_ADMIN","ROLE_ROOT”] , "name":"Tomas Salazar" , "avatar":"https://scontent-a-ord.xx.fbcdn.net/hphotos-frc3/t1.0-9/1234716_10151853621234_1728386462_n.jpg" , "idUser":"68743622"}
 
 
 
@@ -80,7 +80,7 @@ Use the token retrive from login call as header X-Auth-Token.
 
             {"token":"o5245j7tn44hf1gvalbvkvgjk5t9s9cv","roles":["ROLE_ADMIN","ROLE_ROOT”]}
 
-             
+    
 ## /v1/person/{idUser}
 
 Info person 
@@ -91,6 +91,66 @@ Info person
 + Response 200 (application/json)
 
             {"id":1,"name":"Domingo Suarez Torres","email":"dsuarez@expansion.com.mx"}
+
+
+# Group Register
+<a id="register" ></a>
+
+To register into the MTSocial API API, use following calls:
+
+- 1. `POST` your personal data in JSON body to the *register* resource. An **token** is returned back.
+- 2. Use the **token** in your API calls header **X-Auth-Token**.
+
+Remember that TT Token has **limited validity**. Once you received 401 Unauthorized Response, you need to GET new TT Token.
+
+###Login Properties
+- username (string) : User's email
+- name (string)     : User's name
+- password (string) : User's password
+
+## /register
+### PUT
+This resource register new user into MTSocial API and login
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {"username":"user@company.com", "name":"username" , "password":"YourPassword"}
+
++ Response 200 (application/json)
+ 
+    + Body
+
+            {"token":"o5245j7tn44hf1gvalbvkvgjk5t9s9cv","roles":["ROLE_ADMIN","ROLE_ROOT”] , "idUser":"68743622"}
+
+## /registerfb
+### PUT
+This resource register new user into MTSocial API and login
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {"username":"user@company.com", "name":"username" , "password":"YourPassword" , "facebookId":"692189333"}
+
++ Response 200 (application/json)
+ 
+    + Body
+
+            {"token":"o5245j7tn44hf1gvalbvkvgjk5t9s9cv","roles":["ROLE_ADMIN","ROLE_ROOT”] , "idUser":"68743622"}
+
+
 
 # Group Sprint 2
 
