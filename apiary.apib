@@ -84,8 +84,9 @@ Use the token retrive from login call as header X-Auth-Token.
 ## /v1/person/{idUser}
 
 Info person 
+
 + Parameters
-    + idUser (optional if not provide return info from logged person, number, `666`) ... Numeric `idUser` to perform action with. Has example value.
+    + idUser (optional, number, `666`) ... Numeric `idUser` to perform action with. Has example value.
  
 ### Person details [GET]
 + Response 200 (application/json)
@@ -404,7 +405,7 @@ Get a list of user's pictures
 Get user's followers list
 ### GET
 + Parameters
-   + idUser (required, number, `666`) ... Numeric `idUser` to perform action with. Has example value.
+    + idUser (required, number, `666`) ... Numeric `idUser` to perform action with. Has example value.
   
 + Response 200 (application/json) 
 
@@ -1707,4 +1708,64 @@ d) Para agregar fotos con el checkIn es necesario apoyarse con el servicio ALTA_
         {
             code : 200 ,
             message: "CheckIn agregado"
+        }
+        
+## /timeline/publish_with_media
+### Upload a new comment to the timeline, accompanied with some media [POST]
+
+With this service we can upload some media, currently only images are supported (:
+This is uploaded as a normal form POST.
+
+The message has to be URLEncoded correctly
+You can upload whatever amount of medias you want :D
+
+The service accepts gzip encoding
+
++ Request (application/json)
+
+    + Headers
+    
+            X-Auth-Token: {token}
+
+    + Body
+    
+            --cce6735153bf14e47e999e68bb183e70a1fa7fc89722fc1efdf03a917340
+            Content-Disposition: form-data; name="comment"
+            
+            Hola mundo, este es un mensaje de prueba
+            --cce6735153bf14e47e999e68bb183e70a1fa7fc89722fc1efdf03a917340
+            Content-Type: application/octet-stream
+            Content-Disposition: form-data; name="media[]"; filename="amy.png"
+            
+            ...
+            --cce6735153bf14e47e999e68bb183e70a1fa7fc89722fc1efdf03a917340
+            Content-Type: application/octet-stream
+            Content-Disposition: form-data; name="media[]"; filename="clara.png"
+
+
+
++ Response 200 (application/json)
+
+
+        {
+            id: "e999e68bb183e70a1fa7fc89722fc1ef",
+            created_at: "Fri Sep 07 22:46:18 +0000 2012",
+            media: [
+                {
+                    filename: "lenna.png",
+                    url: "http://cdn.expansion.com.mx/images/u8264hfdh3huk.i3jejfd.png",
+                    size: {
+                        w: 800,
+                        h: 600
+                    }
+                },
+                {
+                    filename: "clara.png",
+                    url: "http://cdn.expansion.com.mx/images/i3jejfd.u8264hfdh3huk.png",
+                    size: {
+                        w: 800,
+                        h: 600
+                    }
+                }
+            ]
         }
