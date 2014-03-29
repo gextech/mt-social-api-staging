@@ -1625,6 +1625,301 @@ El servicio regresa el listado de partidos por Jornada . Valores esperados: `idT
             }
         }
         
+# Group Sprint 4  
+<a id="Srpint 4" ></a>
+
+Sprint 4, Mis Equipos
+
+## get the list with my teams [/v1/myTeams{idUser}]
+
++ Parameters
+    + idUser (required, number, `666`) ... Numeric `idUser` user logged. 
+
+### List of my Teams [GET]
+
++ Headers
+        
+        X-Auth-Token: {token}
+            
++ Response 200 (application/json)
+    + Body
+    
+            {
+                [
+                    {                
+                        "idTeam":1237,
+                        "idLeague":130,
+                        "name":"Everton", 
+                        "shortName":"EVE",
+                        "urlImagen":"http://gex.mediotiempo.media/Everton.jpg"
+                    },
+                    {                
+                        "idTeam":2367,
+                        "idLeage":890,
+                        "name":"Monterrey", 
+                        "shortName":"MY",
+                        "urlImagen":"http://gex.mediotiempo.media/Monterrey.jpg"
+                    },
+                ]
+            }
+
+## get team's profile [/v1/teamProfile{idUser, idTeam}]
+This service should return:
+
+
+
+
+<ol type="1" start="1">
+<li> An array with only three first pictures related to a Team.</li>
+<li> An array with only the three most recent activity related with a Team.</li>
+</ol>
+
++ Parameters
+    + idUser (required, number, `666`) ... Numeric `idUser` user logged. 
+
+### List of my Teams [GET]
+
++ Headers
+        
+        X-Auth-Token: {token}
+            
++ Response 200 (application/json)
+    + Body
+    
+            {
+            
+                    {                
+                        "idTeam":1237,
+                        "idLeague":130,
+                        "nameLeague":"Champions League"
+                        "name":"Everton", 
+                        "shortName":"EVE",
+                        "urlImagen":"http://gex.mediotiempo.media/Everton.jpg"
+                        "followers":100
+
+                         "activity":[
+                                    {
+                                        "idActivity":23423,
+                                        "type":4, 
+                                        "urlImg":
+                                        {
+                                            "urlThumb":"http://mt.scoial.media.picture.user.thumb/666.png", 
+                                            "url":"http://mt.scoial.media.picture.user/666.png", 
+                                            "text":nil
+                                        }, 
+                                        "text":"Hoy vamos a golear a los merengues"
+                                    },
+                                    {
+                                        "idActivity":53453,
+                                        "type":10,  
+                                        "urlImg":nil, 
+                                        "text":"Hoy si gana mi equipo"
+                                    }, 
+                                    {
+                                        "idActivity":666,  
+                                        "type":5, 
+                                        "urlImg":{
+                                            "urlThumb":"http://mt.scoial.media.picture.user.thumb/666.png", 
+                                            "url":"http://mt.scoial.media.picture.user/666.png", 
+                                            "text":nil
+                                        }, 
+                                        "text":nil
+                                    }
+                                ],                        
+                        "photos":[
+                                {   
+                                    "idPhoto":2342,
+                                    "urlThumb":"http://mtsocial.partidos/thumb/234234.png",
+                                    "urlImg":"http://mtsocial.partidos/photos/234234.png",
+                                    "text":null
+                                },
+                                {
+                                    "idPhoto":2342,
+                                    "urlThumb":"http://mtsocial.partidos/thumb/234235.png",
+                                    "urlImg":"http://mtsocial.partidos/234235.png",
+                                    "text":"Que golazoooo...!"
+                                },
+                                {
+                                    "idPhoto":2342,
+                                    "urlThumb":"http://mtsocial.partidos/thumb/234356.png",
+                                    "urlImg":"http://mtsocial.partidos/234254.png",
+                                    "text":"Que golazoooo...!"
+                                }
+                            ]
+                    }
+            }
+
+
+## Team's activity [/v1/team/timeline{idUser, idTeamTimeLine}]
+
+Meaning of the values for the tag <b>type</b> in the response:
+
+<ol type="1" start="1">
+<li> Like a post </li>
+<li> Share a post </li>
+<li> Comment a post with or without picture </li>
+<li> Checkin </li>
+<li> Following a user</li> 
+<li> Following a match </li>
+<li> Following a team </li>
+<li> Comment about match </li>
+<li> Photos about event</li>
+<li> Post a comment with or without picture </li>
+</ol>
+
++ Parameters
+    + idUser (required, number, `666`) ... Numeric `idUser` User logged in the app
+    + idTeamTimeLine (required, number, `966`) ... Numeric `idTeamTimeLine` of what we want to see the activity on the App.
+    
+
+    
+### POST
++ Request (application/json)
+
+            { "idUser": 666,"idTeam":966,"token":"ADASqwe21312323ADFf" }
+
+
++ Response 201 (application/json)
+
+    + Header
+
+            X-My-Header: The Value
+
+    + Body
+
+            [{"idActivity":23453, 
+                "type":1,  
+                "urlImg":null, 
+                "text":"Hoy si gana mi amado equipo América", 
+                "userRelated":{
+                        "idUser":343666, 
+                        "name":"Jorge Americanista", 
+                        "urlImagen":"http://gex.mediotiempo.media/329023.jpg"
+                }, 
+                "comments":0
+            },
+            {
+                "idActivity":23454, 
+                "type":2,  
+                "urlImg":null, 
+                "text":"Hoy si gana mi amado equipo América", 
+                "userRelated":{
+                    "idUser":34433,
+                    "name":"cuauhtemoc",
+                    "urlImagen":"http://gex.mediotiempo.media/32323.jpg"
+                    }, 
+                    "comments":0
+            },
+            {
+                "idActivity":23455,
+                "type":3,
+                "urlImg":null,
+                "text":"Hoy si gana mi amado equipo América",
+                "userRelated":{
+                    "idUser":34433, 
+                    "name":"Cristiano Ronaldo", 
+                    "urlImagen":"http://gex.mediotiempo.media/32323.jpg"}, 
+                    "comments":1
+            }
+            ]
+
+
+## Team's followers [/v1/team/followers{idUser, idTeam}]
+Obtiene la lista de seguidores de un equipo
+
+En la respuesta  la relación de los usuarios seguidores de un equipo
+y el usuario que hizo la petición se hace a través del tag <b>following</b>
+
+
++ Parameters
+    + idUser (required, number, `666`) ... Numeric `idUser` User logged in the app
+    + idTeam (required, number, `966`) ... Numeric `idTeam` of what we want to see the activity on the App.
+    
+
+    
+### GET
++ Request (application/json)
+
+            { "idUser": 666,"idTeam"9666:,"token":"ADASqwe21312323ADFf" }
+
+
++ Response 201 (application/json)
+
+    + Header
+
+            X-My-Header: The Value
+
+    + Body
+
+            [
+            {
+                "idUser":43234,
+                "name":"Pedro Perez",
+                "urlImagen":"http://gex.mediotiempo.media/32323.jpg"
+                "following":1
+            },
+            {
+                "idUser":32234,
+                "name":"Daniel Ramos",
+                "urlImagen":"http://gex.mediotiempo.media/32323.jpg"
+                "following":0
+            },
+            {
+                "idUser":43234,
+                "name":"Moises Vélez",
+                "urlImagen":"http://gex.mediotiempo.media/32323.jpg"
+                "following":1
+            },
+            {
+                "idUser":43234,
+                "name":"Bernardino Guerrero",
+                "urlImagen":"http://gex.mediotiempo.media/32323.jpg"
+                "following":0
+             }
+            ]
+            
+            
+## Team's photos [/v1/team/photos{idUser, idTeam}]
+Obtiene un listado con las fotos relacionadas a un equipo
+
+
++ Parameters
+    + idUser (required, number, `666`) ... Numeric `idUser` User logged in the app
+    + idTeam (required, number, `966`) ... Numeric `idTeam` of what we want to see the activity on the App.
+    
+### GET
++ Request (application/json)
+
+            { "idUser": 666,"idTeam"9666:,"token":"ADASqwe21312323ADFf" }
+
+
++ Response 201 (application/json)
+
+    + Header
+
+            X-My-Header: The Value
+
+    + Body
+    
+            [
+                { 
+                    "idPhoto":2342,
+                    "urlThumb":"http://mtsocial.partidos/thumb/234235.png",
+                    "urlImg":"http://mtsocial.partidos/234235.png",
+                    "text":"Que golazoooo...!",
+                    "comments":89,
+                    "likes":90K
+                },
+                { 
+                    "idPhoto":2342,
+                    "urlThumb":"http://mtsocial.partidos/thumb/234235.png",
+                    "urlImg":"http://mtsocial.partidos/234235.png",
+                    "text":"Que golazoooo...!",
+                    "comments":89,
+                    "likes":90K
+                }
+            ]
+         
 
 
 # Group Sprint 5
