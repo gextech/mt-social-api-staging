@@ -124,13 +124,13 @@ This resource register new user into MTSocial API and login
 
     + Body
 
-            {"username":"user@company.com", "name":"username" , "password":"YourPassword","genre":"f", "age":23}
+            {"email":"user@company.com", "name":"username" , "password":"YourPassword"}
 
-+ Response 200 (application/json)
++ Response 201 (application/json)
  
     + Body
-
-            {"token":"o5245j7tn44hf1gvalbvkvgjk5t9s9cv","roles":["ROLE_ADMIN","ROLE_ROOT”] , "idUser":"68743622"}
+    
+            {"person":{"id":"8132259c-92ff-4568-908a-ce6445a07ed1","name":"Testing test","email":"test-in@expansion.com.mx"},"token":"3onh61e2ci6s6vk57qve4b5taarkndge"}
 
 ## /registerfb
 ### PUT
