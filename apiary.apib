@@ -108,6 +108,8 @@ Remember that TT Token has **limited validity**. Once you received 401 Unauthori
 - username (string) : User's email
 - name (string)     : User's name
 - password (string) : User's password
+- genre (string)    : User's genre
+- age   (string)    : User's age
 
 ## /register
 ### PUT
@@ -122,7 +124,7 @@ This resource register new user into MTSocial API and login
 
     + Body
 
-            {"username":"user@company.com", "name":"username" , "password":"YourPassword"}
+            {"username":"user@company.com", "name":"username" , "password":"YourPassword","genre":"f", "age":23}
 
 + Response 200 (application/json)
  
@@ -143,7 +145,7 @@ This resource register new user into MTSocial API and login
 
     + Body
 
-            {"username":"user@company.com", "name":"username" , "password":"692189333" , "facebookId":"692189333"}
+            {"username":"user@company.com", "name":"username" , "password":"692189333" , "facebookId":"692189333", "genre":"f", "age":"23"}
 
 + Response 200 (application/json)
  
