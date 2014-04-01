@@ -105,8 +105,8 @@ Remember that TT Token has **limited validity**. Once you received 401 Unauthori
 - username (string) : User's email
 - name (string)     : User's name
 - password (string) : User's password
-- genre (string)    : User's genre (FEMALE, MALE)
-- age   (string)    : User's age
+- genre (string)    : Optional User's genre (FEMALE, MALE)
+- birthdate   (logn)    : Optional User's age
 
 ## /v1/people
 ### POST
@@ -121,7 +121,7 @@ This resource register new user into MTSocial API and login
 
     + Body
 
-            {"email":"user@company.com", "name":"username" , "password":"YourPassword", "gender":"FEMALE"}
+            {"email":"user@company.com", "name":"username" , "password":"YourPassword", "gender":"FEMALE", "birthdate":null}
 
 + Response 201 (application/json)
  
