@@ -258,14 +258,13 @@ List of followings
         ]
 
 
-## Request user following [/v1/user/follow{idUser,idUserFollow}]
+## Request user following [/v1/follow/person{idPersonToFollow}]
 Following a user 
 
 + Parameters
-    + idUser (required, number, `666`) ... Numeric `idUser` to perform action with. Has example value.
-    + idUserFollow (required, number, `2234234`) ... Numeric `idUserFollow`  of the user that we want to follow. Has example value.
+    + idPersonToFollow (required, string, `8a710509-33f6-493c-8a08-7c5998e42a65`) ... String corresponding to the `id` of the person the current user want to follow
 
-### Request a team follow [GET]
+### Request a person follow [GET]
 + Response 200 (application/json)
 
     + Header
