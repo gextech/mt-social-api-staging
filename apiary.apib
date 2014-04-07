@@ -852,6 +852,83 @@ The request has the following parameters:
 
 # Group User profile
 
+## Show user's latest media [/v1/people/media{?max,offset}]
+
+### Return last 10 pictures by default (paginated service) [GET]
+
+- **max** Max number of elements, by default 10
+- **offset** Initial offset, by default 0
+
++ Request
+
+    + Headers
+    
+            X-Auth-Token: {token}
+            
+            
++ Response 200 (application/json)
+
+        [
+            {
+                "dateCreated": "2014-04-07T16:27:43.283-05:00", 
+                "id": "a079507c-2ba4-4574-89af-3982f52effb1", 
+                "images": {
+                    "base": "https://mtfan-dev.s3.amazonaws.com/a68c73fc-86b0-4e39-a035-46c97051fc94-dw-", 
+                    "resized": [
+                        {
+                            "prefix": "240x180.jpg", 
+                            "size": {
+                                "h": 180, 
+                                "w": 240
+                            }
+                        }
+                    ], 
+                    "thumbnails": [
+                        {
+                            "prefix": "thumb-300.jpg", 
+                            "size": 300
+                        }
+                    ]
+                }, 
+                "originalFilename": "dw.jpg", 
+                "type": "photo", 
+                "url": "https://mtfan-dev.s3.amazonaws.com/a68c73fc-86b0-4e39-a035-46c97051fc94-dw.jpg"
+            }, 
+            {
+                "dateCreated": "2014-04-07T16:27:43.251-05:00", 
+                "id": "e3d9d691-cefa-4790-b553-fae842b9f0c3", 
+                "images": {
+                    "base": "https://mtfan-dev.s3.amazonaws.com/b9a4052b-182b-4c2f-af7c-f35984f79a39-oswin-", 
+                    "resized": [
+                        {
+                            "prefix": "480x360.jpg", 
+                            "size": {
+                                "h": 360, 
+                                "w": 480
+                            }
+                        }, 
+                        {
+                            "prefix": "240x180.jpg", 
+                            "size": {
+                                "h": 180, 
+                                "w": 240
+                            }
+                        }
+                    ], 
+                    "thumbnails": [
+                        {
+                            "prefix": "thumb-300.jpg", 
+                            "size": 300
+                        }
+                    ]
+                }, 
+                "originalFilename": "oswin.jpg", 
+                "type": "photo", 
+                "url": "https://mtfan-dev.s3.amazonaws.com/b9a4052b-182b-4c2f-af7c-f35984f79a39-oswin.jpg"
+            }
+        ]
+        
+
 ## Show profile of current user [/v1/people/profile{?count}]
 
 ### Return latest pictures, activity, followers and following [GET]
@@ -1018,78 +1095,5 @@ The request has the following parameters:
                 }
             ]
         }
-        
-## Show user's latest media [/v1/people/media{?max,offset}]
-
-### Return last 10 pictures by default (paginated service) [GET]
-
-- **max** Max number of elements, by default 10
-- **offset** Initial offset, by default 0
-
-+ Request
-
-    + Headers
-    
-            X-Auth-Token: {token}
-            
-+ Response 200 (application/json)
-
-        [
-            {
-                "dateCreated": "2014-04-07T16:27:43.283-05:00", 
-                "id": "a079507c-2ba4-4574-89af-3982f52effb1", 
-                "images": {
-                    "base": "https://mtfan-dev.s3.amazonaws.com/a68c73fc-86b0-4e39-a035-46c97051fc94-dw-", 
-                    "resized": [
-                        {
-                            "prefix": "240x180.jpg", 
-                            "size": {
-                                "h": 180, 
-                                "w": 240
-                            }
-                        }
-                    ], 
-                    "thumbnails": [
-                        {
-                            "prefix": "thumb-300.jpg", 
-                            "size": 300
-                        }
-                    ]
-                }, 
-                "originalFilename": "dw.jpg", 
-                "type": "photo", 
-                "url": "https://mtfan-dev.s3.amazonaws.com/a68c73fc-86b0-4e39-a035-46c97051fc94-dw.jpg"
-            }, 
-            {
-                "dateCreated": "2014-04-07T16:27:43.251-05:00", 
-                "id": "e3d9d691-cefa-4790-b553-fae842b9f0c3", 
-                "images": {
-                    "base": "https://mtfan-dev.s3.amazonaws.com/b9a4052b-182b-4c2f-af7c-f35984f79a39-oswin-", 
-                    "resized": [
-                        {
-                            "prefix": "480x360.jpg", 
-                            "size": {
-                                "h": 360, 
-                                "w": 480
-                            }
-                        }, 
-                        {
-                            "prefix": "240x180.jpg", 
-                            "size": {
-                                "h": 180, 
-                                "w": 240
-                            }
-                        }
-                    ], 
-                    "thumbnails": [
-                        {
-                            "prefix": "thumb-300.jpg", 
-                            "size": 300
-                        }
-                    ]
-                }, 
-                "originalFilename": "oswin.jpg", 
-                "type": "photo", 
-                "url": "https://mtfan-dev.s3.amazonaws.com/b9a4052b-182b-4c2f-af7c-f35984f79a39-oswin.jpg"
-            }
-        ]
+      
+      
