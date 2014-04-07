@@ -19,7 +19,7 @@ Remember that TT Token has **limited validity**. Once you received 401 Unauthori
 - password (string) : User's password
 
 
-## /login
+## Login with a user [/login]
 ### POST
 This resource is the first. Use it to log into the API.
 
@@ -41,7 +41,7 @@ This resource is the first. Use it to log into the API.
             {"token":"8ckoqbsr1ae90sfd8jvkfp4bqq4r80ac","person":{"id":"7d3c28b7-9d42-45d5-8a71-ad285842505b","name":"Tomas Salazar","email":"tsalazar@expansion.com.mx","age":null,"gender":null}}
 
 
-## /api/validate
+## Check if token is still valid [/api/validate]
 Basic service to validate token, this is for testing.
 
 Use the token retrive from login call as header X-Auth-Token.
@@ -58,7 +58,7 @@ Use the token retrive from login call as header X-Auth-Token.
             {"token":"o5245j7tn44hf1gvalbvkvgjk5t9s9cv","roles":["ROLE_ADMIN","ROLE_ROOT”]}
 
     
-## /v1/people/
+## Lists allowed people [/v1/people/]
 
 Get basic info for logged person 
 
@@ -85,7 +85,7 @@ Remember that TT Token has **limited validity**. Once you received 401 Unauthori
 - genre (string)    : Optional User's genre (FEMALE, MALE)
 - birthdate   (logn)    : Optional User's age
 
-## /v1/people
+## Create a user [/v1/people]
 ### POST
 This resource register new user into MTSocial API and login
 
@@ -106,7 +106,7 @@ This resource register new user into MTSocial API and login
     
             {"person":{"id":"8132259c-92ff-4568-908a-ce6445a07ed1","name":"Testing test","email":"test-in@expansion.com.mx"},"token":"3onh61e2ci6s6vk57qve4b5taarkndge"}
 
-## /v1/people/loginSocial
+## Login with social API [/v1/people/loginSocial]
 ### POST
 This resource log in user or register a new user into MTSocial API and login
 
@@ -276,7 +276,7 @@ This is a normal FORM!
 
 # Group Follow
         
-## /v1/follow/${followedType}/${followedId}
+## Follow something [/v1/follow/${followedType}/${followedId}]
 ### POST
 
 This resource mark a Follow between the current user and a [person|team|match]
@@ -359,7 +359,7 @@ The request has the following parameters:
                 
             }
 
-## /v1/follow/following/${followingType}
+## Returns all instances following this user [/v1/follow/following/${followingType}]
 ### GET
 This resource get all followings of type *followingType* of the current user 
 
@@ -415,7 +415,7 @@ The request has the following parameters:
                 }
             ]
 
-## /v1/follow/followers/${followerType}
+## Return all followers of a certain type [/v1/follow/followers/${followerType}]
 ### GET
 This resource get all followings of type *followerType* of the current user 
 
@@ -471,5 +471,55 @@ The request has the following parameters:
                 }
             ]
 
+## List of tournaments or leagues [/v1/tournaments]
+   
+
+### List of tournaments or leagues [GET]
++ Headers
+
+            X-Auth-Token: {token}
+
++ Response 200 (application/json)
+
+        [
+            {
+                "idLeague":23434,
+                "name":"Primera Division"
+            },
+            {
+                "idLeague":234542,
+                "name": "Liga Española"
+            }
+        ]
+
+## List of teams of tournaments or league [/v1/tournaments/${idLeague}/teams/]
+### Lsit of teams  [GET]
++ Headers
+
+            X-Auth-Token: {token}
+
++ Response 201 (application/json)
+
+        {
+            "idLeague":23434,
+            "name":"Primera Division",
+            "teams":
+                [
+                    {
+                        "idTeam": 56456, 
+                        "name": "América", 
+                        "shortName":"CA",
+                        "following":1,
+                        "urlImagen":"http://gex.mediotiempo.media/23123.jpg"
+                    }, 
+                    {
+                        "idTeam": 2234234,
+                        "name": "Cruz Azul", 
+                        "shortName": "CAz"
+                        "following":0,
+                        "urlImage":"http://gex.mediotiempo.media/23123.jpg"
+                    }
+                ]
+         }
 
 
