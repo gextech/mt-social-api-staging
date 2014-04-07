@@ -271,3 +271,90 @@ This is a normal FORM!
             "url": "https://mtfan-dev.s3.amazonaws.com/28e3eb32-a7d4-419c-8e0b-fd68b7a9ff27-x1396013843-me.png", 
             "uuid": "28e3eb32-a7d4-419c-8e0b-fd68b7a9ff27"
         }
+        
+        
+
+# Group Follow
+        
+## /v1/follow/${followedType}/${followedId}
+### POST
+
+This resource mark a Follow between the current user and a [person|team|match]
+
+The request has the following parameters:
+
+- **followedType** Required, It is the Type of the stuff to be followed. It can be: [ *person* | *team* | *match* ]
+
+- **followedId** Required, It is the Id of the stuff to be followed. Example: *0aeaa55c-43d7-458b-be7e-53005f4c4e36*
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+    + Body
+    
+            {
+            }
+
++ Response 200 (application/json)
+ 
+    + Body
+
+            {
+                "checkin": null, 
+                "comment": null, 
+                "follow": {
+                    "follower": {
+                        "avatarUrl": null, 
+                        "id": "b5e61df9-cbe2-4d43-a8af-7d37ee80f144", 
+                        "type": "person"
+                    }, 
+                    "following": {
+                        "avatarUrl": null, 
+                        "id": "0aeaa55c-43d7-458b-be7e-53005f4c4e36", 
+                        "type": "person"
+                    }
+                }, 
+                "id": "6099eadd-7542-4a4a-b970-c274c85bec29", 
+                "like": null, 
+                "media": null, 
+                "parentId": null, 
+                "publisher": {
+                    "avatarUrl": null, 
+                    "id": "3c7c2c0b-42e6-4acd-845d-6f737b72a141", 
+                    "type": "person"
+                }, 
+                "sharedId": null, 
+                "timestamp": "2014-04-07T13:06:23.308-05:00"
+            }
+
+### DELETE
+This resource mark an UnFollow between the current user and a [person|team|match]
+
+The request has the following parameters:
+
+- **followedType** Required, It is the Type of the stuff to be followed. It can be: [ *person* | *team* | *match* ]
+
+- **followedId** Required, It is the Id of the stuff to be followed. Example: *0aeaa55c-43d7-458b-be7e-53005f4c4e36*
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request 
+    + Headers
+    
+            Accept: application/json
+    
+    + Body 
+    
+            {
+            }
+
++ Response 200 (application/json)
+ 
+    + Body
+
+            {
+                
+            }
