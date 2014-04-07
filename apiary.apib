@@ -129,16 +129,16 @@ This resource log in user or register a new user into MTSocial API and login
             {"person":{"id":"8132259c-92ff-4568-908a-ce6445a07ed1","name":"Testing test","email":"test-in@expansion.com.mx"},"token":"3onh61e2ci6s6vk57qve4b5taarkndge"}
 
 
-## /timeline/publish_with_media
-### Upload a new comment to the timeline, accompanied with some media [POST]
+## Publish a post with media [/timeline/publishWithMedia]
 
+### Upload a new comment to the timeline, accompanied with some media [POST]
 With this service we can upload some media, currently only images are supported (:
 This is uploaded as a normal form POST.
 
 The message has to be URLEncoded correctly
 You can upload whatever amount of medias you want :D
 
-The service accepts gzip encoding
+This is a normal FORM!
 
 + Request
 
@@ -169,24 +169,90 @@ The service accepts gzip encoding
 
 
         {
-            id: "e999e68bb183e70a1fa7fc89722fc1ef",
-            created_at: "Fri Sep 07 22:46:18 +0000 2012",
-            media: [
+            "checkin": null, 
+            "comment": "hola mundo", 
+            "follow": null, 
+            "id": "434efe46-ca34-46f0-93b4-c9ec79a99a14", 
+            "like": null, 
+            "media": [
                 {
-                    filename: "amy.png",
-                    url: "http://cdn.expansion.com.mx/images/u8264hfdh3huk.i3jejfd.png",
-                    size: {
-                        w: 800,
-                        h: 600
-                    }
-                },
-                {
-                    filename: "clara.png",
-                    url: "http://cdn.expansion.com.mx/images/i3jejfd.u8264hfdh3huk.png",
-                    size: {
-                        w: 800,
-                        h: 600
-                    }
+                    "filename": "27fb5d62-7ec4-4a4f-8702-f818973ffc6a-x1396013843-2.jpg.pagespeed.ic.0Zl8PZYdyZ.jpg", 
+                    "mimeType": "image/jpeg", 
+                    "originalFilename": "x1396013843-2.jpg.pagespeed.ic.0Zl8PZYdyZ.jpg", 
+                    "processedImages": {
+                        "baseUrl": "https://mtfan-dev.s3.amazonaws.com/27fb5d62-7ec4-4a4f-8702-f818973ffc6a-x1396013843-2.jpg.pagespeed.ic.0Zl8PZYdyZ-", 
+                        "images": {
+                            "resized": [
+                                {
+                                    "size": {
+                                        "h": 360, 
+                                        "w": 480
+                                    }, 
+                                    "suffix": "480x360.jpg"
+                                }, 
+                                {
+                                    "size": {
+                                        "h": 180, 
+                                        "w": 240
+                                    }, 
+                                    "suffix": "240x180.jpg"
+                                }
+                            ], 
+                            "thumbnails": [
+                                {
+                                    "size": 300, 
+                                    "suffix": "thumb-300.jpg"
+                                }
+                            ]
+                        }
+                    }, 
+                    "url": "https://mtfan-dev.s3.amazonaws.com/27fb5d62-7ec4-4a4f-8702-f818973ffc6a-x1396013843-2.jpg.pagespeed.ic.0Zl8PZYdyZ.jpg", 
+                    "uuid": "27fb5d62-7ec4-4a4f-8702-f818973ffc6a"
                 }
-            ]
+            ], 
+            "parentId": null, 
+            "publisher": {
+                "avatarUrl": null, 
+                "id": "50cae0e0-0d98-4faa-acf4-401f8d133a53", 
+                "type": "person"
+            }, 
+            "sharedId": null, 
+            "timestamp": "2014-04-07T10:02:21.129-05:00"
+        }
+        
+## Upload an avatar [/people/uploadAvatar]
+
+### Upload a new avatar for the user [POST]
+With this service we can upload you avatar, it is a multipart request
+
+The message has to be URLEncoded correctly
+
+This is a normal FORM!
+
++ Request
+
+    + Headers
+    
+            X-Auth-Token: {token}
+            Content-Length: 15532
+            Content-Type: multipart/form-data;boundary=434efe46ca3446f093b4c9ec79a99a14
+
+    + Body
+    
+            --434efe46ca3446f093b4c9ec79a99a14
+            Content-Type: application/octet-stream
+            Content-Disposition: form-data; name="avatar"; filename="me.png"
+            
+            ...
+
+
++ Response 200 (application/json)
+
+
+        {
+            "filename": "28e3eb32-a7d4-419c-8e0b-fd68b7a9ff27-x1396013843-me.png", 
+            "mimeType": "image/png", 
+            "originalFilename": "me.png", 
+            "url": "https://mtfan-dev.s3.amazonaws.com/28e3eb32-a7d4-419c-8e0b-fd68b7a9ff27-x1396013843-me.png", 
+            "uuid": "28e3eb32-a7d4-419c-8e0b-fd68b7a9ff27"
         }
