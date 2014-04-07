@@ -358,3 +358,118 @@ The request has the following parameters:
             {
                 
             }
+
+## /v1/follow/following/${followingType}
+### GET
+This resource get all followings of type *followingType* of the current user 
+
+The request has the following parameters:
+
+- **followingType** Required, It is the Type of the followings required. It can be: [ *person* | *team* | *match* ]
+
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request 
+    + Headers
+    
+            Accept: application/json
+    
+    + Body 
+    
+            {
+            }
+
++ Response 200 (application/json)
+ 
+    + Body
+
+            [
+                {
+                    "follow": {
+                        "follower": {
+                            "avatarUrl": null, 
+                            "id": "b5e61df9-cbe2-4d43-a8af-7d37ee80f144", 
+                            "type": "person"
+                        }, 
+                        "following": {
+                            "avatarUrl": null, 
+                            "id": "123489", 
+                            "type": "eventParticipant"
+                        }
+                    }
+                }, 
+                {
+                    "follow": {
+                        "follower": {
+                            "avatarUrl": null, 
+                            "id": "b5e61df9-cbe2-4d43-a8af-7d37ee80f144", 
+                            "type": "person"
+                        }, 
+                        "following": {
+                            "avatarUrl": null, 
+                            "id": "123", 
+                            "type": "eventParticipant"
+                        }
+                    }
+                }
+            ]
+
+## /v1/follow/followers/${followerType}
+### GET
+This resource get all followings of type *followerType* of the current user 
+
+The request has the following parameters:
+
+- **followerType** Required, It is the Type of the followers required. It can be: [ *person* | *team* | *match* ]
+
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request 
+    + Headers
+    
+            Accept: application/json
+    
+    + Body 
+    
+            {
+            }
+
++ Response 200 (application/json)
+ 
+    + Body
+
+            [
+                {
+                    "follow": {
+                        "follower": {
+                            "avatarUrl": null, 
+                            "id": "b5e61df9-cbe2-4d43-a8af-7d37ee80f144", 
+                            "type": "person"
+                        }, 
+                        "following": {
+                            "avatarUrl": null, 
+                            "id": "123489", 
+                            "type": "eventParticipant"
+                        }
+                    }
+                }, 
+                {
+                    "follow": {
+                        "follower": {
+                            "avatarUrl": null, 
+                            "id": "b5e61df9-cbe2-4d43-a8af-7d37ee80f144", 
+                            "type": "person"
+                        }, 
+                        "following": {
+                            "avatarUrl": null, 
+                            "id": "123", 
+                            "type": "eventParticipant"
+                        }
+                    }
+                }
+            ]
+
+
+
