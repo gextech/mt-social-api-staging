@@ -140,6 +140,13 @@ You can upload whatever amount of medias you want :D
 
 This is a normal FORM!
 
+The request has the following parameters:
+
+- **comment** It is a no
+- **sharedId** Optinal, In case this is a reshare (like a retweet), this is the id of the commented post
+- **commentId** Optional, In case this post is a comment, this is the id of the commented post
+- **media[]** Could be more than one, just a normal file
+
 + Request
 
     + Headers
@@ -153,7 +160,14 @@ This is a normal FORM!
             --cce6735153bf14e47e999e68bb183e70a1fa7fc89722fc1efdf03a917340
             Content-Disposition: form-data; name="comment"
             
-            Hola mundo, este es un mensaje de prueba
+            --cce6735153bf14e47e999e68bb183e70a1fa7fc89722fc1efdf03a917340
+            Content-Disposition: form-data; name="sharedId"
+            
+            c9ec79a99-a14-46f0-93b4-434efe468c9e
+            --cce6735153bf14e47e999e68bb183e70a1fa7fc89722fc1efdf03a917340
+            Content-Disposition: form-data; name="commentId"
+            
+            434efe468-a14-46f0-93b3-c9ec79a99a14
             --cce6735153bf14e47e999e68bb183e70a1fa7fc89722fc1efdf03a917340
             Content-Type: application/octet-stream
             Content-Disposition: form-data; name="media[]"; filename="amy.png"
