@@ -129,8 +129,8 @@ This resource register new user into MTSocial API and login
     
             {"person":{"id":"8132259c-92ff-4568-908a-ce6445a07ed1","name":"Testing test","email":"test-in@expansion.com.mx"},"token":"3onh61e2ci6s6vk57qve4b5taarkndge"}
 
-## /registerfb
-### PUT
+## /v1/people/loginSocial
+### POST
 This resource register new user into MTSocial API and login
 
 `Please use your MTSocial API account credentials for API calls.`
@@ -142,13 +142,13 @@ This resource register new user into MTSocial API and login
 
     + Body
 
-            {"username":"user@company.com", "name":"username" , "password":"692189333" , "facebookId":"692189333", "genre":"f", "age":"23"}
+            {"uid":"zdadzsdaae"}
 
 + Response 200 (application/json)
  
     + Body
 
-            {"token":"o5245j7tn44hf1gvalbvkvgjk5t9s9cv","roles":["ROLE_ADMIN","ROLE_ROOT”] , "idUser":"68743622"}
+            {"person":{"id":"8132259c-92ff-4568-908a-ce6445a07ed1","name":"Testing test","email":"test-in@expansion.com.mx"},"token":"3onh61e2ci6s6vk57qve4b5taarkndge"}
 
 
 
