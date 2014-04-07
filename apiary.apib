@@ -41,29 +41,6 @@ This resource is the first. Use it to log into the API.
             {"token":"8ckoqbsr1ae90sfd8jvkfp4bqq4r80ac","person":{"id":"7d3c28b7-9d42-45d5-8a71-ad285842505b","name":"Tomas Salazar","email":"tsalazar@expansion.com.mx","age":null,"gender":null}}
 
 
-## /loginfb
-### POST
-This resource is the first. Use it to log into the API.
-
-`Please use your MTSocial API account credentials for API calls.`
-
-+ Request (application/json)
-    + Headers
-
-            Accept: application/json
-
-    + Body
-
-            {"facebookId":"692189333" }
-
-+ Response 200 (application/json)
- 
-    + Body
-
-            {"username":"tsalazar@expansion.com.mx","token":"o5245j7tn44hf1gvalbvkvgjk5t9s9cv","roles":["ROLE_ADMIN","ROLE_ROOT”] , "name":"Tomas Salazar" , "avatar":"https://scontent-a-ord.xx.fbcdn.net/hphotos-frc3/t1.0-9/1234716_10151853621234_1728386462_n.jpg" , "idUser":"68743622"}
-
-
-
 ## /api/validate
 Basic service to validate token, this is for testing.
 
@@ -131,7 +108,7 @@ This resource register new user into MTSocial API and login
 
 ## /v1/people/loginSocial
 ### POST
-This resource register new user into MTSocial API and login
+This resource log in user or register a new user into MTSocial API and login
 
 `Please use your MTSocial API account credentials for API calls.`
 
@@ -139,6 +116,7 @@ This resource register new user into MTSocial API and login
     + Headers
 
             Accept: application/json
+            X-Auth-Token: {token}
 
     + Body
 
