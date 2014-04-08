@@ -1087,8 +1087,6 @@ The request has the following parameters:
 
 ### Return suggested friends from social and app[GET]
 
-
-
 + Request
 
     + Headers
@@ -1097,4 +1095,15 @@ The request has the following parameters:
             
 + Response 200 (application/json)
 
-    {}
+    {
+    "socialFriends": [],
+    "suggested": [
+    {
+        "birthdate": "2014-04-08T09:05:39.675-05:00",
+        "email": "follow1@expansion.com.mx",
+        "gender":  "FEMALE",
+        "id": "2ec66081-3100-4be1-a6aa-cda1ebdf844d",
+         "name": "Follow1"
+        }
+    ]
+    }
