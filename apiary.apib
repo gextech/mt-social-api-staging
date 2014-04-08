@@ -253,9 +253,9 @@ The request has the following parameters:
                 
             }
 
-## Returns all instances following this user [/v1/follow/followings/${followingType}]
+## Returns all instances followed by the current user [/v1/follow/followings/${followingType}{?max,offset}]
 ### GET
-This resource get all followings of type *followingType* of the current user 
+This resource get all instances followed by the current user
 
 The request has the following parameters:
 
@@ -303,9 +303,9 @@ The request has the following parameters:
             ]
 
             
-## Return all followers of a certain type [/v1/follow/followers/${followerType}]
+## Return all followers of the current user  [/v1/follow/followers/${followerType}{?max,offset}]
 ### GET
-This resource get all followings of type *followerType* of the current user 
+This resource get all the followers of the current user 
 
 The request has the following parameters:
 
