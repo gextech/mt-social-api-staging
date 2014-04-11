@@ -398,35 +398,68 @@ This resource get the list of the active leagues: their ids and names.
             ]
         }
 
-## List of teams of tournaments or league [/v1/tournaments/${idLeague}/teams/]
-### List of teams  [GET]
-+ Headers
+## List of leagues and its teams [/v1/leagues/teams]
 
-            X-Auth-Token: {token}
+### GET
+This resource get the list of the active leagues and its respective teams.
 
-+ Response 201 (application/json)
+`Please use your MTSocial API account credentials for API calls.`
 
-        {
-            "idLeague":23434,
-            "name":"Primera Division",
-            "teams":
-                [
++ Request 
+    + Headers
+    
+            Accept: application/json
+    
+    + Body 
+    
+            {
+            }
+
++ Response 200 (application/json)
+
+            {
+                "leagues": [
                     {
-                        "idTeam": 56456, 
-                        "name": "América", 
-                        "shortName":"CA",
-                        "following":1,
-                        "urlImagen":"http://gex.mediotiempo.media/23123.jpg"
-                    }, 
+                        "abbreviation": "Zon Sagres",
+                        "id": "78",
+                        "name": "Zon Sagres",
+                        "teams": [
+                            {
+                                "id": 228,
+                                "knownAs": "Benfica",
+                                "logo": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/2/228/228_80x80.png",
+                                "name": "Benfica"
+                            },
+                            {
+                                "id": 268,
+                                "knownAs": "Porto",
+                                "logo": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/2/268/268_80x80.png",
+                                "name": "FC Porto"
+                            }
+                        ]
+                    },
                     {
-                        "idTeam": 2234234,
-                        "name": "Cruz Azul", 
-                        "shortName": "CAz"
-                        "following":0,
-                        "urlImage":"http://gex.mediotiempo.media/23123.jpg"
+                        "abbreviation": "Copa MX",
+                        "id": "68",
+                        "name": "Copa MX",
+                        "teams": [
+                            {
+                                "id": 15,
+                                "knownAs": "Atlante",
+                                "logo": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/1/15/15_80x80.png",
+                                "name": "Atlante"
+                            },
+                            {
+                                "id": 33,
+                                "knownAs": "Chiapas FC",
+                                "logo": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/3/33/33_80x80.png",
+                                "name": "Chiapas F?tbol Club"
+                            }
+                        ]
                     }
                 ]
-         }
+            }
+
 
 ## Group Timeline
 <a id="timeline" ></a>
