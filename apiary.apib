@@ -46,6 +46,7 @@ Basic service to validate token, this is for testing.
 
 Use the token retrive from login call as header X-Auth-Token.
 ### GET
+
 + Headers
 
             X-Auth-Token: {token}
@@ -398,7 +399,7 @@ This resource get the list of the active leagues: their ids and names.
             ]
         }
 
-## List of leagues and its teams [/v1/leagues/teams]
+## List of leagues and their teams [/v1/leagues/teams]
 
 ### GET
 This resource get the list of the active leagues and its respective teams.
@@ -456,6 +457,48 @@ This resource get the list of the active leagues and its respective teams.
                                 "name": "Chiapas F?tbol Club"
                             }
                         ]
+                    }
+                ]
+            }
+            
+## List of teams for an specified league  [/v1/leagues/${league_id}/teams]
+
+### GET
+This resource gets the list of teams from the specified league
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request 
+    + Headers
+    
+            Accept: application/json
+    
+    + Body 
+    
+            {
+            }
+
++ Response 200 (application/json)
+
+            {
+                "teams": [
+                    {
+                        "id": 1,
+                        "knownAs": "Cruz Azul",
+                        "logo": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/1/1/1_80x80.png",
+                        "name": "Cruz Azul"
+                    },
+                    {
+                        "id": 22,
+                        "knownAs": "Atlas",
+                        "logo": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/2/22/22_80x80.png",
+                        "name": "Atlas"
+                    },
+                    {
+                        "id": 34,
+                        "knownAs": "Toluca",
+                        "logo": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/3/34/34_80x80.png",
+                        "name": "Toluca"
                     }
                 ]
             }
