@@ -353,26 +353,50 @@ The request has the following parameters:
                 }
             ]
 
-## List of tournaments or leagues [/v1/tournaments]
-   
+# Group Tournaments, leagues and teams
+## List of leagues [/v1/leagues]
 
-### List of tournaments or leagues [GET]
-+ Headers
+### GET
+This resource get the list of the active leagues: their ids and names.
 
-            X-Auth-Token: {token}
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request 
+    + Headers
+    
+            Accept: application/json
+    
+    + Body 
+    
+            {
+            }
 
 + Response 200 (application/json)
 
-        [
-            {
-                "idLeague":23434,
-                "name":"Primera Division"
-            },
-            {
-                "idLeague":234542,
-                "name": "Liga Española"
-            }
-        ]
+        {
+            "leagues": [
+                {
+                    "abbreviation": "Zon Sagres", 
+                    "id": "78", 
+                    "name": "Zon Sagres"
+                }, 
+                {
+                    "abbreviation": "Copa MX", 
+                    "id": "68", 
+                    "name": "Copa MX"
+                }, 
+                {
+                    "abbreviation": "Eredivisie", 
+                    "id": "55", 
+                    "name": "Eredivisie"
+                }, 
+                {
+                    "abbreviation": "Primera Divisi?n Argentina", 
+                    "id": "17", 
+                    "name": "Primera Divisi?n Argentina"
+                }
+            ]
+        }
 
 ## List of teams of tournaments or league [/v1/tournaments/${idLeague}/teams/]
 ### List of teams  [GET]
