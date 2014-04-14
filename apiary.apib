@@ -672,6 +672,147 @@ The request has the following parameters:
         }
 
 
+## List all timeline activity published to an actor [/v1/timeline/{actorType}/{actorId}/{?offset,max}]
+
+### You can list all activity of current user, by default returns 10 elements [GET]
+
+- **actorType** Required, It is the Type of the stuff to be seen. It can be: [ *person* | *team* | *match* ]
+- **actorId** The id of the stuff to be seen.
+- **offset** From with element, by default is is 0 (no offset)
+- **max** Max number of elements, by default 10
+
++ Request
+
+    + Headers
+    
+            X-Auth-Token: {token}
+
+
++ Response 200 (application/json)
+        
+        [
+            {
+                "like": false, 
+                "post": {
+                    "checkin": null, 
+                    "comment": "Hola mundo cruel", 
+                    "follow": null, 
+                    "id": "2e0a199b-df4e-467b-b17a-f55b24c67d36", 
+                    "like": null, 
+                    "media": null, 
+                    "parentId": null, 
+                    "publisher": {
+                        "avatarUrl": null, 
+                        "id": "bebe5c28-8748-41aa-abee-3850a0bfae5e", 
+                        "type": "person"
+                    }, 
+                    "sharedId": null, 
+                    "timestamp": "2014-04-07T17:26:44.478-05:00"
+                }, 
+                "related": []
+            }, 
+            {
+                "like": false, 
+                "post": {
+                    "checkin": null, 
+                    "comment": "adops", 
+                    "follow": null, 
+                    "id": "45f0ffa6-a342-4866-aca8-0af4717a7870", 
+                    "like": null, 
+                    "media": null, 
+                    "parentId": null, 
+                    "publisher": {
+                        "avatarUrl": null, 
+                        "id": "bebe5c28-8748-41aa-abee-3850a0bfae5e", 
+                        "type": "person"
+                    }, 
+                    "sharedId": null, 
+                    "timestamp": "2014-04-07T15:07:33.737-05:00"
+                }, 
+                "related": []
+            }, 
+            {
+                "like": false, 
+                "post": {
+                    "checkin": null, 
+                    "comment": "Hola mundo cruel pero feliz", 
+                    "follow": null, 
+                    "id": "649f1c48-711f-4f0b-bbc2-7b68eb1a1a6d", 
+                    "like": null, 
+                    "media": null, 
+                    "parentId": null, 
+                    "publisher": {
+                        "avatarUrl": null, 
+                        "id": "bebe5c28-8748-41aa-abee-3850a0bfae5e", 
+                        "type": "person"
+                    }, 
+                    "sharedId": null, 
+                    "timestamp": "2014-04-07T14:55:27.600-05:00"
+                }, 
+                "related": []
+            }, 
+            {
+                "like": false, 
+                "post": {
+                    "checkin": null, 
+                    "comment": "Hola mundo cruel pero feliz", 
+                    "follow": null, 
+                    "id": "9bfbf025-9605-496e-b27d-5124d4ff085f", 
+                    "like": null, 
+                    "media": null, 
+                    "parentId": null, 
+                    "publisher": {
+                        "avatarUrl": null, 
+                        "id": "bebe5c28-8748-41aa-abee-3850a0bfae5e", 
+                        "type": "person"
+                    }, 
+                    "sharedId": null, 
+                    "timestamp": "2014-04-07T14:53:47.963-05:00"
+                }, 
+                "related": []
+            }, 
+            {
+                "like": false, 
+                "post": {
+                    "checkin": null, 
+                    "comment": "Hola mundo cruel", 
+                    "follow": null, 
+                    "id": "5dce26fc-ec5c-4840-9c62-27419bd768b4", 
+                    "like": null, 
+                    "media": null, 
+                    "parentId": null, 
+                    "publisher": {
+                        "avatarUrl": null, 
+                        "id": "bebe5c28-8748-41aa-abee-3850a0bfae5e", 
+                        "type": "person"
+                    }, 
+                    "sharedId": null, 
+                    "timestamp": "2014-04-07T14:52:49.432-05:00"
+                }, 
+                "related": []
+            }, 
+            {
+                "like": false, 
+                "post": {
+                    "checkin": null, 
+                    "comment": "Hola mundo", 
+                    "follow": null, 
+                    "id": "f01429e2-3d36-4bdb-aba9-f4036606c275", 
+                    "like": null, 
+                    "media": null, 
+                    "parentId": null, 
+                    "publisher": {
+                        "avatarUrl": null, 
+                        "id": "bebe5c28-8748-41aa-abee-3850a0bfae5e", 
+                        "type": "person"
+                    }, 
+                    "sharedId": null, 
+                    "timestamp": "2014-04-07T14:43:10.652-05:00"
+                }, 
+                "related": []
+            }
+        ]
+        
 ## List all timeline activity of current user [/v1/timeline{?offset,max}]
 
 ### You can list all activity of current user, by default returns 10 elements [GET]
@@ -810,7 +951,7 @@ The request has the following parameters:
                 "related": []
             }
         ]
-        
+
 
 ## List all timeline activity of current user [/v1/timeline/{content_type}{?offset,max}]
 
