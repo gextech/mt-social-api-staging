@@ -504,6 +504,86 @@ This resource gets the list of teams from the specified league
                 ]
             }
 
+## List of previous matches [/v1/matches/previous]
+
+### GET
+This resource gets the list of previous matches 
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request 
+    + Headers
+    
+            Accept: application/json
+    
+    + Body 
+    
+            {
+            }
+
++ Response 200 (application/json)
+
+            {
+                "matches": [
+                {
+                    "id": 48215,
+                    "local": {
+                        "goals": 1,
+                        "id": 671,
+                        "name": "SC Braga",
+                        "penalties": 0
+                    },
+                    "timestamp": "2014-04-13T13:15:00.000-05:00",
+                    "visitor": {
+                        "goals": 3,
+                        "id": 268,
+                        "name": "FC Porto",
+                        "penalties": 0
+                    }
+                },
+                {
+                    "id": 49196,
+                    "local": {
+                        "goals": 2,
+                        "id": 517,
+                        "name": "TSG 1899 Hoffenheim",
+                        "penalties": 0
+                    },
+                    "timestamp": "2014-04-13T10:30:00.000-05:00",
+                    "visitor": {
+                        "goals": 0,
+                        "id": 985,
+                        "name": "FC Augsburg",
+                        "penalties": 0
+                    }
+                }]
+            }
+
+
+## List of present matches [/v1/matches/present]
+
+### GET
+This resource gets the list of life matches 
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request 
+    + Headers
+    
+            Accept: application/json
+    
+    + Body 
+    
+            {
+            }
+
++ Response 200 (application/json)
+
+            TODO
+            
+            
+
+
 
 ## Group Timeline
 <a id="timeline" ></a>
