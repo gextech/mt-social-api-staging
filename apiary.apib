@@ -663,7 +663,121 @@ This resource gets the list of life matches
                 ]
             }
             
+## List of tournaments [/v1/tournaments]
 
+### GET
+This resource get the list of the active tournaments: their ids, names and number of rounds.
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request 
+    + Headers
+    
+            Accept: application/json
+    
+    + Body 
+    
+            {
+            }
+
++ Response 200 (application/json)
+
+            {
+                "tournaments": [
+                    {
+                        "abbreviation": "Euro 2012 Polonia-Ucrania", 
+                        "id": 251, 
+                        "nRounds": 12, 
+                        "name": "Euro 2012 Polonia-Ucrania"
+                    }, 
+                    {
+                        "abbreviation": "Clausura 2014", 
+                        "id": 453, 
+                        "nRounds": 15, 
+                        "name": "Clausura 2014"
+                    }
+                ]
+            }
+
+## List of matches per tournament [/v1/tournaments/${tournamentId}/round/${roundId}/matches]
+
+### GET
+This resource get the list of the matches corresponding to the specified tournament and round.
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request 
+    + Headers
+    
+            Accept: application/json
+    
+    + Body 
+    
+            {
+            }
+
++ Response 200 (application/json)
+
+            {
+                "matches": [
+                    {
+                        "id": 32025,
+                        "goals": {
+                            "visitor": [],
+                            "local": []
+                        },
+                        "local": {
+                            "id": 112,
+                            "goals": 1,
+                            "penalties": 0,
+                            "globalPenalties": 0,
+                            "globalGoals": 1,
+                            "name": "Israel"
+                        },
+                        "visitor": {
+                            "id": 68,
+                            "goals": 2,
+                            "penalties": 0,
+                            "globalPenalties": 0,
+                            "globalGoals": 2,
+                            "name": "Croacia"
+                        },
+                        "stadium": {
+                            "id": 0
+                        }
+                    },
+                    {
+                        "id": 32026,
+                        "goals": {
+                            "visitor": [],
+                            "local": []
+                        },
+                        "local": {
+                            "id": 51,
+                            "goals": 2,
+                            "penalties": 0,
+                            "globalPenalties": 0,
+                            "globalGoals": 2,
+                            "name": "Francia"
+                        },
+                        "visitor": {
+                            "id": 90,
+                            "goals": 0,
+                            "penalties": 0,
+                            "globalPenalties": 0,
+                            "globalGoals": 0,
+                            "name": "Rumania"
+                        },
+                        "stadium": {
+                            "id": 414,
+                            "address": "",
+                            "country": "Africa del Sur"
+                        }
+                    }
+                ]
+            }
+
+        
 
 ## Group Timeline
 <a id="timeline" ></a>
