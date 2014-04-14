@@ -515,6 +515,12 @@ This resource gets the list of teams from the specified league
 - **comment** Optional, It is the comment for the post the same as the comment in any post
 - **sharedId** Optional, In case this is a reshare (like a retweet), this is the id of the commented post
 - **commentId** Optional, In case this post is a comment, this is the id of the commented post
+- **related** Optional, You can add several related actors and also a reason,
+
+Valid reasons are:
+
+* SHARED_IN_PROFILE
+* TAGGED
 
 + Request
 
@@ -528,7 +534,12 @@ This resource gets the list of teams from the specified league
             {
                 "comment": "Hola mundo cruel",
                 "commentId": "434efe468-a14-46f0-93b3-c9ec79a99a14",
-                "sharedId": "434efe468-a14-46f0-93b3-c9ec79a99a14"
+                "sharedId": "434efe468-a14-46f0-93b3-c9ec79a99a14", 
+                "related": [{
+                    "actorId": "e0a199b-df4e-467b-b17a-f55b24c67d36",
+                    "actorType": "PERSON",
+                    "reasonAware": "SHARED_IN_PROFILE"
+                }]
             }
 
 
@@ -569,6 +580,8 @@ The request has the following parameters:
 - **sharedId** Optional, In case this is a reshare (like a retweet), this is the id of the commented post
 - **commentId** Optional, In case this post is a comment, this is the id of the commented post
 - **media[]** Could be more than one, just a normal file
+- **actorId** Publish content to this actor's id
+- **actorType** Actor type, (PERSON for instance)
 
 + Request
 
