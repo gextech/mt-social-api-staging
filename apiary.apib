@@ -1884,3 +1884,30 @@ The request has the following parameters:
                 }
             ]
         }
+        
+## Register a device for push messages [/v1/mobile/registerDevice]
+
+### Register a device for push messages [POST]
+
+Registers a device for push messages, we expect your token and the type, could be either android or ios
+
++ Request
+
+    + Headers
+    
+            X-Auth-Token: {token}
+       
+            
+    + Body
+    
+            {
+                "token": "TOKEN",
+                "type": "android"
+            }
+            
++ Response 200 (application/json)
+
+        {
+            "token": "TOKEN",
+            "type": "android"
+        }
