@@ -2068,3 +2068,533 @@ Registers a device for push messages, we expect your token and the type, could b
             "token": "TOKEN",
             "type": "android"
         }
+        
+        
+# Group Checkin
+## Venues [/v1/venues{?longitude}&{?latitude}]
+### Search venues by lattide and longitude [GET]
+
+- **longitude** Double
+- **latitude** Double
+
+
++ Request
+
+    + Headers
+            X-Auth-Token: {token}
++ Response 200 (application/json)
+            [   
+                {
+                    "address": "Campos Eliseos No. 204",
+                    "categories": [
+                        {
+                            "externalId": "4bf58dd8d48988d1fa931735",
+                            "iconPrefix": "https://ss1.4sqi.net/img/categories_v2/travel/hotel_",
+                            "iconSuffix": ".png",
+                            "id": "450c0cfa-5d1f-45b9-aad4-90e7c7571c68",
+                            "name": "Hotel"
+                        }
+                    ],
+                    "city": "Ciudad de México",
+                    "country": "México",
+                    "description": null,
+                    "distance": 155,
+                    "externalId": "4b607499f964a520fae629e3",
+                    "id": "a1ea888f-96d4-4257-83e8-827399402885",
+                    "location": {
+                        "lat": 19.427239330761132,
+                        "lon": -99.19264440158081
+                    },
+                    "name": "Hyatt Regency Mexico City",
+                    "shortUrl": null,
+                    "state": "Distrito Federal"
+                },
+                {
+                    "address": "Arquímedes",
+                    "categories": [],
+                    "city": "Ciudad de México",
+                    "country": "México",
+                    "description": null,
+                    "distance": 71,
+                    "externalId": "4cd0709306b54688f005db94",
+                    "id": "a0e32dd7-de3a-4ff7-9b91-4d9abc5508d5",
+                    "location": {
+                        "lat": 19.425963843011722,
+                        "lon": -99.19164389739231
+                    },
+                    "name": "Torre Chapultepec",
+                    "shortUrl": null,
+                    "state": "Distrito Federal"
+                },
+                {
+                    "address": "Arquimedes 4",
+                    "categories": [
+                        {
+                            "externalId": "4bf58dd8d48988d150941735",
+                            "iconPrefix": "https://ss1.4sqi.net/img/categories_v2/food/default_",
+                            "iconSuffix": ".png",
+                            "id": "b858202c-bd46-49b5-b7d0-f6e192f235fe",
+                            "name": "Spanish Restaurant"
+                        }
+                    ],
+                    "city": "Ciudad de México",
+                    "country": "México",
+                    "description": null,
+                    "distance": 160,
+                    "externalId": "4b214367f964a5202c3924e3",
+                    "id": "01258f38-3991-4026-8a31-f5ac94515cb3",
+                    "location": {
+                        "lat": 19.42725691079726,
+                        "lon": -99.19182777290402
+                    },
+                    "name": "Centro Asturiano de Mexico",
+                    "shortUrl": null,
+                    "state": "Distrito Federal"
+                },
+                {
+                    "address": null,
+                    "categories": [
+                        {
+                            "externalId": "4bf58dd8d48988d1fe931735",
+                            "iconPrefix": "https://ss1.4sqi.net/img/categories_v2/travel/busstation_",
+                            "iconSuffix": ".png",
+                            "id": "dc8c5651-abfd-43f4-b9c2-e58e1feaa4db",
+                            "name": "Bus Station"
+                        }
+                    ],
+                    "city": "Ciudad de México",
+                    "country": "México",
+                    "description": null,
+                    "distance": 89,
+                    "externalId": "4e711f48ae60a62f19597a69",
+                    "id": "09d64499-cf39-40ed-a4d5-d5f362034e4c",
+                    "location": {
+                        "lat": 19.42575974031327,
+                        "lon": -99.19149247081609
+                    },
+                    "name": "Parabús Reforma Ruben Dario",
+                    "shortUrl": null,
+                    "state": "Distrito Federal"
+                },
+                {
+                    "address": "Metro Auditorio",
+                    "categories": [
+                        {
+                            "externalId": "4bf58dd8d48988d12b951735",
+                            "iconPrefix": "https://ss1.4sqi.net/img/categories_v2/travel/busstation_",
+                            "iconSuffix": ".png",
+                            "id": "d1e27796-8ff9-4eb9-ad34-5654862fb290",
+                            "name": "Bus Line"
+                        }
+                    ],
+                    "city": "Miguel Hidalgo",
+                    "country": "México",
+                    "description": null,
+                    "distance": 141,
+                    "externalId": "4cb90d8c9552b60c183ad18b",
+                    "id": "96802c6c-6f4a-445c-b4f8-91540126b293",
+                    "location": {
+                        "lat": 19.42567986012828,
+                        "lon": -99.1935396194458
+                    },
+                    "name": "Paradero",
+                    "shortUrl": null,
+                    "state": "Distrito Federal"
+                },
+                {
+                    "address": null,
+                    "categories": [],
+                    "city": "Tacubaya",
+                    "country": "México",
+                    "description": null,
+                    "distance": 38,
+                    "externalId": "53259b14498e613a7d4f23d7",
+                    "id": "c2873262-d059-496e-b9a7-6298b7353215",
+                    "location": {
+                        "lat": 19.425670681934808,
+                        "lon": -99.19201705695825
+                    },
+                    "name": "marathon experience",
+                    "shortUrl": null,
+                    "state": "Distrito Federal"
+                },
+                {
+                    "address": "Paseo de la Reforma y Arquimedes",
+                    "categories": [
+                        {
+                            "externalId": "4bf58dd8d48988d12d941735",
+                            "iconPrefix": "https://ss1.4sqi.net/img/categories_v2/building/government_monument_",
+                            "iconSuffix": ".png",
+                            "id": "9568c2a6-6b2c-4478-8c0d-1a57e2c5caaf",
+                            "name": "Monument / Landmark"
+                        }
+                    ],
+                    "city": "Miguel Hidalgo",
+                    "country": "México",
+                    "description": null,
+                    "distance": 112,
+                    "externalId": "4b058704f964a520797b22e3",
+                    "id": "38ea835a-0bc1-44da-a7fa-0e8ea584445f",
+                    "location": {
+                        "lat": 19.425584368428087,
+                        "lon": -99.19131941222102
+                    },
+                    "name": "Pabellón Coreano",
+                    "shortUrl": null,
+                    "state": "Distrito Federal"
+                },
+                {
+                    "address": "Arquimides 4",
+                    "categories": [
+                        {
+                            "externalId": "4bf58dd8d48988d176941735",
+                            "iconPrefix": "https://ss1.4sqi.net/img/categories_v2/building/gym_",
+                            "iconSuffix": ".png",
+                            "id": "d0a91932-e765-4b27-9e42-688b6adf3a2e",
+                            "name": "Gym"
+                        }
+                    ],
+                    "city": "Ciudad de México",
+                    "country": "México",
+                    "description": null,
+                    "distance": 156,
+                    "externalId": "4e8a6d5461afcc24d961da15",
+                    "id": "50e14c68-eea4-4db2-91c3-abacb972fc7c",
+                    "location": {
+                        "lat": 19.427251990561803,
+                        "lon": -99.19195215951804
+                    },
+                    "name": "Gym Asturiano Arquimides",
+                    "shortUrl": null,
+                    "state": "Distrito Federal"
+                },
+                {
+                    "address": null,
+                    "categories": [
+                        {
+                            "externalId": "4bf58dd8d48988d115951735",
+                            "iconPrefix": "https://ss1.4sqi.net/img/categories_v2/shops/bikeshop_",
+                            "iconSuffix": ".png",
+                            "id": "7a8d8f92-e794-4bad-8258-91dff413c8c8",
+                            "name": "Bike Shop"
+                        }
+                    ],
+                    "city": "Tacubaya",
+                    "country": "México",
+                    "description": null,
+                    "distance": 45,
+                    "externalId": "4fb90a89e4b01cdcf2966305",
+                    "id": "b394591b-6f96-4ff3-ae4c-26ff21cac298",
+                    "location": {
+                        "lat": 19.42586575126705,
+                        "lon": -99.19187644590397
+                    },
+                    "name": "Bicigratis Auditorio",
+                    "shortUrl": null,
+                    "state": "Distrito Federal"
+                },
+                {
+                    "address": null,
+                    "categories": [
+                        {
+                            "externalId": "4bf58dd8d48988d111941735",
+                            "iconPrefix": "https://ss1.4sqi.net/img/categories_v2/food/japanese_",
+                            "iconSuffix": ".png",
+                            "id": "6fc90c77-fdd6-4ba0-91f9-cb4dd3b81264",
+                            "name": "Japanese Restaurant"
+                        }
+                    ],
+                    "city": "Tacubaya",
+                    "country": "México",
+                    "description": null,
+                    "distance": 139,
+                    "externalId": "51fece83498e72c6fff251d7",
+                    "id": "15d42e9f-b7a9-47d9-9de7-384df321adec",
+                    "location": {
+                        "lat": 19.42698580326994,
+                        "lon": -99.19289317752781
+                    },
+                    "name": "Yoshimi",
+                    "shortUrl": null,
+                    "state": "Distrito Federal"
+                },
+                {
+                    "address": "Campos Eliseos 218",
+                    "categories": [
+                        {
+                            "externalId": "4bf58dd8d48988d1d5941735",
+                            "iconPrefix": "https://ss1.4sqi.net/img/categories_v2/travel/hotel_bar_",
+                            "iconSuffix": ".png",
+                            "id": "9fd4a92c-a67b-46b4-9282-8bf6b10c1928",
+                            "name": "Hotel Bar"
+                        }
+                    ],
+                    "city": "Ciudad de México",
+                    "country": "México",
+                    "description": null,
+                    "distance": 201,
+                    "externalId": "4b2d78dcf964a52065d724e3",
+                    "id": "25c4dcf9-f6ee-4f89-ac24-1e541ff65215",
+                    "location": {
+                        "lat": 19.427005323594837,
+                        "lon": -99.19371128082275
+                    },
+                    "name": "The Palm",
+                    "shortUrl": null,
+                    "state": "Distrito Federal"
+                },
+                {
+                    "address": "Paseo de la Reforma",
+                    "categories": [],
+                    "city": "Ciudad de México",
+                    "country": "México",
+                    "description": null,
+                    "distance": 38,
+                    "externalId": "4cf6c4b81801a1431ca7ebd4",
+                    "id": "5206e156-8c6a-4611-b36c-31cda5a51982",
+                    "location": {
+                        "lat": 19.42593,
+                        "lon": -99.19263
+                    },
+                    "name": "Intelisis Aspel",
+                    "shortUrl": null,
+                    "state": "Distrito Federal"
+                },
+                {
+                    "address": null,
+                    "categories": [],
+                    "city": "San Miguel Tecamachalco",
+                    "country": "México",
+                    "description": null,
+                    "distance": 191,
+                    "externalId": "52247a6911d2b60ce76a467b",
+                    "id": "b28b2522-3737-4419-a870-72e14de5ebec",
+                    "location": {
+                        "lat": 19.425872,
+                        "lon": -99.19401
+                    },
+                    "name": "Parada Auditorio Nacional",
+                    "shortUrl": null,
+                    "state": "México"
+                },
+                {
+                    "address": "Ruben Dario 281",
+                    "categories": [
+                        {
+                            "externalId": "4bf58dd8d48988d171941735",
+                            "iconPrefix": "https://ss1.4sqi.net/img/categories_v2/building/eventspace_",
+                            "iconSuffix": ".png",
+                            "id": "7c2d8ad6-a731-4ffd-8799-e9157c45175c",
+                            "name": "Event Space"
+                        }
+                    ],
+                    "city": "Tacubaya",
+                    "country": "México",
+                    "description": null,
+                    "distance": 44,
+                    "externalId": "5215199d11d20589f8e8e63c",
+                    "id": "5f94ed64-0ce0-4c3b-8a68-60fad36fa0ef",
+                    "location": {
+                        "lat": 19.426079497138723,
+                        "lon": -99.19193052704959
+                    },
+                    "name": "AdobeDay",
+                    "shortUrl": null,
+                    "state": "Distrito Federal"
+                },
+                {
+                    "address": null,
+                    "categories": [
+                        {
+                            "externalId": "4bf58dd8d48988d1cb941735",
+                            "iconPrefix": "https://ss1.4sqi.net/img/categories_v2/food/streetfood_",
+                            "iconSuffix": ".png",
+                            "id": "e953f328-7874-490d-a958-22c4c1d6e21d",
+                            "name": "Food Truck"
+                        }
+                    ],
+                    "city": "Tacubaya",
+                    "country": "México",
+                    "description": null,
+                    "distance": 48,
+                    "externalId": "5213bad611d29d169fcb8b92",
+                    "id": "e9e71f47-d49b-4991-b911-d828a5ee7564",
+                    "location": {
+                        "lat": 19.425991,
+                        "lon": -99.192712
+                    },
+                    "name": "Tacos Martín",
+                    "shortUrl": null,
+                    "state": "Distrito Federal"
+                },
+                {
+                    "address": "Ruben Darío 281",
+                    "categories": [],
+                    "city": "Ciudad de México",
+                    "country": "México",
+                    "description": null,
+                    "distance": 60,
+                    "externalId": "4caf51b8db32f04d2369b64d",
+                    "id": "2433c8f2-e7cc-4500-8612-d4ea9e896307",
+                    "location": {
+                        "lat": 19.42587,
+                        "lon": -99.191745
+                    },
+                    "name": "Auditorio Adobe México",
+                    "shortUrl": null,
+                    "state": "Distrito Federal"
+                },
+                {
+                    "address": "Rubén Darío 281",
+                    "categories": [],
+                    "city": "Miguel Hidalgo",
+                    "country": "México",
+                    "description": null,
+                    "distance": 52,
+                    "externalId": "4de6bfad18381a514be6b0fa",
+                    "id": "cd58cb16-b994-4448-a447-6e52b67c272e",
+                    "location": {
+                        "lat": 19.425918388561747,
+                        "lon": -99.19181695668581
+                    },
+                    "name": "Adobe Systems México",
+                    "shortUrl": null,
+                    "state": "Distrito Federal"
+                },
+                {
+                    "address": "Montes Urales 470-PH",
+                    "categories": [],
+                    "city": "Ciudad de México",
+                    "country": "México",
+                    "description": null,
+                    "distance": 50,
+                    "externalId": "51cc3a8b498e51435e03d3c9",
+                    "id": "e272414d-a56c-4e0b-841a-3826e4aa6bda",
+                    "location": {
+                        "lat": 19.42584248553135,
+                        "lon": -99.19183858912369
+                    },
+                    "name": "Euro Brokers",
+                    "shortUrl": null,
+                    "state": "Distrito Federal"
+                },
+                {
+                    "address": null,
+                    "categories": [
+                        {
+                            "externalId": "4d4b7105d754a06375d81259",
+                            "iconPrefix": "https://ss1.4sqi.net/img/categories_v2/building/default_",
+                            "iconSuffix": ".png",
+                            "id": "bc3b54ea-aed7-486c-b3b2-bdd8b5ddf958",
+                            "name": "Professional & Other Places"
+                        }
+                    ],
+                    "city": "Ciudad de México",
+                    "country": "México",
+                    "description": null,
+                    "distance": 56,
+                    "externalId": "4db706a00cb6729b6ac40be8",
+                    "id": "c7edf689-3f8a-4e37-b001-6b5b3f6935e0",
+                    "location": {
+                        "lat": 19.426139235472945,
+                        "lon": -99.19184940534481
+                    },
+                    "name": "Straumann Mexico",
+                    "shortUrl": null,
+                    "state": "Distrito Federal"
+                },
+                {
+                    "address": "Rubén Darío",
+                    "categories": [
+                        {
+                            "externalId": "4e4c9077bd41f78e849722f9",
+                            "iconPrefix": "https://ss1.4sqi.net/img/categories_v2/shops/bikeshop_",
+                            "iconSuffix": ".png",
+                            "id": "6e6b431e-317d-4145-8f46-1e173135ab3a",
+                            "name": "Bike Rental / Bike Share"
+                        }
+                    ],
+                    "city": "Ciudad de México",
+                    "country": "México",
+                    "description": null,
+                    "distance": 160,
+                    "externalId": "50527665e4b0a9a6e5aed70c",
+                    "id": "0c47ca14-7d43-4443-a08b-703533dcd176",
+                    "location": {
+                        "lat": 19.425951921507956,
+                        "lon": -99.19084891104876
+                    },
+                    "name": "Ecobici 192 Y 193",
+                    "shortUrl": null,
+                    "state": "Distrito Federal"
+                },
+                {
+                    "address": "Ruben Dario 281, piso 9, col Bosque de Chapultepec",
+                    "categories": [],
+                    "city": "Ciudad de México",
+                    "country": "México",
+                    "description": null,
+                    "distance": 57,
+                    "externalId": "4e32df7118a846d7ed0c81ae",
+                    "id": "d69e71d3-5109-4e17-bdf0-41b77ec6e392",
+                    "location": {
+                        "lat": 19.42612505517047,
+                        "lon": -99.19182300567627
+                    },
+                    "name": "Curtis, Mallet-Prevost, Colt & Mosle S.C.",
+                    "shortUrl": null,
+                    "state": "Distrito Federal"
+                },
+                {
+                    "address": null,
+                    "categories": [
+                        {
+                            "externalId": "4bf58dd8d48988d143941735",
+                            "iconPrefix": "https://ss1.4sqi.net/img/categories_v2/food/breakfast_",
+                            "iconSuffix": ".png",
+                            "id": "eb1485e1-abed-488d-aae9-64e183eee4cc",
+                            "name": "Breakfast Spot"
+                        }
+                    ],
+                    "city": "Tacubaya",
+                    "country": "México",
+                    "description": null,
+                    "distance": 155,
+                    "externalId": "4bf682c45efe2d7fa13b6734",
+                    "id": "1191a362-c5a1-450c-a7cc-7d95e321bb4f",
+                    "location": {
+                        "lat": 19.42722588964631,
+                        "lon": -99.1926930750751
+                    },
+                    "name": "El Jardin",
+                    "shortUrl": null,
+                    "state": "Distrito Federal"
+                },
+                {
+                    "address": null,
+                    "categories": [
+                        {
+                            "externalId": "4d4b7105d754a06374d81259",
+                            "iconPrefix": "https://ss1.4sqi.net/img/categories_v2/food/default_",
+                            "iconSuffix": ".png",
+                            "id": "bbecde55-7678-42a1-8fe9-573b2d103226",
+                            "name": "Food"
+                        }
+                    ],
+                    "city": "Ciudad de México",
+                    "country": "México",
+                    "description": null,
+                    "distance": 65,
+                    "externalId": "4e8e018682315acfeb26e04d",
+                    "id": "d22fe47f-9928-4bb6-8696-2e154d1c495c",
+                    "location": {
+                        "lat": 19.42613202504549,
+                        "lon": -99.1928228712039
+                    },
+                    "name": "El Cuñado",
+                    "shortUrl": null,
+                    "state": "Distrito Federal"
+                }
+            ]
+        
+            
