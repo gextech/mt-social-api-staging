@@ -355,154 +355,9 @@ The request has the following parameters:
                 }
             ]
 
-# Group Tournaments, leagues and teams
-## List of leagues [/v1/leagues]
 
-### GET
-This resource get the list of the active leagues: their ids and names.
+# Group Matches
 
-`Please use your MTSocial API account credentials for API calls.`
-
-+ Request 
-    + Headers
-    
-            Accept: application/json
-    
-    + Body 
-    
-            {
-            }
-
-+ Response 200 (application/json)
-
-        {
-            "leagues": [
-                {
-                    "abbreviation": "Zon Sagres", 
-                    "id": "78", 
-                    "name": "Zon Sagres"
-                }, 
-                {
-                    "abbreviation": "Copa MX", 
-                    "id": "68", 
-                    "name": "Copa MX"
-                }, 
-                {
-                    "abbreviation": "Eredivisie", 
-                    "id": "55", 
-                    "name": "Eredivisie"
-                }, 
-                {
-                    "abbreviation": "Primera Divisi?n Argentina", 
-                    "id": "17", 
-                    "name": "Primera Divisi?n Argentina"
-                }
-            ]
-        }
-
-## List of leagues and their teams [/v1/leagues/teams]
-
-### GET
-This resource get the list of the active leagues and its respective teams.
-
-`Please use your MTSocial API account credentials for API calls.`
-
-+ Request 
-    + Headers
-    
-            Accept: application/json
-    
-    + Body 
-    
-            {
-            }
-
-+ Response 200 (application/json)
-
-            {
-                "leagues": [
-                    {
-                        "abbreviation": "Zon Sagres",
-                        "id": "78",
-                        "name": "Zon Sagres",
-                        "teams": [
-                            {
-                                "id": 228,
-                                "knownAs": "Benfica",
-                                "logo": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/2/228/228_80x80.png",
-                                "name": "Benfica"
-                            },
-                            {
-                                "id": 268,
-                                "knownAs": "Porto",
-                                "logo": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/2/268/268_80x80.png",
-                                "name": "FC Porto"
-                            }
-                        ]
-                    },
-                    {
-                        "abbreviation": "Copa MX",
-                        "id": "68",
-                        "name": "Copa MX",
-                        "teams": [
-                            {
-                                "id": 15,
-                                "knownAs": "Atlante",
-                                "logo": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/1/15/15_80x80.png",
-                                "name": "Atlante"
-                            },
-                            {
-                                "id": 33,
-                                "knownAs": "Chiapas FC",
-                                "logo": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/3/33/33_80x80.png",
-                                "name": "Chiapas F?tbol Club"
-                            }
-                        ]
-                    }
-                ]
-            }
-            
-## List of teams for an specified league  [/v1/leagues/${league_id}/teams]
-
-### GET
-This resource gets the list of teams from the specified league
-
-`Please use your MTSocial API account credentials for API calls.`
-
-+ Request 
-    + Headers
-    
-            Accept: application/json
-    
-    + Body 
-    
-            {
-            }
-
-+ Response 200 (application/json)
-
-            {
-                "teams": [
-                    {
-                        "id": 1,
-                        "knownAs": "Cruz Azul",
-                        "logo": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/1/1/1_80x80.png",
-                        "name": "Cruz Azul"
-                    },
-                    {
-                        "id": 22,
-                        "knownAs": "Atlas",
-                        "logo": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/2/22/22_80x80.png",
-                        "name": "Atlas"
-                    },
-                    {
-                        "id": 34,
-                        "knownAs": "Toluca",
-                        "logo": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/3/34/34_80x80.png",
-                        "name": "Toluca"
-                    }
-                ]
-            }
 
 ## List of previous matches [/v1/matches/previous]
 
@@ -662,6 +517,160 @@ This resource gets the list of life matches
                     }
                 ]
             }
+
+
+
+
+
+# Group Tournaments, leagues and teams
+## List of leagues [/v1/leagues]
+
+### GET
+This resource get the list of the active leagues: their ids and names.
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request 
+    + Headers
+    
+            Accept: application/json
+    
+    + Body 
+    
+            {
+            }
+
++ Response 200 (application/json)
+
+        {
+            "leagues": [
+                {
+                    "abbreviation": "Zon Sagres", 
+                    "id": "78", 
+                    "name": "Zon Sagres"
+                }, 
+                {
+                    "abbreviation": "Copa MX", 
+                    "id": "68", 
+                    "name": "Copa MX"
+                }, 
+                {
+                    "abbreviation": "Eredivisie", 
+                    "id": "55", 
+                    "name": "Eredivisie"
+                }, 
+                {
+                    "abbreviation": "Primera Divisi?n Argentina", 
+                    "id": "17", 
+                    "name": "Primera Divisi?n Argentina"
+                }
+            ]
+        }
+
+## List of leagues and their teams [/v1/leagues/teams]
+
+### GET
+This resource get the list of the active leagues and its respective teams.
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request 
+    + Headers
+    
+            Accept: application/json
+    
+    + Body 
+    
+            {
+            }
+
++ Response 200 (application/json)
+
+            {
+                "leagues": [
+                    {
+                        "abbreviation": "Zon Sagres",
+                        "id": "78",
+                        "name": "Zon Sagres",
+                        "teams": [
+                            {
+                                "id": 228,
+                                "knownAs": "Benfica",
+                                "logo": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/2/228/228_80x80.png",
+                                "name": "Benfica"
+                            },
+                            {
+                                "id": 268,
+                                "knownAs": "Porto",
+                                "logo": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/2/268/268_80x80.png",
+                                "name": "FC Porto"
+                            }
+                        ]
+                    },
+                    {
+                        "abbreviation": "Copa MX",
+                        "id": "68",
+                        "name": "Copa MX",
+                        "teams": [
+                            {
+                                "id": 15,
+                                "knownAs": "Atlante",
+                                "logo": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/1/15/15_80x80.png",
+                                "name": "Atlante"
+                            },
+                            {
+                                "id": 33,
+                                "knownAs": "Chiapas FC",
+                                "logo": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/3/33/33_80x80.png",
+                                "name": "Chiapas F?tbol Club"
+                            }
+                        ]
+                    }
+                ]
+            }
+            
+## List of teams for an specified league  [/v1/leagues/${league_id}/teams]
+
+### GET
+This resource gets the list of teams from the specified league
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request 
+    + Headers
+    
+            Accept: application/json
+    
+    + Body 
+    
+            {
+            }
+
++ Response 200 (application/json)
+
+            {
+                "teams": [
+                    {
+                        "id": 1,
+                        "knownAs": "Cruz Azul",
+                        "logo": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/1/1/1_80x80.png",
+                        "name": "Cruz Azul"
+                    },
+                    {
+                        "id": 22,
+                        "knownAs": "Atlas",
+                        "logo": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/2/22/22_80x80.png",
+                        "name": "Atlas"
+                    },
+                    {
+                        "id": 34,
+                        "knownAs": "Toluca",
+                        "logo": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/3/34/34_80x80.png",
+                        "name": "Toluca"
+                    }
+                ]
+            }
+
             
 ## List of tournaments [/v1/tournaments]
 
