@@ -426,6 +426,156 @@ This resource gets the profile of specified team, this includes recent activity,
             }
 
 
+## Team calendar per year [/v1/teams/${teamId}/calendar/${year}]
+
+### GET
+This resource get the calendar of matches for the specified team. (Year)
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request 
+    + Headers
+    
+            Accept: application/json
+    
+    + Body 
+    
+            {
+            }
+
++ Response 200 (application/json)
+
+            {
+                "1": {
+                    "matches": []
+                },
+                "2": {
+                    "matches": []
+                },
+                "3": {
+                    "matches": []
+                },
+                "4": {
+                    "matches": []
+                },
+                "5": {
+                    "matches": []
+                },
+                "6": {
+                    "matches": []
+                },
+                "7": {
+                    "matches": []
+                },
+                "8": {
+                    "matches": []
+                },
+                "9": {
+                    "matches": []
+                },
+                "10": {
+                    "matches": [
+                        {
+                            "goals": {
+                                "local": [],
+                                "visitor": []
+                            },
+                            "id": 50576,
+                            "local": {
+                                "globalGoals": 2,
+                                "globalPenalties": 0,
+                                "goals": 2,
+                                "id": 22,
+                                "logoUrl": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/2/222/22_80x80.png",
+                                "name": "Atlas",
+                                "penalties": 0
+                            },
+                            "stadium": {
+                                "address": "Guadalajara, Jalisco 7 Colinas No. 1772, Col. Independencia, C.P. 44290, Guadalajara, Jalisco.",
+                                "country": "M?xico",
+                                "id": 2,
+                                "lat": 20.70487021209245,
+                                "lng": -103.3280487527963
+                            },
+                            "timestamp": "2013-10-02T19:00:00.000-05:00",
+                            "visitor": {
+                                "globalGoals": 1,
+                                "globalPenalties": 0,
+                                "goals": 1,
+                                "id": 40,
+                                "logoUrl": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/4/444/40_80x80.png",
+                                "name": "Pumas de la UNAM",
+                                "penalties": 0
+                            }
+                        }
+                    ]
+                },
+                "11": {
+                    "matches": []
+                },
+                "12": {
+                    "matches": []
+                }
+            }
+        
+## Team calendar per year and month [/v1/teams/${teamId}/calendar/${year}/${month}]
+
+### GET
+This resource get the calendar of matches for the specified team. (Yean and month)
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request 
+    + Headers
+    
+            Accept: application/json
+    
+    + Body 
+    
+            {
+            }
+
++ Response 200 (application/json)
+
+            {
+                "matches": [
+                    {
+                        "goals": {
+                            "local": [], 
+                            "visitor": []
+                        }, 
+                        "id": 47654, 
+                        "local": {
+                            "globalGoals": 0, 
+                            "globalPenalties": 0, 
+                            "goals": 0, 
+                            "id": 360, 
+                            "logoUrl": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/3/360/360_80x80.png", 
+                            "name": "Leones Negros de la Universidad de Guadalajara", 
+                            "penalties": 0
+                        }, 
+                        "stadium": {
+                            "address": "Guadalajara, Jalisco 7 Colinas No. 1772, Col. Independencia, C.P. 44290, Guadalajara, Jalisco.", 
+                            "country": "M?xico", 
+                            "id": 2, 
+                            "lat": 20.70487021209245, 
+                            "lng": -103.3280487527963
+                        }, 
+                        "timestamp": "2013-07-24T21:00:00.000-05:00", 
+                        "visitor": {
+                            "globalGoals": 0, 
+                            "globalPenalties": 0, 
+                            "goals": 0, 
+                            "id": 40, 
+                            "logoUrl": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/4/444/40_80x80.png", 
+                            "name": "Pumas de la UNAM", 
+                            "penalties": 0
+                        }
+                    }
+                ]
+            }
+
+
 # Group Matches
 
 
@@ -1297,154 +1447,7 @@ This resource get the list of the matches corresponding to the specified tournam
                 ]
             }
 
-## Team calendar per year [/v1/tournaments/${teamId}/calendar/${year}]
 
-### GET
-This resource get the calendar of matches for the specified team. (Year)
-
-`Please use your MTSocial API account credentials for API calls.`
-
-+ Request 
-    + Headers
-    
-            Accept: application/json
-    
-    + Body 
-    
-            {
-            }
-
-+ Response 200 (application/json)
-
-            {
-                "1": {
-                    "matches": []
-                },
-                "2": {
-                    "matches": []
-                },
-                "3": {
-                    "matches": []
-                },
-                "4": {
-                    "matches": []
-                },
-                "5": {
-                    "matches": []
-                },
-                "6": {
-                    "matches": []
-                },
-                "7": {
-                    "matches": []
-                },
-                "8": {
-                    "matches": []
-                },
-                "9": {
-                    "matches": []
-                },
-                "10": {
-                    "matches": [
-                        {
-                            "goals": {
-                                "local": [],
-                                "visitor": []
-                            },
-                            "id": 50576,
-                            "local": {
-                                "globalGoals": 2,
-                                "globalPenalties": 0,
-                                "goals": 2,
-                                "id": 22,
-                                "logoUrl": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/2/222/22_80x80.png",
-                                "name": "Atlas",
-                                "penalties": 0
-                            },
-                            "stadium": {
-                                "address": "Guadalajara, Jalisco 7 Colinas No. 1772, Col. Independencia, C.P. 44290, Guadalajara, Jalisco.",
-                                "country": "M?xico",
-                                "id": 2,
-                                "lat": 20.70487021209245,
-                                "lng": -103.3280487527963
-                            },
-                            "timestamp": "2013-10-02T19:00:00.000-05:00",
-                            "visitor": {
-                                "globalGoals": 1,
-                                "globalPenalties": 0,
-                                "goals": 1,
-                                "id": 40,
-                                "logoUrl": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/4/444/40_80x80.png",
-                                "name": "Pumas de la UNAM",
-                                "penalties": 0
-                            }
-                        }
-                    ]
-                },
-                "11": {
-                    "matches": []
-                },
-                "12": {
-                    "matches": []
-                }
-            }
-        
-## Team calendar per year and month [/v1/tournaments/${teamId}/calendar/${year}/${month}]
-
-### GET
-This resource get the calendar of matches for the specified team. (Yean and month)
-
-`Please use your MTSocial API account credentials for API calls.`
-
-+ Request 
-    + Headers
-    
-            Accept: application/json
-    
-    + Body 
-    
-            {
-            }
-
-+ Response 200 (application/json)
-
-            {
-                "matches": [
-                    {
-                        "goals": {
-                            "local": [], 
-                            "visitor": []
-                        }, 
-                        "id": 47654, 
-                        "local": {
-                            "globalGoals": 0, 
-                            "globalPenalties": 0, 
-                            "goals": 0, 
-                            "id": 360, 
-                            "logoUrl": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/3/360/360_80x80.png", 
-                            "name": "Leones Negros de la Universidad de Guadalajara", 
-                            "penalties": 0
-                        }, 
-                        "stadium": {
-                            "address": "Guadalajara, Jalisco 7 Colinas No. 1772, Col. Independencia, C.P. 44290, Guadalajara, Jalisco.", 
-                            "country": "M?xico", 
-                            "id": 2, 
-                            "lat": 20.70487021209245, 
-                            "lng": -103.3280487527963
-                        }, 
-                        "timestamp": "2013-07-24T21:00:00.000-05:00", 
-                        "visitor": {
-                            "globalGoals": 0, 
-                            "globalPenalties": 0, 
-                            "goals": 0, 
-                            "id": 40, 
-                            "logoUrl": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/4/444/40_80x80.png", 
-                            "name": "Pumas de la UNAM", 
-                            "penalties": 0
-                        }
-                    }
-                ]
-            }
 
 ## Group Timeline
 <a id="timeline" ></a>
