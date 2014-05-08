@@ -361,10 +361,11 @@ The request has the following parameters:
 
 ## Match profile [/v1/matches/${matchId}/profile{?count}]
 
-### GET This resource gets the profile of specified match, this includes recent activity, medias, general data and others.
+### GET 
+This resource gets the profile of specified match, this includes recent activity, medias, general data and others.
 
-- **id** The user id
-- **count** Max number of elements, by default 3
+- **matchId** The match id
+- **count** Max number of elements of recent activity and media, by default 3
 
 `Please use your MTSocial API account credentials for API calls.`
 
@@ -377,34 +378,316 @@ The request has the following parameters:
 + Response 200 (application/json)
 
             {
-                "matches": [
+                "followers": 0,
+                "following": 0,
+                "match": {
+                    "commentCount": 3,
+                    "follow": false,
+                    "followCount": 0,
+                    "goals": {
+                        "local": [],
+                        "visitor": []
+                    },
+                    "id": 53461,
+                    "local": {
+                        "avatarUrl": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/3/333/30_80x80.png",
+                        "globalGoals": 0,
+                        "globalPenalties": 0,
+                        "goals": 0,
+                        "id": 30,
+                        "name": "Estudiantes de Tecos",
+                        "penalties": 0,
+                        "shortName": "Estudiantes"
+                    },
+                    "stadium": {
+                        "address": "Zapopan, Jalisco Av. Patria No. 1201, Col. Lomas del Valle, C.P. 45110, Zapopan, Jalisco.",
+                        "country": "M?xico",
+                        "id": 5
+                    },
+                    "timestamp": "2014-05-07T21:00:00.000-05:00",
+                    "visitor": {
+                        "avatarUrl": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/3/360/360_80x80.png",
+                        "globalGoals": 0,
+                        "globalPenalties": 0,
+                        "goals": 0,
+                        "id": 360,
+                        "name": "Leones Negros de la Universidad de Guadalajara",
+                        "penalties": 0,
+                        "shortName": "Leones Negros"
+                    }
+                },
+                "media": [
                     {
-                        "id": 53311, 
-                        "local": {
-                            "id": 0, 
-                            "name": "Por Definir"
-                        }, 
-                        "timestamp": "2014-04-16T00:00:00.000-05:00", 
-                        "visitor": {
-                            "id": 0, 
-                            "name": "Por Definir"
-                        }
-                    }, 
+                        "baseUrl": "https://mtfan-dev.s3.amazonaws.com/cf87cf5f-ad1b-4c3b-8128-1447e3b128f2-test2.png",
+                        "dateCreated": "2014-05-07T17:28:16.336-05:00",
+                        "id": "e72ef714-f369-466c-b012-ffcc0095b2a3",
+                        "images": {
+                            "base": "https://mtfan-dev.s3.amazonaws.com/cf87cf5f-ad1b-4c3b-8128-1447e3b128f2-test2-",
+                            "resized": [
+                                {
+                                    "size": {
+                                        "h": 360,
+                                        "w": 480
+                                    },
+                                    "suffix": "480x360.jpg"
+                                },
+                                {
+                                    "size": {
+                                        "h": 180,
+                                        "w": 240
+                                    },
+                                    "suffix": "240x180.jpg"
+                                },
+                                {
+                                    "size": {
+                                        "h": 720,
+                                        "w": 960
+                                    },
+                                    "suffix": "960x720.jpg"
+                                }
+                            ],
+                            "thumbnails": [
+                                {
+                                    "size": 300,
+                                    "suffix": "thumb-300.jpg"
+                                }
+                            ]
+                        },
+                        "originalFilename": "test2.png",
+                        "type": "photo"
+                    },
                     {
-                        "id": 49481, 
-                        "local": {
-                            "id": 205, 
-                            "name": "Athletic de Bilbao"
-                        }, 
-                        "timestamp": "2014-04-14T15:00:00.000-05:00", 
-                        "visitor": {
-                            "id": 204, 
-                            "name": "M?laga"
-                        }
+                        "baseUrl": "https://mtfan-dev.s3.amazonaws.com/816465da-4e24-4595-a3a7-b8901780ca70-test2.png",
+                        "dateCreated": "2014-05-07T17:29:22.414-05:00",
+                        "id": "fac8ef14-d47f-4fc0-a872-e758a3e3cb62",
+                        "images": {
+                            "base": "https://mtfan-dev.s3.amazonaws.com/816465da-4e24-4595-a3a7-b8901780ca70-test2-",
+                            "resized": [
+                                {
+                                    "size": {
+                                        "h": 180,
+                                        "w": 240
+                                    },
+                                    "suffix": "240x180.jpg"
+                                },
+                                {
+                                    "size": {
+                                        "h": 720,
+                                        "w": 960
+                                    },
+                                    "suffix": "960x720.jpg"
+                                },
+                                {
+                                    "size": {
+                                        "h": 360,
+                                        "w": 480
+                                    },
+                                    "suffix": "480x360.jpg"
+                                }
+                            ],
+                            "thumbnails": [
+                                {
+                                    "size": 300,
+                                    "suffix": "thumb-300.jpg"
+                                }
+                            ]
+                        },
+                        "originalFilename": "test2.png",
+                        "type": "photo"
+                    }
+                ],
+                "recentActivity": [
+                    {
+                        "like": false,
+                        "post": {
+                            "checkin": null,
+                            "comment": "doggy",
+                            "follow": null,
+                            "id": "5ef27c38-78e2-4593-8782-2e03098e79b4",
+                            "like": null,
+                            "media": [
+                                {
+                                    "filename": "221ce641-efd7-48c9-a344-e178a396ab1c-test2.png",
+                                    "mimeType": "image/png",
+                                    "originalFilename": "test2.png",
+                                    "processedImages": {
+                                        "baseUrl": "https://mtfan-dev.s3.amazonaws.com/221ce641-efd7-48c9-a344-e178a396ab1c-test2-",
+                                        "images": {
+                                            "resized": [
+                                                {
+                                                    "size": {
+                                                        "h": 720,
+                                                        "w": 960
+                                                    },
+                                                    "suffix": "960x720.jpg"
+                                                },
+                                                {
+                                                    "size": {
+                                                        "h": 360,
+                                                        "w": 480
+                                                    },
+                                                    "suffix": "480x360.jpg"
+                                                },
+                                                {
+                                                    "size": {
+                                                        "h": 180,
+                                                        "w": 240
+                                                    },
+                                                    "suffix": "240x180.jpg"
+                                                }
+                                            ],
+                                            "thumbnails": [
+                                                {
+                                                    "size": 300,
+                                                    "suffix": "thumb-300.jpg"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "url": "https://mtfan-dev.s3.amazonaws.com/221ce641-efd7-48c9-a344-e178a396ab1c-test2.png",
+                                    "uuid": "221ce641-efd7-48c9-a344-e178a396ab1c"
+                                }
+                            ],
+                            "parentId": null,
+                            "publisher": {
+                                "avatarUrl": null,
+                                "id": "98b84a8d-d108-4948-8608-ef667aca788b",
+                                "name": "Domingo Suarez Torres",
+                                "type": "person"
+                            },
+                            "sharedId": null,
+                            "timestamp": "2014-05-08T12:27:12.940-05:00"
+                        },
+                        "related": []
+                    },
+                    {
+                        "like": false,
+                        "post": {
+                            "checkin": null,
+                            "comment": null,
+                            "follow": null,
+                            "id": "38eafb2f-f547-42eb-be91-acd2d3cd81c4",
+                            "like": null,
+                            "media": [
+                                {
+                                    "filename": "6f060cb7-f872-475c-9bd7-f60e2aaef55f-test2.png",
+                                    "mimeType": "image/png",
+                                    "originalFilename": "test2.png",
+                                    "processedImages": {
+                                        "baseUrl": "https://mtfan-dev.s3.amazonaws.com/6f060cb7-f872-475c-9bd7-f60e2aaef55f-test2-",
+                                        "images": {
+                                            "resized": [
+                                                {
+                                                    "size": {
+                                                        "h": 720,
+                                                        "w": 960
+                                                    },
+                                                    "suffix": "960x720.jpg"
+                                                },
+                                                {
+                                                    "size": {
+                                                        "h": 360,
+                                                        "w": 480
+                                                    },
+                                                    "suffix": "480x360.jpg"
+                                                },
+                                                {
+                                                    "size": {
+                                                        "h": 180,
+                                                        "w": 240
+                                                    },
+                                                    "suffix": "240x180.jpg"
+                                                }
+                                            ],
+                                            "thumbnails": [
+                                                {
+                                                    "size": 300,
+                                                    "suffix": "thumb-300.jpg"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "url": "https://mtfan-dev.s3.amazonaws.com/6f060cb7-f872-475c-9bd7-f60e2aaef55f-test2.png",
+                                    "uuid": "6f060cb7-f872-475c-9bd7-f60e2aaef55f"
+                                }
+                            ],
+                            "parentId": null,
+                            "publisher": {
+                                "avatarUrl": null,
+                                "id": "98b84a8d-d108-4948-8608-ef667aca788b",
+                                "name": "Domingo Suarez Torres",
+                                "type": "person"
+                            },
+                            "sharedId": null,
+                            "timestamp": "2014-05-08T12:15:37.855-05:00"
+                        },
+                        "related": []
+                    },
+                    {
+                        "like": false,
+                        "post": {
+                            "checkin": null,
+                            "comment": "hola mundo cruel",
+                            "follow": null,
+                            "id": "af061426-604f-4b25-b9c3-1a3665d836c6",
+                            "like": null,
+                            "media": [
+                                {
+                                    "filename": "816465da-4e24-4595-a3a7-b8901780ca70-test2.png",
+                                    "mimeType": "image/png",
+                                    "originalFilename": "test2.png",
+                                    "processedImages": {
+                                        "baseUrl": "https://mtfan-dev.s3.amazonaws.com/816465da-4e24-4595-a3a7-b8901780ca70-test2-",
+                                        "images": {
+                                            "resized": [
+                                                {
+                                                    "size": {
+                                                        "h": 720,
+                                                        "w": 960
+                                                    },
+                                                    "suffix": "960x720.jpg"
+                                                },
+                                                {
+                                                    "size": {
+                                                        "h": 360,
+                                                        "w": 480
+                                                    },
+                                                    "suffix": "480x360.jpg"
+                                                },
+                                                {
+                                                    "size": {
+                                                        "h": 180,
+                                                        "w": 240
+                                                    },
+                                                    "suffix": "240x180.jpg"
+                                                }
+                                            ],
+                                            "thumbnails": [
+                                                {
+                                                    "size": 300,
+                                                    "suffix": "thumb-300.jpg"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "url": "https://mtfan-dev.s3.amazonaws.com/816465da-4e24-4595-a3a7-b8901780ca70-test2.png",
+                                    "uuid": "816465da-4e24-4595-a3a7-b8901780ca70"
+                                }
+                            ],
+                            "parentId": null,
+                            "publisher": {
+                                "avatarUrl": null,
+                                "id": "98b84a8d-d108-4948-8608-ef667aca788b",
+                                "name": "Domingo Suarez Torres",
+                                "type": "person"
+                            },
+                            "sharedId": null,
+                            "timestamp": "2014-05-07T17:29:22.333-05:00"
+                        },
+                        "related": []
                     }
                 ]
             }
-
 
 
 ## List of previous matches [/v1/matches/previous]
