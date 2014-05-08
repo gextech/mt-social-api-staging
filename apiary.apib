@@ -355,6 +355,76 @@ The request has the following parameters:
                 }
             ]
 
+# Group Teams
+
+
+## Team profile [/v1/teams/${teamId}/profile{?count}]
+
+### GET 
+This resource gets the profile of specified team, this includes recent activity, medias, general data and others.
+
+- **teamId** The team id
+- **count** Max number of elements of recent activity and media, by default 3
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request
+
+    + Headers
+    
+            X-Auth-Token: {token}
+
++ Response 200 (application/json)
+
+            {
+                "followers": 0,
+                "following": 0,
+                "media": [
+                    {
+                        "baseUrl": "https://mtfan-dev.s3.amazonaws.com/ff86c4d3-55f0-4e21-8aaf-34ef32d93d7c-oswin.jpg",
+                        "dateCreated": "2014-04-22T16:10:24.786-05:00",
+                        "id": "b8975f92-d569-4bcb-b4ec-c266ef2e1a17",
+                        "images": {
+                            "base": "https://mtfan-dev.s3.amazonaws.com/ff86c4d3-55f0-4e21-8aaf-34ef32d93d7c-oswin-",
+                            "resized": [
+                                {
+                                    "size": {
+                                        "h": 180,
+                                        "w": 240
+                                    },
+                                    "suffix": "240x180.jpg"
+                                },
+                                {
+                                    "size": {
+                                        "h": 360,
+                                        "w": 480
+                                    },
+                                    "suffix": "480x360.jpg"
+                                }
+                            ],
+                            "thumbnails": [
+                                {
+                                    "size": 300,
+                                    "suffix": "thumb-300.jpg"
+                                }
+                            ]
+                        },
+                        "originalFilename": "oswin.jpg",
+                        "type": "photo"
+                    }
+                ],
+                "recentActivity": [],
+                "team": {
+                    "avatarUrl": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/1/111/1_80x80.png",
+                    "commentCount": 0,
+                    "follow": false,
+                    "followCount": 0,
+                    "id": 1,
+                    "name": "Cruz Azul",
+                    "shortName": "Cruz Azul"
+                }
+            }
+
 
 # Group Matches
 
