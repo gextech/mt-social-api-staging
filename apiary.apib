@@ -746,6 +746,26 @@ This resource gets the list of previous matches
             }
 
 
+## Match media [/v1/matches/${matchId}/media{?offset,max}]
+
+### GET 
+This resource gets the profile of specified match, this includes recent activity, medias, general data and others.
+
+- **matchId** The match id
+- **count** Max number of elements of recent activity and media, by default 3
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request
+
+    + Headers
+    
+            X-Auth-Token: {token}
+
++ Response 200 (application/json)
+
+
+
 ## List of present matches [/v1/matches/present]
 
 ### GET
