@@ -426,6 +426,107 @@ This resource gets the profile of specified team, this includes recent activity,
             }
 
 
+
+## Team media [/v1/teams/${teamId}/media{?offset,max}]
+
+### GET 
+This resource gets the medias of specified team (photos)
+
+- **matchId** The team id
+- **offset** From with element, by default is is 0 (no offset)
+- **max** Max number of elements, by default 10
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request
+
+    + Headers
+    
+            X-Auth-Token: {token}
+
++ Response 200 (application/json)
+
+            [
+                {
+                    "baseUrl": "https://mtfan-dev.s3.amazonaws.com/cf87cf5f-ad1b-4c3b-8128-1447e3b128f2-test2.png",
+                    "dateCreated": "2014-05-07T17:28:16.336-05:00",
+                    "id": "e72ef714-f369-466c-b012-ffcc0095b2a3",
+                    "images": {
+                        "base": "https://mtfan-dev.s3.amazonaws.com/cf87cf5f-ad1b-4c3b-8128-1447e3b128f2-test2-",
+                        "resized": [
+                            {
+                                "size": {
+                                    "h": 720,
+                                    "w": 960
+                                },
+                                "suffix": "960x720.jpg"
+                            },
+                            {
+                                "size": {
+                                    "h": 360,
+                                    "w": 480
+                                },
+                                "suffix": "480x360.jpg"
+                            },
+                            {
+                                "size": {
+                                    "h": 180,
+                                    "w": 240
+                                },
+                                "suffix": "240x180.jpg"
+                            }
+                        ],
+                        "thumbnails": [
+                            {
+                                "size": 300,
+                                "suffix": "thumb-300.jpg"
+                            }
+                        ]
+                    },
+                    "originalFilename": "test2.png",
+                    "type": "photo"
+                },
+                {
+                    "baseUrl": "https://mtfan-dev.s3.amazonaws.com/816465da-4e24-4595-a3a7-b8901780ca70-test2.png",
+                    "dateCreated": "2014-05-07T17:29:22.414-05:00",
+                    "id": "fac8ef14-d47f-4fc0-a872-e758a3e3cb62",
+                    "images": {
+                        "base": "https://mtfan-dev.s3.amazonaws.com/816465da-4e24-4595-a3a7-b8901780ca70-test2-",
+                        "resized": [
+                            {
+                                "size": {
+                                    "h": 720,
+                                    "w": 960
+                                },
+                                "suffix": "960x720.jpg"
+                            },
+                            {
+                                "size": {
+                                    "h": 360,
+                                    "w": 480
+                                },
+                                "suffix": "480x360.jpg"
+                            },
+                            {
+                                "size": {
+                                    "h": 180,
+                                    "w": 240
+                                },
+                                "suffix": "240x180.jpg"
+                            }
+                        ],
+                        "thumbnails": [
+                            {
+                                "size": 300,
+                                "suffix": "thumb-300.jpg"
+                            }
+                        ]
+                    },
+                    "originalFilename": "test2.png",
+                    "type": "photo"
+                }
+            ]
+            
 ## Team calendar per year [/v1/teams/${teamId}/calendar/${year}]
 
 ### GET
