@@ -1716,7 +1716,6 @@ The request has the following parameters:
             "timestamp": "2014-04-07T10:02:21.129-05:00"
         }
 
-
 ## List all timeline activity published to an actor [/v1/timeline/{actorType}/{actorId}/{?offset,max}]
 
 ### You can list all activity of current user, by default returns 10 elements [GET]
@@ -1857,7 +1856,75 @@ The request has the following parameters:
                 "related": []
             }
         ]
-        
+
+
+## List all timeline activity around a certain post [/v1/timeline/post/{postId}/{?max,offset}]
+
+### Return last 10 timeline activity by default  [GET]
+
+- **postId** The id of the post around we are interested
+- **max** Max number of elements, by default 10
+- **offset** Initial offset, by default 0
+
++ Request
+
+    + Headers
+    
+            X-Auth-Token: {token}
+
+
++ Response 200 (application/json)
+
+            [
+                {
+                    "commentCount": 0,
+                    "like": false,
+                    "likeCount": 0,
+                    "post": {
+                        "checkin": null,
+                        "comment": "Uno dos tres cuatro",
+                        "follow": null,
+                        "id": "aa227fdd-19a4-46bd-ab3f-4ed7fb4073c1",
+                        "like": null,
+                        "media": null,
+                        "parentId": "072a4a72-f996-4212-ba30-a4ef346d3a02",
+                        "publisher": {
+                            "avatarUrl": null,
+                            "id": "98b84a8d-d108-4948-8608-ef667aca788b",
+                            "name": "Domingo Suarez Torres",
+                            "type": "person"
+                        },
+                        "sharedId": null,
+                        "timestamp": "2014-05-12T10:08:00.671-05:00"
+                    },
+                    "related": []
+                },
+                {
+                    "commentCount": 0,
+                    "like": false,
+                    "likeCount": 0,
+                    "post": {
+                        "checkin": null,
+                        "comment": "Uno dos tres",
+                        "follow": null,
+                        "id": "2efcda5d-ca1c-484e-a266-5411dba7c777",
+                        "like": null,
+                        "media": null,
+                        "parentId": "072a4a72-f996-4212-ba30-a4ef346d3a02",
+                        "publisher": {
+                            "avatarUrl": null,
+                            "id": "98b84a8d-d108-4948-8608-ef667aca788b",
+                            "name": "Domingo Suarez Torres",
+                            "type": "person"
+                        },
+                        "sharedId": null,
+                        "timestamp": "2014-05-12T10:07:43.613-05:00"
+                    },
+                    "related": []
+                }
+            ]
+
+
 
 ## List all timeline activity of current user [/v1/timeline{?offset,max}]
 
@@ -2140,7 +2207,7 @@ The request has the following parameters:
             }
         ]
 
-## List timeline activity around a certain post [/v1/timeline/post/{postId}/{?max,offset}]
+
 
 
 
