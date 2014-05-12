@@ -414,15 +414,13 @@ This resource gets the profile of specified team, this includes recent activity,
                     }
                 ],
                 "recentActivity": [],
-                "team": {
-                    "avatarUrl": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/1/111/1_80x80.png",
-                    "commentCount": 0,
-                    "follow": false,
-                    "followCount": 0,
-                    "id": 1,
-                    "name": "Cruz Azul",
-                    "shortName": "Cruz Azul"
-                }
+                "avatarUrl": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/1/111/1_80x80.png",
+                "commentCount": 0,
+                "follow": false,
+                "followCount": 0,
+                "id": 1,
+                "name": "Cruz Azul",
+                "shortName": "Cruz Azul"
             }
 
 
@@ -701,7 +699,6 @@ This resource gets the profile of specified match, this includes recent activity
             {
                 "followers": 0,
                 "following": 0,
-                "match": {
                     "commentCount": 3,
                     "follow": false,
                     "followCount": 0,
@@ -709,34 +706,33 @@ This resource gets the profile of specified match, this includes recent activity
                         "local": [],
                         "visitor": []
                     },
-                    "id": 53461,
-                    "local": {
-                        "avatarUrl": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/3/333/30_80x80.png",
-                        "globalGoals": 0,
-                        "globalPenalties": 0,
-                        "goals": 0,
-                        "id": 30,
-                        "name": "Estudiantes de Tecos",
-                        "penalties": 0,
-                        "shortName": "Estudiantes"
-                    },
-                    "stadium": {
-                        "address": "Zapopan, Jalisco Av. Patria No. 1201, Col. Lomas del Valle, C.P. 45110, Zapopan, Jalisco.",
-                        "country": "M?xico",
-                        "id": 5
-                    },
-                    "timestamp": "2014-05-07T21:00:00.000-05:00",
-                    "visitor": {
-                        "avatarUrl": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/3/360/360_80x80.png",
-                        "globalGoals": 0,
-                        "globalPenalties": 0,
-                        "goals": 0,
-                        "id": 360,
-                        "name": "Leones Negros de la Universidad de Guadalajara",
-                        "penalties": 0,
-                        "shortName": "Leones Negros"
-                    }
+                "id": 53461,
+                "local": {
+                    "avatarUrl": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/3/333/30_80x80.png",
+                    "globalGoals": 0,
+                    "globalPenalties": 0,
+                    "goals": 0,
+                    "id": 30,
+                    "name": "Estudiantes de Tecos",
+                    "penalties": 0,
+                    "shortName": "Estudiantes"
                 },
+                "stadium": {
+                    "address": "Zapopan, Jalisco Av. Patria No. 1201, Col. Lomas del Valle, C.P. 45110, Zapopan, Jalisco.",
+                    "country": "M?xico",
+                    "id": 5
+                },
+                "timestamp": "2014-05-07T21:00:00.000-05:00",
+                "visitor": {
+                    "avatarUrl": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/3/360/360_80x80.png",
+                    "globalGoals": 0,
+                    "globalPenalties": 0,
+                    "goals": 0,
+                    "id": 360,
+                    "name": "Leones Negros de la Universidad de Guadalajara",
+                    "penalties": 0,
+                    "shortName": "Leones Negros"
+                }
                 "media": [
                     {
                         "baseUrl": "https://mtfan-dev.s3.amazonaws.com/cf87cf5f-ad1b-4c3b-8128-1447e3b128f2-test2.png",
@@ -2304,159 +2300,82 @@ The request has the following parameters:
             
 + Response 200 (application/json)
 
-        {
-            "followers": [], 
-            "following": [], 
-            "media": [
-                {
-                    "dateCreated": "2014-04-07T16:27:43.283-05:00", 
-                    "id": "a079507c-2ba4-4574-89af-3982f52effb1", 
-                    "images": {
-                        "base": "https://mtfan-dev.s3.amazonaws.com/a68c73fc-86b0-4e39-a035-46c97051fc94-dw-", 
-                        "resized": [
-                            {
-                                "prefix": "240x180.jpg", 
-                                "size": {
-                                    "h": 180, 
-                                    "w": 240
-                                }
-                            }
-                        ], 
-                        "thumbnails": [
-                            {
-                                "prefix": "thumb-300.jpg", 
-                                "size": 300
-                            }
-                        ]
-                    }, 
-                    "originalFilename": "dw.jpg", 
-                    "type": "photo", 
-                    "url": "https://mtfan-dev.s3.amazonaws.com/a68c73fc-86b0-4e39-a035-46c97051fc94-dw.jpg"
-                }, 
-                {
-                    "dateCreated": "2014-04-07T16:27:43.251-05:00", 
-                    "id": "e3d9d691-cefa-4790-b553-fae842b9f0c3", 
-                    "images": {
-                        "base": "https://mtfan-dev.s3.amazonaws.com/b9a4052b-182b-4c2f-af7c-f35984f79a39-oswin-", 
-                        "resized": [
-                            {
-                                "prefix": "480x360.jpg", 
-                                "size": {
-                                    "h": 360, 
-                                    "w": 480
-                                }
-                            }, 
-                            {
-                                "prefix": "240x180.jpg", 
-                                "size": {
-                                    "h": 180, 
-                                    "w": 240
-                                }
-                            }
-                        ], 
-                        "thumbnails": [
-                            {
-                                "prefix": "thumb-300.jpg", 
-                                "size": 300
-                            }
-                        ]
-                    }, 
-                    "originalFilename": "oswin.jpg", 
-                    "type": "photo", 
-                    "url": "https://mtfan-dev.s3.amazonaws.com/b9a4052b-182b-4c2f-af7c-f35984f79a39-oswin.jpg"
-                }
-            ], 
-            "person": {
-                "birthdate": null, 
-                "gender": null, 
-                "name": "Test"
-            }, 
-            "recentActivity": [
-                {
-                    "like": false, 
-                    "post": {
-                        "checkin": null, 
-                        "comment": "A mi me gusta trix de nestle", 
-                        "follow": null, 
-                        "id": "f0f29647-6d3d-49f6-87e6-c4d533c414e8", 
-                        "like": null, 
-                        "media": [
-                            {
-                                "filename": "b9a4052b-182b-4c2f-af7c-f35984f79a39-oswin.jpg", 
-                                "mimeType": "image/jpeg", 
-                                "originalFilename": "oswin.jpg", 
-                                "processedImages": {
-                                    "baseUrl": "https://mtfan-dev.s3.amazonaws.com/b9a4052b-182b-4c2f-af7c-f35984f79a39-oswin-", 
-                                    "images": {
-                                        "resized": [
-                                            {
-                                                "size": {
-                                                    "h": 360, 
-                                                    "w": 480
-                                                }, 
-                                                "suffix": "480x360.jpg"
-                                            }, 
-                                            {
-                                                "size": {
-                                                    "h": 180, 
-                                                    "w": 240
-                                                }, 
-                                                "suffix": "240x180.jpg"
-                                            }
-                                        ], 
-                                        "thumbnails": [
-                                            {
-                                                "size": 300, 
-                                                "suffix": "thumb-300.jpg"
-                                            }
-                                        ]
+            {
+                "avatarUrl": null,
+                "birthdate": null,
+                "email": "dsuarez@expansion.com.mx",
+                "followers": 0,
+                "following": 3,
+                "gender": null,
+                "id": "a83e4b7e-a8f9-4b8f-8f53-ffd453f41f4a",
+                "name": "Domingo Suarez Torres",
+                "media": [
+                    {
+                        "dateCreated": "2014-04-07T16:27:43.283-05:00",
+                        "id": "a079507c-2ba4-4574-89af-3982f52effb1",
+                        "images": {
+                            "base": "https://mtfan-dev.s3.amazonaws.com/a68c73fc-86b0-4e39-a035-46c97051fc94-dw-",
+                            "resized": [
+                                {
+                                    "prefix": "240x180.jpg",
+                                    "size": {
+                                        "h": 180,
+                                        "w": 240
                                     }
-                                }, 
-                                "url": "https://mtfan-dev.s3.amazonaws.com/b9a4052b-182b-4c2f-af7c-f35984f79a39-oswin.jpg", 
-                                "uuid": "b9a4052b-182b-4c2f-af7c-f35984f79a39"
-                            }, 
-                            {
-                                "filename": "a68c73fc-86b0-4e39-a035-46c97051fc94-dw.jpg", 
-                                "mimeType": "image/jpeg", 
-                                "originalFilename": "dw.jpg", 
-                                "processedImages": {
-                                    "baseUrl": "https://mtfan-dev.s3.amazonaws.com/a68c73fc-86b0-4e39-a035-46c97051fc94-dw-", 
-                                    "images": {
-                                        "resized": [
-                                            {
-                                                "size": {
-                                                    "h": 180, 
-                                                    "w": 240
-                                                }, 
-                                                "suffix": "240x180.jpg"
-                                            }
-                                        ], 
-                                        "thumbnails": [
-                                            {
-                                                "size": 300, 
-                                                "suffix": "thumb-300.jpg"
-                                            }
-                                        ]
-                                    }
-                                }, 
-                                "url": "https://mtfan-dev.s3.amazonaws.com/a68c73fc-86b0-4e39-a035-46c97051fc94-dw.jpg", 
-                                "uuid": "a68c73fc-86b0-4e39-a035-46c97051fc94"
-                            }
-                        ], 
-                        "parentId": null, 
-                        "publisher": {
-                            "avatarUrl": null, 
-                            "id": "fb1beaac-0933-4c87-a877-ab6f96a6ac96", 
-                            "type": "person"
-                        }, 
-                        "sharedId": null, 
-                        "timestamp": "2014-04-07T16:27:42.929-05:00"
-                    }, 
-                    "related": []
-                }
-            ]
-        }
-        
+                                }
+                            ],
+                            "thumbnails": [
+                                {
+                                    "prefix": "thumb-300.jpg",
+                                    "size": 300
+                                }
+                            ]
+                        },
+                        "originalFilename": "dw.jpg",
+                        "type": "photo",
+                        "url": "https://mtfan-dev.s3.amazonaws.com/a68c73fc-86b0-4e39-a035-46c97051fc94-dw.jpg"
+                    }
+                ],
+                "recentActivity": [
+                    {
+                        "commentCount": 0,
+                        "like": false,
+                        "likeCount": 0,
+                        "post": {
+                            "checkin": null,
+                            "comment": null,
+                            "follow": {
+                                "follower": {
+                                    "avatarUrl": null,
+                                    "id": "a83e4b7e-a8f9-4b8f-8f53-ffd453f41f4a",
+                                    "name": "Domingo Suarez Torres",
+                                    "type": "person"
+                                },
+                                "following": {
+                                    "avatarUrl": null,
+                                    "id": "cf998469-28d2-4ee4-b1d7-7e2742e59648",
+                                    "name": "Medio Tiempo",
+                                    "type": "person"
+                                }
+                            },
+                            "id": "c9b9ffbb-2acb-4eb9-be79-1d2abf2bb7c7",
+                            "like": null,
+                            "media": null,
+                            "parentId": null,
+                            "publisher": {
+                                "avatarUrl": null,
+                                "id": "19b4056d-d23d-4eef-b4cd-37a055b2783c",
+                                "name": "Domingo Suarez Torres",
+                                "type": "person"
+                            },
+                            "sharedId": null,
+                            "timestamp": "2014-04-30T15:41:06.692-05:00"
+                        },
+                        "related": []
+                    }
+                ]
+            }
+
 ## Show specific user's latest media [/v1/people/{id}/media{?max,offset}]
 
 ### Return last 10 pictures by default (paginated service) [GET]
@@ -2550,159 +2469,83 @@ The request has the following parameters:
             
 + Response 200 (application/json)
 
-        {
-            "followers": [], 
-            "following": [], 
-            "media": [
-                {
-                    "dateCreated": "2014-04-07T16:27:43.283-05:00", 
-                    "id": "a079507c-2ba4-4574-89af-3982f52effb1", 
-                    "images": {
-                        "base": "https://mtfan-dev.s3.amazonaws.com/a68c73fc-86b0-4e39-a035-46c97051fc94-dw-", 
-                        "resized": [
-                            {
-                                "prefix": "240x180.jpg", 
-                                "size": {
-                                    "h": 180, 
-                                    "w": 240
-                                }
-                            }
-                        ], 
-                        "thumbnails": [
-                            {
-                                "prefix": "thumb-300.jpg", 
-                                "size": 300
-                            }
-                        ]
-                    }, 
-                    "originalFilename": "dw.jpg", 
-                    "type": "photo", 
-                    "url": "https://mtfan-dev.s3.amazonaws.com/a68c73fc-86b0-4e39-a035-46c97051fc94-dw.jpg"
-                }, 
-                {
-                    "dateCreated": "2014-04-07T16:27:43.251-05:00", 
-                    "id": "e3d9d691-cefa-4790-b553-fae842b9f0c3", 
-                    "images": {
-                        "base": "https://mtfan-dev.s3.amazonaws.com/b9a4052b-182b-4c2f-af7c-f35984f79a39-oswin-", 
-                        "resized": [
-                            {
-                                "prefix": "480x360.jpg", 
-                                "size": {
-                                    "h": 360, 
-                                    "w": 480
-                                }
-                            }, 
-                            {
-                                "prefix": "240x180.jpg", 
-                                "size": {
-                                    "h": 180, 
-                                    "w": 240
-                                }
-                            }
-                        ], 
-                        "thumbnails": [
-                            {
-                                "prefix": "thumb-300.jpg", 
-                                "size": 300
-                            }
-                        ]
-                    }, 
-                    "originalFilename": "oswin.jpg", 
-                    "type": "photo", 
-                    "url": "https://mtfan-dev.s3.amazonaws.com/b9a4052b-182b-4c2f-af7c-f35984f79a39-oswin.jpg"
-                }
-            ], 
-            "person": {
-                "birthdate": null, 
-                "gender": null, 
-                "name": "Test"
-            }, 
-            "recentActivity": [
-                {
-                    "like": false, 
-                    "post": {
-                        "checkin": null, 
-                        "comment": "A mi me gusta trix de nestle", 
-                        "follow": null, 
-                        "id": "f0f29647-6d3d-49f6-87e6-c4d533c414e8", 
-                        "like": null, 
-                        "media": [
-                            {
-                                "filename": "b9a4052b-182b-4c2f-af7c-f35984f79a39-oswin.jpg", 
-                                "mimeType": "image/jpeg", 
-                                "originalFilename": "oswin.jpg", 
-                                "processedImages": {
-                                    "baseUrl": "https://mtfan-dev.s3.amazonaws.com/b9a4052b-182b-4c2f-af7c-f35984f79a39-oswin-", 
-                                    "images": {
-                                        "resized": [
-                                            {
-                                                "size": {
-                                                    "h": 360, 
-                                                    "w": 480
-                                                }, 
-                                                "suffix": "480x360.jpg"
-                                            }, 
-                                            {
-                                                "size": {
-                                                    "h": 180, 
-                                                    "w": 240
-                                                }, 
-                                                "suffix": "240x180.jpg"
-                                            }
-                                        ], 
-                                        "thumbnails": [
-                                            {
-                                                "size": 300, 
-                                                "suffix": "thumb-300.jpg"
-                                            }
-                                        ]
+            {
+                "avatarUrl": null,
+                "birthdate": null,
+                "email": "dsuarez@expansion.com.mx",
+                "followers": 0,
+                "following": 3,
+                "gender": null,
+                "id": "a83e4b7e-a8f9-4b8f-8f53-ffd453f41f4a",
+                "name": "Domingo Suarez Torres",
+                "media": [
+                    {
+                        "dateCreated": "2014-04-07T16:27:43.283-05:00",
+                        "id": "a079507c-2ba4-4574-89af-3982f52effb1",
+                        "images": {
+                            "base": "https://mtfan-dev.s3.amazonaws.com/a68c73fc-86b0-4e39-a035-46c97051fc94-dw-",
+                            "resized": [
+                                {
+                                    "prefix": "240x180.jpg",
+                                    "size": {
+                                        "h": 180,
+                                        "w": 240
                                     }
-                                }, 
-                                "url": "https://mtfan-dev.s3.amazonaws.com/b9a4052b-182b-4c2f-af7c-f35984f79a39-oswin.jpg", 
-                                "uuid": "b9a4052b-182b-4c2f-af7c-f35984f79a39"
-                            }, 
-                            {
-                                "filename": "a68c73fc-86b0-4e39-a035-46c97051fc94-dw.jpg", 
-                                "mimeType": "image/jpeg", 
-                                "originalFilename": "dw.jpg", 
-                                "processedImages": {
-                                    "baseUrl": "https://mtfan-dev.s3.amazonaws.com/a68c73fc-86b0-4e39-a035-46c97051fc94-dw-", 
-                                    "images": {
-                                        "resized": [
-                                            {
-                                                "size": {
-                                                    "h": 180, 
-                                                    "w": 240
-                                                }, 
-                                                "suffix": "240x180.jpg"
-                                            }
-                                        ], 
-                                        "thumbnails": [
-                                            {
-                                                "size": 300, 
-                                                "suffix": "thumb-300.jpg"
-                                            }
-                                        ]
-                                    }
-                                }, 
-                                "url": "https://mtfan-dev.s3.amazonaws.com/a68c73fc-86b0-4e39-a035-46c97051fc94-dw.jpg", 
-                                "uuid": "a68c73fc-86b0-4e39-a035-46c97051fc94"
-                            }
-                        ], 
-                        "parentId": null, 
-                        "publisher": {
-                            "avatarUrl": null, 
-                            "id": "fb1beaac-0933-4c87-a877-ab6f96a6ac96", 
-                            "type": "person"
-                        }, 
-                        "sharedId": null, 
-                        "timestamp": "2014-04-07T16:27:42.929-05:00"
-                    }, 
-                    "related": []
-                }
-            ]
-        }
-      
+                                }
+                            ],
+                            "thumbnails": [
+                                {
+                                    "prefix": "thumb-300.jpg",
+                                    "size": 300
+                                }
+                            ]
+                        },
+                        "originalFilename": "dw.jpg",
+                        "type": "photo",
+                        "url": "https://mtfan-dev.s3.amazonaws.com/a68c73fc-86b0-4e39-a035-46c97051fc94-dw.jpg"
+                    }
+                ],
+                "recentActivity": [
+                    {
+                        "commentCount": 0,
+                        "like": false,
+                        "likeCount": 0,
+                        "post": {
+                            "checkin": null,
+                            "comment": null,
+                            "follow": {
+                                "follower": {
+                                    "avatarUrl": null,
+                                    "id": "a83e4b7e-a8f9-4b8f-8f53-ffd453f41f4a",
+                                    "name": "Domingo Suarez Torres",
+                                    "type": "person"
+                                },
+                                "following": {
+                                    "avatarUrl": null,
+                                    "id": "cf998469-28d2-4ee4-b1d7-7e2742e59648",
+                                    "name": "Medio Tiempo",
+                                    "type": "person"
+                                }
+                            },
+                            "id": "c9b9ffbb-2acb-4eb9-be79-1d2abf2bb7c7",
+                            "like": null,
+                            "media": null,
+                            "parentId": null,
+                            "publisher": {
+                                "avatarUrl": null,
+                                "id": "19b4056d-d23d-4eef-b4cd-37a055b2783c",
+                                "name": "Domingo Suarez Torres",
+                                "type": "person"
+                            },
+                            "sharedId": null,
+                            "timestamp": "2014-04-30T15:41:06.692-05:00"
+                        },
+                        "related": []
+                    }
+                ]
+            }
+
+    
 ## Suggested friends [/v1/people/suggested]
 
 ### Return suggested friends from social and app[GET]
