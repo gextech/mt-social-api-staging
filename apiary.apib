@@ -1559,7 +1559,7 @@ This resource get the list of the matches corresponding to the specified tournam
 
 - **comment** Optional, It is the comment for the post the same as the comment in any post
 - **sharedId** Optional, In case this is a reshare (like a retweet), this is the id of the commented post
-- **postId** Optional, In case this post is a comment, this is the id of the commented post
+- **postId** Optional, This is the id of the parent post
 - **related** Optional, You can add several related actors and also a reason,
 
 Valid reasons are:
@@ -1623,7 +1623,7 @@ The request has the following parameters:
 
 - **comment** Optional, It is the comment for the post the same as the comment in any post
 - **sharedId** Optional, In case this is a reshare (like a retweet), this is the id of the commented post
-- **postId** Optional, In case this post is a comment, this is the id of the commented post
+- **postId** Optional, This is the id of the parent post
 - **media[]** Could be more than one, just a normal file
 - **actorId** Publish content to this actor's id
 - **actorType** Actor type, (PERSON for instance)
@@ -2137,6 +2137,72 @@ The request has the following parameters:
                 "related": []
             }
         ]
+
+
+## List all timeline activity around a certain post [/v1/timeline/post/{postId}/{?max,offset}]
+
+### Return last 10 timeline activity by default (paginated service) [GET]
+
+- **postId** The id of the post around we are interested
+- **max** Max number of elements, by default 10
+- **offset** Initial offset, by default 0
+
+
++ Request
+
+    + Headers
+    
+            X-Auth-Token: {token}
+
++ Response 200 (application/json)
+            [
+                {
+                    "commentCount": 0,
+                    "like": false,
+                    "likeCount": 0,
+                    "post": {
+                        "checkin": null,
+                        "comment": "Uno dos tres cuatro",
+                        "follow": null,
+                        "id": "aa227fdd-19a4-46bd-ab3f-4ed7fb4073c1",
+                        "like": null,
+                        "media": null,
+                        "parentId": "072a4a72-f996-4212-ba30-a4ef346d3a02",
+                        "publisher": {
+                            "avatarUrl": null,
+                            "id": "98b84a8d-d108-4948-8608-ef667aca788b",
+                            "name": "Domingo Suarez Torres",
+                            "type": "person"
+                        },
+                        "sharedId": null,
+                        "timestamp": "2014-05-12T10:08:00.671-05:00"
+                    },
+                    "related": []
+                },
+                {
+                    "commentCount": 0,
+                    "like": false,
+                    "likeCount": 0,
+                    "post": {
+                        "checkin": null,
+                        "comment": "Uno dos tres",
+                        "follow": null,
+                        "id": "2efcda5d-ca1c-484e-a266-5411dba7c777",
+                        "like": null,
+                        "media": null,
+                        "parentId": "072a4a72-f996-4212-ba30-a4ef346d3a02",
+                        "publisher": {
+                            "avatarUrl": null,
+                            "id": "98b84a8d-d108-4948-8608-ef667aca788b",
+                            "name": "Domingo Suarez Torres",
+                            "type": "person"
+                        },
+                        "sharedId": null,
+                        "timestamp": "2014-05-12T10:07:43.613-05:00"
+                    },
+                    "related": []
+                }
+            ]
 
 # Group User profile
 
