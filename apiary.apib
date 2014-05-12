@@ -1559,7 +1559,7 @@ This resource get the list of the matches corresponding to the specified tournam
 
 - **comment** Optional, It is the comment for the post the same as the comment in any post
 - **sharedId** Optional, In case this is a reshare (like a retweet), this is the id of the commented post
-- **commentId** Optional, In case this post is a comment, this is the id of the commented post
+- **postId** Optional, In case this post is a comment, this is the id of the commented post
 - **related** Optional, You can add several related actors and also a reason,
 
 Valid reasons are:
@@ -1578,7 +1578,7 @@ Valid reasons are:
     
             {
                 "comment": "Hola mundo cruel",
-                "commentId": "434efe468-a14-46f0-93b3-c9ec79a99a14",
+                "postId": "434efe468-a14-46f0-93b3-c9ec79a99a14",
                 "sharedId": "434efe468-a14-46f0-93b3-c9ec79a99a14", 
                 "related": [{
                     "actorId": "e0a199b-df4e-467b-b17a-f55b24c67d36",
@@ -1623,7 +1623,7 @@ The request has the following parameters:
 
 - **comment** Optional, It is the comment for the post the same as the comment in any post
 - **sharedId** Optional, In case this is a reshare (like a retweet), this is the id of the commented post
-- **commentId** Optional, In case this post is a comment, this is the id of the commented post
+- **postId** Optional, In case this post is a comment, this is the id of the commented post
 - **media[]** Could be more than one, just a normal file
 - **actorId** Publish content to this actor's id
 - **actorType** Actor type, (PERSON for instance)
@@ -1647,7 +1647,7 @@ The request has the following parameters:
             
             c9ec79a99-a14-46f0-93b4-434efe468c9e
             --cce6735153bf14e47e999e68bb183e70a1fa7fc89722fc1efdf03a917340
-            Content-Disposition: form-data; name="commentId"
+            Content-Disposition: form-data; name="postId"
             
             434efe468-a14-46f0-93b3-c9ec79a99a14
             --cce6735153bf14e47e999e68bb183e70a1fa7fc89722fc1efdf03a917340
