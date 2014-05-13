@@ -589,13 +589,6 @@ This resource get the calendar of matches for the specified team. (Year)
                                 "name": "Atlas",
                                 "penalties": 0
                             },
-                            "stadium": {
-                                "address": "Guadalajara, Jalisco 7 Colinas No. 1772, Col. Independencia, C.P. 44290, Guadalajara, Jalisco.",
-                                "country": "M?xico",
-                                "id": 2,
-                                "lat": 20.70487021209245,
-                                "lng": -103.3280487527963
-                            },
                             "timestamp": "2013-10-02T19:00:00.000-05:00",
                             "visitor": {
                                 "globalGoals": 1,
@@ -699,13 +692,45 @@ This resource gets the profile of specified match, this includes recent activity
             {
                 "followers": 0,
                 "following": 0,
-                    "commentCount": 3,
-                    "follow": false,
-                    "followCount": 0,
-                    "goals": {
-                        "local": [],
-                        "visitor": []
-                    },
+                "commentCount": 3,
+                "follow": false,
+                "followCount": 0,
+                "goals": {
+                    "local": [
+                        {
+                            "minute": 61,
+                            "player": {
+                                "alias": "",
+                                "knownAs": "Andriy Shevchenko",
+                                "lastName": "Shevchenko",
+                                "name": "Andriy",
+                                "secondLastName": ""
+                            }
+                        },
+                        {
+                            "minute": 54,
+                            "player": {
+                                "alias": "",
+                                "knownAs": "Andriy Shevchenko",
+                                "lastName": "Shevchenko",
+                                "name": "Andriy",
+                                "secondLastName": ""
+                            }
+                        }
+                    ],
+                    "visitor": [
+                        {
+                            "minute": 51,
+                            "player": {
+                                "alias": "",
+                                "knownAs": "Zlatan Ibrahimovic",
+                                "lastName": "Ibrahimovic",
+                                "name": "Zlatan",
+                                "secondLastName": ""
+                            }
+                        }
+                    ]
+                },
                 "id": 53461,
                 "local": {
                     "avatarUrl": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/3/333/30_80x80.png",
@@ -718,9 +743,11 @@ This resource gets the profile of specified match, this includes recent activity
                     "shortName": "Estudiantes"
                 },
                 "stadium": {
-                    "address": "Zapopan, Jalisco Av. Patria No. 1201, Col. Lomas del Valle, C.P. 45110, Zapopan, Jalisco.",
+                    "address": "Guadalajara, Jalisco 7 Colinas No. 1772, Col. Independencia, C.P. 44290, Guadalajara, Jalisco.",
                     "country": "M?xico",
-                    "id": 5
+                    "id": 2,
+                    "lat": 20.70487021209245,
+                    "lng": -103.3280487527963
                 },
                 "timestamp": "2014-05-07T21:00:00.000-05:00",
                 "visitor": {
@@ -1490,40 +1517,8 @@ This resource get the list of the matches corresponding to the specified tournam
                     {
                         "id": 32025,
                         "goals": {
-                            "local": [
-                                {
-                                    "minute": 61,
-                                    "player": {
-                                        "alias": "",
-                                        "knownAs": "Andriy Shevchenko",
-                                        "lastName": "Shevchenko",
-                                        "name": "Andriy",
-                                        "secondLastName": ""
-                                    }
-                                },
-                                {
-                                    "minute": 54,
-                                    "player": {
-                                        "alias": "",
-                                        "knownAs": "Andriy Shevchenko",
-                                        "lastName": "Shevchenko",
-                                        "name": "Andriy",
-                                        "secondLastName": ""
-                                    }
-                                }
-                            ],
-                            "visitor": [
-                                {
-                                    "minute": 51,
-                                    "player": {
-                                        "alias": "",
-                                        "knownAs": "Zlatan Ibrahimovic",
-                                        "lastName": "Ibrahimovic",
-                                        "name": "Zlatan",
-                                        "secondLastName": ""
-                                    }
-                                }
-                            ]
+                            "visitor": [],
+                            "local": []
                         },
                         "local": {
                             "id": 112,
