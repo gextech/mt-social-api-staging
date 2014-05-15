@@ -1946,9 +1946,51 @@ The request has the following parameters:
         ]
 
 
-## List all timeline activity around a certain post [/v1/timeline/post/{postId}/{?max,offset}]
+## List details of the specified post [/v1/timeline/post/{postId}]
 
-### Return last 10 timeline activity by default  [GET]
+
+### Return details of a single post [GET]
+
+- **postId** The id of the post around we are interested
+
++ Request
+
+    + Headers
+    
+            X-Auth-Token: {token}
+
+
++ Response 200 (application/json)
+
+            {
+                "commentCount": 0,
+                "like": false,
+                "likeCount": 0,
+                "post": {
+                    "checkin": null,
+                    "comment": "ABBC",
+                    "follow": null,
+                    "id": "8c4f3da9-179e-44f5-aa71-74cfb526c9ed",
+                    "like": null,
+                    "media": null,
+                    "parentId": null,
+                    "publisher": {
+                        "avatarUrl": null,
+                        "id": "28992ed8-b195-47ca-84be-9043642028ff",
+                        "name": "Domingo Suarez Torres",
+                        "type": "person"
+                    },
+                    "sharedId": null,
+                    "timestamp": "2014-05-15T12:22:04.199-05:00"
+                },
+                "related": []
+            }
+
+
+
+## List comments of the specified post [/v1/timeline/post/{postId}/comments{?max,offset}]
+
+### Return last 10 comments by default  [GET]
 
 - **postId** The id of the post around we are interested
 - **max** Max number of elements, by default 10
@@ -1970,20 +2012,48 @@ The request has the following parameters:
                     "likeCount": 0,
                     "post": {
                         "checkin": null,
-                        "comment": "Uno dos tres cuatro",
+                        "comment": "ABBC Hijo 1",
                         "follow": null,
-                        "id": "aa227fdd-19a4-46bd-ab3f-4ed7fb4073c1",
+                        "id": "4a5814cd-ac83-4b6c-8285-c1655ec58414",
                         "like": null,
-                        "media": null,
-                        "parentId": "072a4a72-f996-4212-ba30-a4ef346d3a02",
+                        "media": [
+                            {
+                                "filename": "0a0e5c29-6a46-4963-acd8-6611dc8bc2a2-test.jpg",
+                                "mimeType": "image/jpeg",
+                                "originalFilename": "test.jpg",
+                                "processedImages": {
+                                    "baseUrl": "https://mtfan-dev.s3.amazonaws.com/0a0e5c29-6a46-4963-acd8-6611dc8bc2a2-test-",
+                                    "images": {
+                                        "resized": [
+                                            {
+                                                "size": {
+                                                    "h": 180,
+                                                    "w": 240
+                                                },
+                                                "suffix": "240x180.jpg"
+                                            }
+                                        ],
+                                        "thumbnails": [
+                                            {
+                                                "size": 300,
+                                                "suffix": "thumb-300.jpg"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "url": "https://mtfan-dev.s3.amazonaws.com/0a0e5c29-6a46-4963-acd8-6611dc8bc2a2-test.jpg",
+                                "uuid": "0a0e5c29-6a46-4963-acd8-6611dc8bc2a2"
+                            }
+                        ],
+                        "parentId": "8c4f3da9-179e-44f5-aa71-74cfb526c9ed",
                         "publisher": {
                             "avatarUrl": null,
-                            "id": "98b84a8d-d108-4948-8608-ef667aca788b",
+                            "id": "28992ed8-b195-47ca-84be-9043642028ff",
                             "name": "Domingo Suarez Torres",
                             "type": "person"
                         },
                         "sharedId": null,
-                        "timestamp": "2014-05-12T10:08:00.671-05:00"
+                        "timestamp": "2014-05-15T12:41:56.506-05:00"
                     },
                     "related": []
                 },
@@ -1993,20 +2063,20 @@ The request has the following parameters:
                     "likeCount": 0,
                     "post": {
                         "checkin": null,
-                        "comment": "Uno dos tres",
+                        "comment": "ABBC Hijo 1",
                         "follow": null,
-                        "id": "2efcda5d-ca1c-484e-a266-5411dba7c777",
+                        "id": "37110db4-be22-45d8-89ea-829517bd600a",
                         "like": null,
                         "media": null,
-                        "parentId": "072a4a72-f996-4212-ba30-a4ef346d3a02",
+                        "parentId": "8c4f3da9-179e-44f5-aa71-74cfb526c9ed",
                         "publisher": {
                             "avatarUrl": null,
-                            "id": "98b84a8d-d108-4948-8608-ef667aca788b",
+                            "id": "28992ed8-b195-47ca-84be-9043642028ff",
                             "name": "Domingo Suarez Torres",
                             "type": "person"
                         },
                         "sharedId": null,
-                        "timestamp": "2014-05-12T10:07:43.613-05:00"
+                        "timestamp": "2014-05-15T12:39:23.590-05:00"
                     },
                     "related": []
                 }
