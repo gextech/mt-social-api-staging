@@ -3294,3 +3294,82 @@ Registers a device for push messages, we expect your token and the type, could b
             ]
         
             
+## Checkin  [/v1/checkin]
+### POST
+This resource do a checkin on a venue, event or user provided place 
+
+The request has the following parameters:
+
+- **lon** Required, logitud
+- **lan** Required, latitud
+- **userVenueName** Required only if eventId or venueId not provided
+- **eventId** Optional, event id of the checkin
+- **venueId** Optional, venue id of the checkin
+- **comment** Optional, comment for the checkin
+
+The response is similar to a post but this contains checkin data
+
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+    + Body
+    
+            {
+            }
+
++ Response 200 (application/json)
+ 
+    + Body
+
+            {
+              "checkin": {
+                "event": null,
+                "id": "37eb6287-2b44-4c84-8111-528ed89f60b7",
+                "lat": 19.4258885,
+                "lng": -99.1922858,
+                "userVenue": null,
+                "venue": {
+                  "address": "Paseo de la Reforma",
+                  "categories": [
+                    {
+                      "externalId": "52f2ab2ebcbc57f1066b8b4f",
+                      "iconPrefix": "https://ss1.4sqi.net/img/categories_v2/travel/busstation_",
+                      "iconSuffix": ".png",
+                      "id": "1c3b0fb0-f456-4b8c-b355-e8f6902e5456",
+                      "name": "Bus Stop"
+                    }
+                  ],
+                  "city": "Miguel Hidalgo",
+                  "country": "M\u00c3\u00a9xico",
+                  "description": null,
+                  "distance": -1,
+                  "externalId": "4e9484a65503852c3504cd94",
+                  "id": "490b85e1-0ecd-4a43-8c06-9c40621d0976",
+                  "location": {
+                    "lat": 19.42600410190464,
+                    "lon": -99.1930013412231
+                  },
+                  "name": "Parab\u00c3\u00bas Reforma - Auditorio",
+                  "shortUrl": null,
+                  "state": "Distrito Federal"
+                }
+              },
+              "comment": "Hola venue! ",
+              "follow": null,
+              "id": "5345bfed-90a3-488b-bba1-7cebde90f621",
+              "like": null,
+              "media": null,
+              "parentId": null,
+              "publisher": {
+                "avatarUrl": "https://mtfan-dev.s3.amazonaws.com/9a9dd5f3-bf66-41e8-af87-51b30784ef01-dw.jpg",
+                "id": "8fc627e8-5fd9-47dc-aaf5-9dfb0ecbb586",
+                "name": "Test",
+                "type": "person"
+              },
+              "sharedId": null,
+              "timestamp": "2014-05-15T18:28:15.533-05:00"
+            }
