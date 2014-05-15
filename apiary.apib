@@ -248,13 +248,7 @@ The request has the following parameters:
             {
             }
 
-+ Response 200 (application/json)
- 
-    + Body
-
-            {
-                
-            }
++ Response 204
 
 ## Returns all instances followed by the current user [/v1/follow/followings/${followingType}{?max,offset}]
 ### GET
@@ -354,6 +348,75 @@ The request has the following parameters:
                     }
                 }
             ]
+            
+            
+            
+# Group Like
+        
+## Like/Unlike a post [/v1/timeline/like/post/${postId}]
+### POST
+
+This resource mark a Like between the current user and the specified post
+
+The request has the following parameters:
+
+- **postId** Required, It is the id of the post
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+    + Body
+    
+            {
+            }
+
++ Response 200 (application/json)
+ 
+    + Body
+
+            {
+                "checkin": null,
+                "comment": null,
+                "follow": null,
+                "id": "dbcfedcd-9917-4ab3-bd3e-1ec65a6cb0e5",
+                "like": true,
+                "media": null,
+                "parentId": null,
+                "publisher": {
+                    "avatarUrl": null,
+                    "id": "28992ed8-b195-47ca-84be-9043642028ff",
+                    "name": "Domingo Suarez Torres",
+                    "type": "person"
+                },
+                "sharedId": null,
+                "timestamp": "2014-05-15T12:25:00.260-05:00"
+            }
+
+### DELETE
+This resource mark an Unlike between the current user and the specified post
+
+The request has the following parameters:
+
+- **postId** Required, It is the id of the post
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request 
+    + Headers
+    
+            Accept: application/json
+    
+    + Body 
+    
+            {
+            }
+
++ Response 204
+
+
 
 # Group Teams
 
