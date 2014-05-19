@@ -1707,6 +1707,7 @@ You can upload whatever amount of medias you want :D
 
 This is a normal FORM!
 
+
 The request has the following parameters:
 
 - **comment** Optional, It is the comment for the post the same as the comment in any post
@@ -1715,6 +1716,18 @@ The request has the following parameters:
 - **media[]** Could be more than one, just a normal file
 - **actorId** Publish content to this actor's id
 - **actorType** Actor type, (PERSON for instance)
+
+To make a checkin with media the following parameter must be provided:
+
+- **lon** Required, logitud
+- **lan** Required, latitud
+- **userVenueName** Required only if eventId or venueId not provided
+- **eventId** Optional, event id of the checkin
+- **venueId** Optional, venue id of the checkin
+- **comment** Optional, comment for the checkin
+
+
+
 
 + Request
 
