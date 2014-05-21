@@ -1817,14 +1817,16 @@ To make a checkin with media the following parameter must be provided:
             "timestamp": "2014-04-07T10:02:21.129-05:00"
         }
 
-## List all timeline activity published to an actor [/v1/timeline/{actorType}/{actorId}/{?offset,max}]
+## List all timeline activity published to an actor [/v1/timeline/{actorType}/{actorId}/{?sinceId,maxId,count}]
 
 ### You can list all activity of current user, by default returns 10 elements [GET]
 
 - **actorType** Required, It is the Type of the stuff to be seen. It can be: [ *person* | *team* | *match* ]
 - **actorId** The id of the stuff to be seen.
-- **offset** From with element, by default is is 0 (no offset)
-- **max** Max number of elements, by default 10
+- **sinceId** Optional, for pagination. Id of the post taken as lower bound.
+- **maxId**  Optional, for pagination. Id of the post taken as upper bound.
+- **count** Optional, Number of wished elements, by default 10
+
 
 + Request
 
