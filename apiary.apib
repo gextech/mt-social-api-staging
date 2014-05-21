@@ -1641,182 +1641,6 @@ This resource get the list of the matches corresponding to the specified tournam
 ## Group Timeline
 <a id="timeline" ></a>
 
-## Publish a post with only a comment [/v1/timeline/publish]
-
-### Send a new post, it can be a comment or reshare with a comment [POST]
-
-- **comment** Optional, It is the comment for the post the same as the comment in any post
-- **sharedId** Optional, In case this is a reshare (like a retweet), this is the id of the commented post
-- **postId** Optional, This is the id of the parent post
-- **related** Optional, You can add several related actors and also a reason,
-
-Valid reasons are:
-
-* SHARED_IN_PROFILE
-* TAGGED
-
-+ Request
-
-    + Headers
-    
-            X-Auth-Token: {token}
-            Content-Type: application/json; charset=utf-8
-
-    + Body
-    
-            {
-                "comment": "Hola mundo cruel",
-                "postId": "434efe468-a14-46f0-93b3-c9ec79a99a14",
-                "sharedId": "434efe468-a14-46f0-93b3-c9ec79a99a14", 
-                "related": [{
-                    "actorId": "e0a199b-df4e-467b-b17a-f55b24c67d36",
-                    "actorType": "PERSON",
-                    "reasonAware": "SHARED_IN_PROFILE"
-                }]
-            }
-
-
-+ Response 200 (application/json)
-
-        {
-            "checkin": null, 
-            "comment": "Hola mundo cruel", 
-            "follow": null, 
-            "id": "2e0a199b-df4e-467b-b17a-f55b24c67d36", 
-            "like": null, 
-            "media": null, 
-            "parentId": null, 
-            "publisher": {
-                "avatarUrl": null, 
-                "id": "bebe5c28-8748-41aa-abee-3850a0bfae5e", 
-                "type": "person"
-            }, 
-            "sharedId": null, 
-            "timestamp": "2014-04-07T17:26:44.478-05:00"
-        }        
-
-
-## Publish a post with media [/v1/timeline/publishWithMedia]
-
-### Upload a new comment to the timeline, accompanied with some media [POST]
-With this service we can upload some media, currently only images are supported (:
-This is uploaded as a normal form POST.
-
-The message has to be URLEncoded correctly
-You can upload whatever amount of medias you want :D
-
-This is a normal FORM!
-
-
-The request has the following parameters:
-
-- **comment** Optional, It is the comment for the post the same as the comment in any post
-- **sharedId** Optional, In case this is a reshare (like a retweet), this is the id of the commented post
-- **postId** Optional, This is the id of the parent post
-- **media[]** Could be more than one, just a normal file
-- **actorId** Publish content to this actor's id
-- **actorType** Actor type, (PERSON for instance)
-
-To make a checkin with media the following parameter must be provided:
-
-- **lon** Required, logitud
-- **lan** Required, latitud
-- **userVenueName** Required only if eventId or venueId not provided
-- **eventId** Optional, event id of the checkin
-- **venueId** Optional, venue id of the checkin
-- **comment** Optional, comment for the checkin
-
-
-
-
-+ Request
-
-    + Headers
-    
-            X-Auth-Token: {token}
-            Content-Length: 15532
-            Content-Type: multipart/form-data;boundary=cce6735153bf14e47e999e68bb183e70a1fa7fc89722fc1efdf03a917340
-
-    + Body
-    
-            --cce6735153bf14e47e999e68bb183e70a1fa7fc89722fc1efdf03a917340
-            Content-Disposition: form-data; name="comment"
-            
-            Hola mundo cruel
-            --cce6735153bf14e47e999e68bb183e70a1fa7fc89722fc1efdf03a917340
-            Content-Disposition: form-data; name="sharedId"
-            
-            c9ec79a99-a14-46f0-93b4-434efe468c9e
-            --cce6735153bf14e47e999e68bb183e70a1fa7fc89722fc1efdf03a917340
-            Content-Disposition: form-data; name="postId"
-            
-            434efe468-a14-46f0-93b3-c9ec79a99a14
-            --cce6735153bf14e47e999e68bb183e70a1fa7fc89722fc1efdf03a917340
-            Content-Type: application/octet-stream
-            Content-Disposition: form-data; name="media[]"; filename="amy.png"
-            
-            ...
-            --cce6735153bf14e47e999e68bb183e70a1fa7fc89722fc1efdf03a917340
-            Content-Type: application/octet-stream
-            Content-Disposition: form-data; name="media[]"; filename="clara.png"
-
-
-
-+ Response 200 (application/json)
-
-
-        {
-            "checkin": null, 
-            "comment": "hola mundo", 
-            "follow": null, 
-            "id": "434efe46-ca34-46f0-93b4-c9ec79a99a14", 
-            "like": null, 
-            "media": [
-                {
-                    "filename": "27fb5d62-7ec4-4a4f-8702-f818973ffc6a-x1396013843-2.jpg.pagespeed.ic.0Zl8PZYdyZ.jpg", 
-                    "mimeType": "image/jpeg", 
-                    "originalFilename": "x1396013843-2.jpg.pagespeed.ic.0Zl8PZYdyZ.jpg", 
-                    "processedImages": {
-                        "baseUrl": "https://mtfan-dev.s3.amazonaws.com/27fb5d62-7ec4-4a4f-8702-f818973ffc6a-x1396013843-2.jpg.pagespeed.ic.0Zl8PZYdyZ-", 
-                        "images": {
-                            "resized": [
-                                {
-                                    "size": {
-                                        "h": 360, 
-                                        "w": 480
-                                    }, 
-                                    "suffix": "480x360.jpg"
-                                }, 
-                                {
-                                    "size": {
-                                        "h": 180, 
-                                        "w": 240
-                                    }, 
-                                    "suffix": "240x180.jpg"
-                                }
-                            ], 
-                            "thumbnails": [
-                                {
-                                    "size": 300, 
-                                    "suffix": "thumb-300.jpg"
-                                }
-                            ]
-                        }
-                    }, 
-                    "url": "https://mtfan-dev.s3.amazonaws.com/27fb5d62-7ec4-4a4f-8702-f818973ffc6a-x1396013843-2.jpg.pagespeed.ic.0Zl8PZYdyZ.jpg", 
-                    "uuid": "27fb5d62-7ec4-4a4f-8702-f818973ffc6a"
-                }
-            ], 
-            "parentId": null, 
-            "publisher": {
-                "avatarUrl": null, 
-                "id": "50cae0e0-0d98-4faa-acf4-401f8d133a53", 
-                "type": "person"
-            }, 
-            "sharedId": null, 
-            "timestamp": "2014-04-07T10:02:21.129-05:00"
-        }
-
 
 ## List general timeline activity  for the current user [/v1/timeline{?sinceId,maxId,count}]
 
@@ -2112,6 +1936,182 @@ It returns activity where the publisher is the specified actor or activity where
                 "related": []
             }
         ]
+
+## Publish a post with only a comment [/v1/timeline/publish]
+
+### Send a new post, it can be a comment or reshare with a comment [POST]
+
+- **comment** Optional, It is the comment for the post the same as the comment in any post
+- **sharedId** Optional, In case this is a reshare (like a retweet), this is the id of the commented post
+- **postId** Optional, This is the id of the parent post
+- **related** Optional, You can add several related actors and also a reason,
+
+Valid reasons are:
+
+* SHARED_IN_PROFILE
+* TAGGED
+
++ Request
+
+    + Headers
+    
+            X-Auth-Token: {token}
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+    
+            {
+                "comment": "Hola mundo cruel",
+                "postId": "434efe468-a14-46f0-93b3-c9ec79a99a14",
+                "sharedId": "434efe468-a14-46f0-93b3-c9ec79a99a14", 
+                "related": [{
+                    "actorId": "e0a199b-df4e-467b-b17a-f55b24c67d36",
+                    "actorType": "PERSON",
+                    "reasonAware": "SHARED_IN_PROFILE"
+                }]
+            }
+
+
++ Response 200 (application/json)
+
+        {
+            "checkin": null, 
+            "comment": "Hola mundo cruel", 
+            "follow": null, 
+            "id": "2e0a199b-df4e-467b-b17a-f55b24c67d36", 
+            "like": null, 
+            "media": null, 
+            "parentId": null, 
+            "publisher": {
+                "avatarUrl": null, 
+                "id": "bebe5c28-8748-41aa-abee-3850a0bfae5e", 
+                "type": "person"
+            }, 
+            "sharedId": null, 
+            "timestamp": "2014-04-07T17:26:44.478-05:00"
+        }        
+
+
+## Publish a post with media [/v1/timeline/publishWithMedia]
+
+### Upload a new comment to the timeline, accompanied with some media [POST]
+With this service we can upload some media, currently only images are supported (:
+This is uploaded as a normal form POST.
+
+The message has to be URLEncoded correctly
+You can upload whatever amount of medias you want :D
+
+This is a normal FORM!
+
+
+The request has the following parameters:
+
+- **comment** Optional, It is the comment for the post the same as the comment in any post
+- **sharedId** Optional, In case this is a reshare (like a retweet), this is the id of the commented post
+- **postId** Optional, This is the id of the parent post
+- **media[]** Could be more than one, just a normal file
+- **actorId** Publish content to this actor's id
+- **actorType** Actor type, (PERSON for instance)
+
+To make a checkin with media the following parameter must be provided:
+
+- **lon** Required, logitud
+- **lan** Required, latitud
+- **userVenueName** Required only if eventId or venueId not provided
+- **eventId** Optional, event id of the checkin
+- **venueId** Optional, venue id of the checkin
+- **comment** Optional, comment for the checkin
+
+
+
+
++ Request
+
+    + Headers
+    
+            X-Auth-Token: {token}
+            Content-Length: 15532
+            Content-Type: multipart/form-data;boundary=cce6735153bf14e47e999e68bb183e70a1fa7fc89722fc1efdf03a917340
+
+    + Body
+    
+            --cce6735153bf14e47e999e68bb183e70a1fa7fc89722fc1efdf03a917340
+            Content-Disposition: form-data; name="comment"
+            
+            Hola mundo cruel
+            --cce6735153bf14e47e999e68bb183e70a1fa7fc89722fc1efdf03a917340
+            Content-Disposition: form-data; name="sharedId"
+            
+            c9ec79a99-a14-46f0-93b4-434efe468c9e
+            --cce6735153bf14e47e999e68bb183e70a1fa7fc89722fc1efdf03a917340
+            Content-Disposition: form-data; name="postId"
+            
+            434efe468-a14-46f0-93b3-c9ec79a99a14
+            --cce6735153bf14e47e999e68bb183e70a1fa7fc89722fc1efdf03a917340
+            Content-Type: application/octet-stream
+            Content-Disposition: form-data; name="media[]"; filename="amy.png"
+            
+            ...
+            --cce6735153bf14e47e999e68bb183e70a1fa7fc89722fc1efdf03a917340
+            Content-Type: application/octet-stream
+            Content-Disposition: form-data; name="media[]"; filename="clara.png"
+
+
+
++ Response 200 (application/json)
+
+
+        {
+            "checkin": null, 
+            "comment": "hola mundo", 
+            "follow": null, 
+            "id": "434efe46-ca34-46f0-93b4-c9ec79a99a14", 
+            "like": null, 
+            "media": [
+                {
+                    "filename": "27fb5d62-7ec4-4a4f-8702-f818973ffc6a-x1396013843-2.jpg.pagespeed.ic.0Zl8PZYdyZ.jpg", 
+                    "mimeType": "image/jpeg", 
+                    "originalFilename": "x1396013843-2.jpg.pagespeed.ic.0Zl8PZYdyZ.jpg", 
+                    "processedImages": {
+                        "baseUrl": "https://mtfan-dev.s3.amazonaws.com/27fb5d62-7ec4-4a4f-8702-f818973ffc6a-x1396013843-2.jpg.pagespeed.ic.0Zl8PZYdyZ-", 
+                        "images": {
+                            "resized": [
+                                {
+                                    "size": {
+                                        "h": 360, 
+                                        "w": 480
+                                    }, 
+                                    "suffix": "480x360.jpg"
+                                }, 
+                                {
+                                    "size": {
+                                        "h": 180, 
+                                        "w": 240
+                                    }, 
+                                    "suffix": "240x180.jpg"
+                                }
+                            ], 
+                            "thumbnails": [
+                                {
+                                    "size": 300, 
+                                    "suffix": "thumb-300.jpg"
+                                }
+                            ]
+                        }
+                    }, 
+                    "url": "https://mtfan-dev.s3.amazonaws.com/27fb5d62-7ec4-4a4f-8702-f818973ffc6a-x1396013843-2.jpg.pagespeed.ic.0Zl8PZYdyZ.jpg", 
+                    "uuid": "27fb5d62-7ec4-4a4f-8702-f818973ffc6a"
+                }
+            ], 
+            "parentId": null, 
+            "publisher": {
+                "avatarUrl": null, 
+                "id": "50cae0e0-0d98-4faa-acf4-401f8d133a53", 
+                "type": "person"
+            }, 
+            "sharedId": null, 
+            "timestamp": "2014-04-07T10:02:21.129-05:00"
+        }
 
 
 ## List details of the specified post [/v1/timeline/post/{postId}]
