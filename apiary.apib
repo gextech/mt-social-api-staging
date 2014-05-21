@@ -1944,6 +1944,7 @@ It returns activity where the publisher is the specified actor or activity where
 - **comment** Optional, It is the comment for the post the same as the comment in any post
 - **sharedId** Optional, In case this is a reshare (like a retweet), this is the id of the commented post
 - **postId** Optional, This is the id of the parent post
+- **providers** Optional, an array of providers to share with
 - **related** Optional, You can add several related actors and also a reason,
 
 Valid reasons are:
@@ -1963,6 +1964,7 @@ Valid reasons are:
             {
                 "comment": "Hola mundo cruel",
                 "postId": "434efe468-a14-46f0-93b3-c9ec79a99a14",
+                "providers": ["facebook", "twitter"],
                 "sharedId": "434efe468-a14-46f0-93b3-c9ec79a99a14", 
                 "related": [{
                     "actorId": "e0a199b-df4e-467b-b17a-f55b24c67d36",
@@ -2010,6 +2012,7 @@ The request has the following parameters:
 - **sharedId** Optional, In case this is a reshare (like a retweet), this is the id of the commented post
 - **postId** Optional, This is the id of the parent post
 - **media[]** Could be more than one, just a normal file
+- **providers** The string of providers that you wish to share with
 - **actorId** Publish content to this actor's id
 - **actorType** Actor type, (PERSON for instance)
 
@@ -2035,6 +2038,11 @@ To make a checkin with media the following parameter must be provided:
 
     + Body
     
+    
+            --cce6735153bf14e47e999e68bb183e70a1fa7fc89722fc1efdf03a917340
+            Content-Disposition: form-data; name="providers"
+    
+            facebook,twitter
             --cce6735153bf14e47e999e68bb183e70a1fa7fc89722fc1efdf03a917340
             Content-Disposition: form-data; name="comment"
             
