@@ -2599,6 +2599,20 @@ To make a checkin with media the following parameter must be provided:
             }
 
     
+## Suggested friends [/v1/people/providers]
+
+### Return suggested friends from social and app[GET]
+
++ Request
+
+    + Headers
+    
+            X-Auth-Token: {token}
+            
++ Response 200 (application/json)
+
+        ['facebook', 'twitter']
+    
 ## Suggested friends [/v1/people/suggested]
 
 ### Return suggested friends from social and app[GET]
