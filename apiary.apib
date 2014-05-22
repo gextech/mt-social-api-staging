@@ -277,25 +277,28 @@ The request has the following parameters:
 
             [
                 {
-                    "actor": {
-                        "avatarUrl": null, 
-                        "id": "123", 
-                        "type": "eventParticipant"
-                    }
-                }, 
+                    "avatarUrl": null,
+                    "birthdate": null,
+                    "email": "dsuarez@expansion.com.mx",
+                    "followers": 0,
+                    "following": 0,
+                    "gender": null,
+                    "id": "3ac02090-9166-4678-ba98-9d974fe19fc5",
+                    "media": null,
+                    "name": "Domingo Suarez Torres",
+                    "recentActivity": null
+                },
                 {
-                    "actor": {
-                        "avatarUrl": null, 
-                        "id": "1234", 
-                        "type": "eventParticipant"
-                    }
-                }, 
-                {
-                    "actor": {
-                        "avatarUrl": null, 
-                        "id": "1000", 
-                        "type": "event"
-                    }
+                    "avatarUrl": null,
+                    "birthdate": null,
+                    "email": "another@expansion.com.mx",
+                    "followers": 0,
+                    "following": 0,
+                    "gender": null,
+                    "id": "4ac02090-9166-4678-ba98-9d974fe19fc5",
+                    "media": null,
+                    "name": "Another Person",
+                    "recentActivity": null
                 }
             ]
 
@@ -460,6 +463,51 @@ The request has the following parameters:
 + Response 204
 
 
+## List persons who likes the specified post [/v1/timeline/post/${postId}/likers{?max,offset}]
+
+### GET 
+This resource gets the list of persons who likes the specified post.
+
+- **postId** The id of the post
+- **max** (Optional) For pagination, number of elements
+- **offset** (Optional) For pagination, result offset 
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request
+
+    + Headers
+    
+            X-Auth-Token: {token}
+
++ Response 200 (application/json)
+
+            [
+                {
+                    "avatarUrl": null,
+                    "birthdate": null,
+                    "email": "dsuarez@expansion.com.mx",
+                    "followers": 0,
+                    "following": 0,
+                    "gender": null,
+                    "id": "3ac02090-9166-4678-ba98-9d974fe19fc5",
+                    "media": null,
+                    "name": "Domingo Suarez Torres",
+                    "recentActivity": null
+                },
+                {
+                    "avatarUrl": null,
+                    "birthdate": null,
+                    "email": "another@expansion.com.mx",
+                    "followers": 0,
+                    "following": 0,
+                    "gender": null,
+                    "id": "4ac02090-9166-4678-ba98-9d974fe19fc5",
+                    "media": null,
+                    "name": "Another Person",
+                    "recentActivity": null
+                }
+            ]
 
 # Group Teams
 
