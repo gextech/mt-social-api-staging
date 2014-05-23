@@ -2037,6 +2037,8 @@ It returns activity where the publisher is the specified actor or activity where
 - **postId** Optional, This is the id of the parent post
 - **providers** Optional, an array of providers to share with
 - **related** Optional, You can add several related actors and also a reason,
+- **actorId** (Optional) Publish content to this actor's id
+- **actorType** (Optional) Required when actorId is set. Actor type, (PERSON, EVENT, PARTICIPANT for instance)
 
 Valid reasons are:
 
@@ -2105,7 +2107,7 @@ The request has the following parameters:
 - **media[]** Could be more than one, just a normal file
 - **providers** The string of providers that you wish to share with
 - **actorId** Publish content to this actor's id
-- **actorType** Actor type, (PERSON for instance)
+- **actorType** Actor type, (PERSON, EVENT, PARTICIPANT for instance)
 
 To make a checkin with media the following parameter must be provided:
 
