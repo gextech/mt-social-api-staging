@@ -440,6 +440,7 @@ The request has the following parameters:
                 "sharedId": null,
                 "timestamp": "2014-05-21T12:18:57.186-05:00"
             }
+            
 
 ### DELETE
 This resource mark an Unlike between the current user and the specified post
@@ -3370,4 +3371,89 @@ The response is similar to a post but this contains checkin data
               },
               "sharedId": null,
               "timestamp": "2014-05-15T18:28:15.533-05:00"
+            }
+            
+# Group Poll
+        
+## Vote for a match [/v1/poll/match/${matchId}]
+### POST
+
+This resource sends a vote for some match
+
+- **action** Required, the action for a team, options are: ganaLocal, ganaVisitante, empate
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+    + Body
+    
+            {
+                action: "ganaLocal"
+            }
+
++ Response 200 (application/json)
+ 
+    + Body
+
+            {
+                "currentUserVote": "ganaLocal", 
+                "poll": {
+                    "empate": 0, 
+                    "ganaLocal": 3, 
+                    "ganaVisitante": 1
+                }
+            }
+
+            
+
+### DELETE
+This resource deletes a previous vote for a match
+
+The request has no parameters, the user MUST have voted or an error will occur
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request 
+    + Headers
+    
+            Accept: application/json
+
+
++ Response 200 (application/json)
+    + Body 
+    
+            {
+                "poll": {
+                    "empate": 0, 
+                    "ganaLocal": 2, 
+                    "ganaVisitante": 1
+                }
+            }
+
+
+### GET 
+Get a match poll data
+
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request
+
+    + Headers
+    
+            X-Auth-Token: {token}
+
++ Response 200 (application/json)
+
+
+            {
+                "currentUserVote": "ganaLocal", 
+                "poll": {
+                    "empate": 0, 
+                    "ganaLocal": 3, 
+                    "ganaVisitante": 1
+                }
             }
