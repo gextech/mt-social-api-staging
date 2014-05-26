@@ -1243,6 +1243,64 @@ This resource gets the list of previous matches
                     }
                 }]
             }
+            
+## List of previous matches [/v1/matches/{?offset,max,from,to}]
+
+### GET
+This resource gets the list of all matches
+
+`Please use your MTSocial API account credentials for API calls.`
+
+- **from** An iso8601 date, returns matche from this date
+- **to** An iso8601 date, returns matches to this date
+- **offset** From with element, by default is is 0 (no offset)
+- **max** Max number of elements, by default 20
+
++ Request 
+    + Headers
+    
+            Accept: application/json
+
++ Response 200 (application/json)
+
+            {
+                "matches": [
+                {
+                    "id": 48215,
+                    "local": {
+                        "goals": 1,
+                        "id": 671,
+                        "name": "SC Braga",
+                        "penalties": 0
+                    },
+                    "liveMatch": true,
+                    "timestamp": "2014-04-13T13:15:00.000-05:00",
+                    "visitor": {
+                        "goals": 3,
+                        "id": 268,
+                        "name": "FC Porto",
+                        "penalties": 0
+                    }
+                },
+                {
+                    "id": 49196,
+                    "local": {
+                        "goals": 2,
+                        "id": 517,
+                        "name": "TSG 1899 Hoffenheim",
+                        "penalties": 0
+                    },
+                    "liveMatch": false,
+                    "timestamp": "2014-04-13T10:30:00.000-05:00",
+                    "visitor": {
+                        "goals": 0,
+                        "id": 985,
+                        "name": "FC Augsburg",
+                        "penalties": 0
+                    }
+                }]
+            }
+
 
 
 ## Match media [/v1/matches/${matchId}/media{?offset,max}]
