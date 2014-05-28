@@ -3678,3 +3678,123 @@ Get a match poll data
                     "ganaVisitante": 1
                 }
             }
+
+# Group Notifications
+        
+## List notifications [/v1/mobile?{offset,max}]
+### GET
+
+This resource returns all notifications for the current user
+
+`Please use your MTSocial API account credentials for API calls.`
+
+
++ Response 200 (application/json)
+ 
+    + Body
+
+            [
+                {
+                    "alert": "hola mundo 14190722-8c40-48ce-80b8-02f049ade5fe", 
+                    "eventType": "goal", 
+                    "id": "6caff68e0f240a22f5b7086976db15d748247c67", 
+                    "localId": -10, 
+                    "matchId": -10, 
+                    "visitorId": -20
+                }, 
+                {
+                    "alert": "hola mundo b1db3087-81a0-45ee-b7e4-0f6a410223b0", 
+                    "eventType": "goal", 
+                    "id": "b345e8beda210bf2b5ba2be533a6c4cbf6d5d740", 
+                    "localId": -10, 
+                    "matchId": -10, 
+                    "visitorId": -20
+                }, 
+                {
+                    "alert": "hola mundo 8dc44675-686d-4b99-b3b5-ba6deeacc0a1", 
+                    "eventType": "goal", 
+                    "id": "c9f5b3f5d8b3202219d44a198139913a3aebcc8b", 
+                    "localId": -10, 
+                    "matchId": -10, 
+                    "visitorId": -20
+                }, 
+                {
+                    "alert": "hola mundo 510d851d-c3d1-4cea-97f7-29d16ed04bb9", 
+                    "eventType": "goal", 
+                    "id": "2098da8b7981b4f6cc1efa71562aba4233057230", 
+                    "localId": -10, 
+                    "matchId": -10, 
+                    "visitorId": -20
+                }, 
+                {
+                    "alert": "hola mundo 7480c366-6d9d-4a96-b0d3-23349c1c9e5b", 
+                    "eventType": "goal", 
+                    "id": "f49c384b8646ffd879715060a39a624d5d762135", 
+                    "localId": -10, 
+                    "matchId": -10, 
+                    "visitorId": -20
+                }, 
+                {
+                    "alert": "hola mundo 79454ff6-de29-47f2-a1ed-dff73299d18a", 
+                    "eventType": "goal", 
+                    "id": "43463d7e901aa78c23386f7b56d19effb40b007b", 
+                    "localId": -10, 
+                    "matchId": -10, 
+                    "visitorId": -20
+                }, 
+                {
+                    "alert": "hola mundo 5b020b05-2d3d-4054-af96-6bd56400158d", 
+                    "eventType": "goal", 
+                    "id": "6c46eefc84cea20fa496e47643b068f0f654635d", 
+                    "localId": -10, 
+                    "matchId": -10, 
+                    "visitorId": -20
+                }, 
+                {
+                    "alert": "hola mundo e13bead2-cee2-4b4e-bdc0-fe02c8bf1ba5", 
+                    "eventType": "goal", 
+                    "id": "cc20d0bc5cf961af2ff372c413e2e62cb33ea4e2", 
+                    "localId": -10, 
+                    "matchId": -10, 
+                    "visitorId": -20
+                }, 
+                {
+                    "alert": "hola mundo b1df6440-05d1-4076-9463-1ce8a64ce43b", 
+                    "eventType": "goal", 
+                    "id": "d9632567a723976fad3b082a09430a49603e308e", 
+                    "localId": -10, 
+                    "matchId": -10, 
+                    "visitorId": -20
+                }, 
+                {
+                    "alert": "hola mundo 55f608a8-da3f-4664-b758-17417fac0eeb", 
+                    "eventType": "goal", 
+                    "id": "a2ed13e336295f6b238315d92217ed337ae03bbc", 
+                    "localId": -10, 
+                    "matchId": -10, 
+                    "visitorId": -20
+                }
+            ]
+            
+            
+## Show one notification [/v1/mobile/{notificationId}]
+### GET
+
+This resource returns the detail of one notification, depending on the id, it is the same id as the notification received on the mobile
+
+`Please use your MTSocial API account credentials for API calls.`
+
+
++ Response 200 (application/json)
+ 
+    + Body
+
+            {
+                "alert": "hola mundo 63c263d9-d577-4442-9960-eb900aa83de7", 
+                "eventType": "goal", 
+                "id": "65a3e9d288ff487c25c5450bf2e724702fbdbaca", 
+                "localId": -10, 
+                "matchId": -10, 
+                "visitorId": -20
+            }
+
