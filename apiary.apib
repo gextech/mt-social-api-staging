@@ -3782,6 +3782,71 @@ This resource returns all notifications for the current user
 
 This resource returns the detail of one notification, depending on the id, it is the same id as the notification received on the mobile
 
+This are the possible notification types (the name tells the eventType, and enabled if it is enabled now):
+
+  social: [
+    [
+      name: 'matchStarted',
+      enabled: true
+    ],
+    [
+      name: 'matchEnded',
+      enabled: true
+    ],
+    [
+      name: 'goal',
+      enabled: true
+    ],
+    [
+      name: 'redCard',
+      enabled: false
+    ],
+    [
+      name: 'halfTime',
+      enabled: false
+    ],
+    [
+      name: 'secondHalf',
+      enabled: false
+    ],
+    [
+      name: 'extraTime',
+      enabled: false
+    ],
+    [
+      name: 'penaltyShootout',
+      enabled: false
+    ],
+    [
+      name: 'playerChange',
+      enabled: false
+    ],
+    [
+      name: 'yellowCard',
+      enabled: false
+    ],
+    [
+      name: 'ownGoal',
+      enabled: true
+    ],
+    [
+      name: 'comment',
+      enabled: true
+    ],
+    [
+      name: 'like',
+      enabled: true
+    ],
+    [
+      name: 'follow',
+      enabled: true
+    ],
+    [
+      name: 'checkin',
+      enabled: true
+    ]
+  ]
+
 `Please use your MTSocial API account credentials for API calls.`
 
 
