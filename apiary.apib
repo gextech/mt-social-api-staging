@@ -1709,7 +1709,8 @@ This resource get the list of the active tournaments: their ids, names and numbe
 ## List of matches per tournament [/v1/tournaments/${tournamentId}/round/${roundId}/matches]
 
 ### GET
-This resource get the list of the matches corresponding to the specified tournament and round.
+This resource get the list of the matches corresponding to the specified tournament and round (with default phase REGULAR)
+This is DEPRECATED. Use  **[/v1/tournaments/{tournamentId}/phase/{phaseId}/round/{roundId}]** instead
 
 `Please use your MTSocial API account credentials for API calls.`
 
@@ -1782,6 +1783,168 @@ This resource get the list of the matches corresponding to the specified tournam
                             "lat": 21.11539477573451,
                             "lng": -101.6576080322266
                         },
+                    }
+                ]
+            }
+
+
+## List of matches per tournament by phase and round [/v1/tournaments/${tournamentId}/phase/${phaseId}/round/${roundId}]
+
+### GET
+This resource get the list of the matches corresponding to the specified tournamentId, phaseId and roundId
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request 
+    + Headers
+    
+            Accept: application/json
+    
+    + Body 
+    
+            {
+            }
+
++ Response 200 (application/json)
+
+
+            {
+                "matches": [
+                    {
+                        "commentCount": 0,
+                        "follow": false,
+                        "followCount": 0,
+                        "goals": {
+                            "local": [],
+                            "visitor": []
+                        },
+                        "id": 47735,
+                        "league": {
+                            "abbreviation": "Copa MX",
+                            "id": 68,
+                            "name": "Copa MX"
+                        },
+                        "local": {
+                            "avatarUrl": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/1/165/165_80x80.png",
+                            "globalGoals": 1,
+                            "globalPenalties": 0,
+                            "goals": 1,
+                            "id": 165,
+                            "name": "Lobos B.U.A.P.",
+                            "penalties": 0,
+                            "shortName": "Lobos BUAP"
+                        },
+                        "pollData": {
+                            "votes": {}
+                        },
+                        "stadium": {
+                            "address": "Monterrey, Nuevo Le?n Av. Pedro de Alba entre Manuel L. Barrag?n y Alfonso Reyes, Col. Ciudad Universitaria. C.P. 66455, San Nicol?s de los Garza, Nuevo Le?n.",
+                            "country": "M?xico",
+                            "id": 110,
+                            "lat": 25.72264323722355,
+                            "lng": -100.3122100272304
+                        },
+                        "timestamp": "2013-09-24T19:00:00.000-05:00",
+                        "visitor": {
+                            "avatarUrl": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/1/125/1250_80x80.png",
+                            "globalGoals": 5,
+                            "globalPenalties": 0,
+                            "goals": 5,
+                            "id": 1250,
+                            "name": "Alebrijes de Oaxaca",
+                            "penalties": 0,
+                            "shortName": "Alebrijes de Oaxaca"
+                        }
+                    },
+                    {
+                        "commentCount": 0,
+                        "follow": false,
+                        "followCount": 0,
+                        "goals": {
+                            "local": [],
+                            "visitor": []
+                        },
+                        "id": 47736,
+                        "league": {
+                            "abbreviation": "Copa MX",
+                            "id": 68,
+                            "name": "Copa MX"
+                        },
+                        "local": {
+                            "avatarUrl": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/3/300/300_80x80.png",
+                            "globalGoals": 5,
+                            "globalPenalties": 0,
+                            "goals": 5,
+                            "id": 300,
+                            "name": "M?rida F.C",
+                            "penalties": 0,
+                            "shortName": "M?rida F.C."
+                        },
+                        "pollData": {
+                            "votes": {}
+                        },
+                        "stadium": {
+                            "address": "",
+                            "country": "M?xico",
+                            "id": 529
+                        },
+                        "timestamp": "2013-09-24T19:00:00.000-05:00",
+                        "visitor": {
+                            "avatarUrl": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/1/124/1248_80x80.png",
+                            "globalGoals": 3,
+                            "globalPenalties": 0,
+                            "goals": 3,
+                            "id": 1248,
+                            "name": "Delfines del Carmen",
+                            "penalties": 0,
+                            "shortName": "Delfines del Carmen"
+                        }
+                    },
+                    {
+                        "commentCount": 0,
+                        "follow": false,
+                        "followCount": 0,
+                        "goals": {
+                            "local": [],
+                            "visitor": []
+                        },
+                        "id": 47726,
+                        "league": {
+                            "abbreviation": "Copa MX",
+                            "id": 68,
+                            "name": "Copa MX"
+                        },
+                        "local": {
+                            "avatarUrl": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/1/111/15_80x80.png",
+                            "globalGoals": 2,
+                            "globalPenalties": 0,
+                            "goals": 2,
+                            "id": 15,
+                            "name": "Atlante",
+                            "penalties": 0,
+                            "shortName": "Atlante"
+                        },
+                        "pollData": {
+                            "votes": {}
+                        },
+                        "stadium": {
+                            "address": "Canc?n, Quintana Roo Av. Mayapan, Kabah y Av. La Luna s/n, Col. Centro, C.P. 77500, Canc?n, Quintana Roo.",
+                            "country": "M?xico",
+                            "id": 333,
+                            "lat": 21.15077010546719,
+                            "lng": -86.8381739988639
+                        },
+                        "timestamp": "2013-09-25T21:00:00.000-05:00",
+                        "visitor": {
+                            "avatarUrl": "http://euro.mediotiempo.com/movil/telcel/images/equipos/80/3/333/33_80x80.png",
+                            "globalGoals": 1,
+                            "globalPenalties": 0,
+                            "goals": 1,
+                            "id": 33,
+                            "name": "Chiapas F?tbol Club",
+                            "penalties": 0,
+                            "shortName": "Chiapas FC"
+                        }
                     }
                 ]
             }
