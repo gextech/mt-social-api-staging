@@ -250,13 +250,17 @@ The request has the following parameters:
 
 + Response 204
 
-## Returns all instances followed by the current user [/v1/follow/followings/${followingType}{?max,offset}]
+
+
+## Returns all followers of the current user [/v1/follow/followers{?max,offset,type}]
 ### GET
-This resource get all instances followed by the current user
+This resource get all followers of the current user
 
 The request has the following parameters:
 
-- **followingType** Required, It is the Type of the followings required. It can be: [ *person* | *team* | *match* | *all* ]
+- **type** (Optional) It is the type of the followers. It can be: [ *person* | *team* | *match* ] If not specified then returns all following of any type
+- **max** (Optional) For pagination, number of elements
+- **offset** (Optional) For pagination, result offset 
 
 
 `Please use your MTSocial API account credentials for API calls.`
@@ -280,36 +284,45 @@ The request has the following parameters:
                     "avatarUrl": null,
                     "birthdate": null,
                     "email": "dsuarez@expansion.com.mx",
-                    "followers": 0,
-                    "following": 0,
+                    "followerCount": 1,
+                    "followers": 1,
+                    "following": true,
+                    "followingCount": 2,
                     "gender": null,
-                    "id": "3ac02090-9166-4678-ba98-9d974fe19fc5",
+                    "id": "9290156e-ca5c-4d4c-91fd-c0878b21b081",
                     "media": null,
                     "name": "Domingo Suarez Torres",
-                    "recentActivity": null
+                    "recentActivity": null,
+                    "type": "person"
                 },
                 {
                     "avatarUrl": null,
                     "birthdate": null,
-                    "email": "another@expansion.com.mx",
-                    "followers": 0,
-                    "following": 0,
+                    "email": "dsuarez2@expansion.com.mx",
+                    "followerCount": 1,
+                    "followers": 1,
+                    "following": true,
+                    "followingCount": 2,
                     "gender": null,
-                    "id": "4ac02090-9166-4678-ba98-9d974fe19fc5",
+                    "id": "9290156e-ca5c-4d4c-91fd-33333333333",
                     "media": null,
-                    "name": "Another Person",
-                    "recentActivity": null
+                    "name": "Otro Domingo Suarez Torres",
+                    "recentActivity": null,
+                    "type": "person"
                 }
             ]
 
-            
-## Return all followers of the current user  [/v1/follow/followers/${followerType}{?max,offset}]
+
+
+## Returns all following of the current user [/v1/follow/following{?max,offset,type}]
 ### GET
-This resource get all the followers of the current user 
+This resource get all following of the current user
 
 The request has the following parameters:
 
-- **followerType** Required, It is the Type of the followers required. It can be: [ *person* | *team* | *match* | *all*]
+- **type** Optional. It is the type of the followings. It can be: [ *person* | *team* | *match* ] If not specified then returns all following of any type
+- **max** (Optional) For pagination, number of elements
+- **offset** (Optional) For pagination, result offset 
 
 
 `Please use your MTSocial API account credentials for API calls.`
@@ -330,28 +343,160 @@ The request has the following parameters:
 
             [
                 {
-                    "actor": {
-                        "avatarUrl": null, 
-                        "id": "123", 
-                        "type": "eventParticipant"
-                    }
-                }, 
+                    "avatarUrl": null,
+                    "birthdate": null,
+                    "email": "dsuarez@expansion.com.mx",
+                    "followerCount": 1,
+                    "followers": 1,
+                    "following": true,
+                    "followingCount": 2,
+                    "gender": null,
+                    "id": "9290156e-ca5c-4d4c-91fd-c0878b21b081",
+                    "media": null,
+                    "name": "Domingo Suarez Torres",
+                    "recentActivity": null,
+                    "type": "person"
+                },
                 {
-                    "actor": {
-                        "avatarUrl": null, 
-                        "id": "1234", 
-                        "type": "eventParticipant"
-                    }
-                }, 
+                    "avatarUrl": null,
+                    "birthdate": null,
+                    "email": "dsuarez2@expansion.com.mx",
+                    "followerCount": 1,
+                    "followers": 1,
+                    "following": true,
+                    "followingCount": 2,
+                    "gender": null,
+                    "id": "9290156e-ca5c-4d4c-91fd-33333333333",
+                    "media": null,
+                    "name": "Otro Domingo Suarez Torres",
+                    "recentActivity": null,
+                    "type": "person"
+                }
+            ]
+
+## Returns all followers of an actor [/v1/follow/followers/${actorType}/${actorId}{?max,offset,type}]
+### GET
+This resource get all followers of the specified actor
+
+The request has the following parameters:
+
+- **type** (Optional) It is the type of the followers. It can be: [ *person* | *team* | *match* ] If not specified then returns all following of any type
+- **max** (Optional) For pagination, number of elements
+- **offset** (Optional) For pagination, result offset 
+
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request 
+    + Headers
+    
+            Accept: application/json
+    
+    + Body 
+    
+            {
+            }
+
++ Response 200 (application/json)
+ 
+    + Body
+
+            [
                 {
-                    "actor": {
-                        "avatarUrl": null, 
-                        "id": "1000", 
-                        "type": "event"
-                    }
+                    "avatarUrl": null,
+                    "birthdate": null,
+                    "email": "dsuarez@expansion.com.mx",
+                    "followerCount": 1,
+                    "followers": 1,
+                    "following": true,
+                    "followingCount": 2,
+                    "gender": null,
+                    "id": "9290156e-ca5c-4d4c-91fd-c0878b21b081",
+                    "media": null,
+                    "name": "Domingo Suarez Torres",
+                    "recentActivity": null,
+                    "type": "person"
+                },
+                {
+                    "avatarUrl": null,
+                    "birthdate": null,
+                    "email": "dsuarez2@expansion.com.mx",
+                    "followerCount": 1,
+                    "followers": 1,
+                    "following": true,
+                    "followingCount": 2,
+                    "gender": null,
+                    "id": "9290156e-ca5c-4d4c-91fd-33333333333",
+                    "media": null,
+                    "name": "Otro Domingo Suarez Torres",
+                    "recentActivity": null,
+                    "type": "person"
+                }
+            ]
+
+
+
+## Returns all following of an actor  [/v1/follow/following/${actorType}/${actorId}{?max,offset,type}]
+### GET
+This resource get all following of the specified actor
+
+The request has the following parameters:
+
+- **type** Optional. It is the type of the followings. It can be: [ *person* | *team* | *match* ] If not specified then returns all following of any type
+- **max** (Optional) For pagination, number of elements
+- **offset** (Optional) For pagination, result offset 
+
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request 
+    + Headers
+    
+            Accept: application/json
+    
+    + Body 
+    
+            {
+            }
+
++ Response 200 (application/json)
+ 
+    + Body
+
+            [
+                {
+                    "avatarUrl": null,
+                    "birthdate": null,
+                    "email": "dsuarez@expansion.com.mx",
+                    "followerCount": 1,
+                    "followers": 1,
+                    "following": true,
+                    "followingCount": 2,
+                    "gender": null,
+                    "id": "9290156e-ca5c-4d4c-91fd-c0878b21b081",
+                    "media": null,
+                    "name": "Domingo Suarez Torres",
+                    "recentActivity": null,
+                    "type": "person"
+                },
+                {
+                    "avatarUrl": null,
+                    "birthdate": null,
+                    "email": "dsuarez2@expansion.com.mx",
+                    "followerCount": 1,
+                    "followers": 1,
+                    "following": true,
+                    "followingCount": 2,
+                    "gender": null,
+                    "id": "9290156e-ca5c-4d4c-91fd-33333333333",
+                    "media": null,
+                    "name": "Otro Domingo Suarez Torres",
+                    "recentActivity": null,
+                    "type": "person"
                 }
             ]
             
+
             
             
 # Group Like
