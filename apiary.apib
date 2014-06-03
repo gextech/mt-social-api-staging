@@ -2625,6 +2625,68 @@ To make a checkin with media the following parameter must be provided:
         }
 
 
+## Share a post, not social [/v1/timeline/share/post/{postId}]
+
+### Share an existent post [POST]
+
+- **postId**  This is the id of the shared post
+
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request 
+    + Headers
+    
+            Accept: application/json
+    
+    + Body 
+    
+            {
+            }
+
++ Response 200 (application/json)
+
+            {
+                "checkin": null,
+                "comment": null,
+                "follow": null,
+                "id": "7d30fb42-4d54-4889-b3c1-79a1d4f29943",
+                "like": null,
+                "media": null,
+                "parentId": null,
+                "postedToActor": null,
+                "publisher": {
+                    "avatarUrl": null,
+                    "id": "6a35649c-5c32-4463-bfea-a0181f6d2e95",
+                    "name": "Domingo Suarez Torres",
+                    "type": "person"
+                },
+                "share": {
+                    "originalPost": {
+                        "checkin": null,
+                        "comment": "el olor",
+                        "follow": null,
+                        "id": "d6b03e36-4a21-4f4a-b735-f07db65e7f64",
+                        "like": null,
+                        "media": null,
+                        "parentId": null,
+                        "postedToActor": null,
+                        "publisher": {
+                            "avatarUrl": null,
+                            "id": "6a35649c-5c32-4463-bfea-a0181f6d2e95",
+                            "name": "Domingo Suarez Torres",
+                            "type": "person"
+                        },
+                        "share": null,
+                        "sharedId": null,
+                        "timestamp": "2014-06-03T11:00:55.872-05:00"
+                    }
+                },
+                "sharedId": "d6b03e36-4a21-4f4a-b735-f07db65e7f64",
+                "timestamp": "2014-06-03T11:01:17.021-05:00"
+            }
+
+
 ## List details of the specified post [/v1/timeline/post/{postId}]
 
 
