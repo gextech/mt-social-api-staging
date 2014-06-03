@@ -2397,13 +2397,11 @@ It returns activity where the publisher is the specified actor or activity where
 
 ## Publish a post with only a comment [/v1/timeline/publish]
 
-### Send a new post, it can be a comment or reshare with a comment [POST]
+### Send a new post, it can be a an original comment or a comment in other post [POST]
 
 - **comment** Optional, It is the comment for the post the same as the comment in any post
-- **sharedId** Optional, In case this is a reshare (like a retweet), this is the id of the commented post
 - **postId** Optional, This is the id of the parent post
 - **shareWith** Optional, an array of providers to share with
-- **related** Optional, You can add several related actors and also a reason,
 - **actorId** (Optional) Publish content to this actor's id
 - **actorType** (Optional) Required when actorId is set. Actor type, (PERSON, EVENT, PARTICIPANT for instance)
 
@@ -2517,7 +2515,6 @@ This is a normal FORM!
 The request has the following parameters:
 
 - **comment** Optional, It is the comment for the post the same as the comment in any post
-- **sharedId** Optional, In case this is a reshare (like a retweet), this is the id of the commented post
 - **postId** Optional, This is the id of the parent post
 - **media[]** Could be more than one, just a normal file
 - **providers** The string of providers that you wish to share with
@@ -2532,8 +2529,6 @@ To make a checkin with media the following parameter must be provided:
 - **eventId** Optional, event id of the checkin
 - **venueId** Optional, venue id of the checkin
 - **comment** Optional, comment for the checkin
-
-
 
 
 + Request
