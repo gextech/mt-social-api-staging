@@ -1700,10 +1700,15 @@ This resource get the list of the active leagues: their ids and names.
             ]
         }
 
-## List of leagues and their teams [/v1/leagues/teams]
+## List of leagues and their teams [/v1/leagues/teams{?max,offset}]
 
 ### GET
 This resource get the list of the active leagues and its respective teams.
+
+Parameters:
+
+- **max**  Optional, for pagination. Number of elements
+- **offset** Optional, for pagination. Elements offset
 
 `Please use your MTSocial API account credentials for API calls.`
 
