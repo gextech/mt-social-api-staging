@@ -4118,3 +4118,25 @@ This are the possible notification types (the name tells the eventType, and enab
                 "visitorId": -20
             }
 
+# Group Complaints
+        
+## Complaint about a post [/v1/complaint/post/${postId}]
+### POST
+
+Register a complaint about a post, the user won't see the post in their timeline anymore.
+
+- **postId** Required, the post id
+
+`Please use your MTSocial API account credentials for API calls.`
+
+
++ Response 200 (application/json)
+ 
+    + Body
+
+            {
+                "post": {
+                    //Post structure goes here
+                }
+            }
+
