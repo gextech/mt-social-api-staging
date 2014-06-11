@@ -163,6 +163,56 @@ This resource log in user or register a new user into MTSocial API and login
 
             {"person":{"id":"8132259c-92ff-4568-908a-ce6445a07ed1","name":"Testing test","email":"test-in@expansion.com.mx"},"token":"3onh61e2ci6s6vk57qve4b5taarkndge"}
 
+## Request password recovery [/v1/people/$personId/passwordRecovery]
+### GET
+This send a mail with instructions to reset the password, not for user logged throw fb or twitter
+
++ Request (application/json)
+
+    + Headers
+
+            Accept: application/json
+            X-Auth-Token: {token}
+    + Body
+    
+            {}
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "msg": "A email has send",
+              "personId": "c4af6c48-aa36-4af7-b9dd-6d5056f586b2"
+            }
+
+
+## Change password [/v1/people/$personId/changePassword]
+### POST
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            X-Auth-Token: {token}
+    + Body
+
+            {"token":"token received by mail", "newPassword":"nuevo password"  }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "msg": "Password changed",
+                "person": {
+                    "birthdate": "1978-02-10T00:00:00.000-06:00",
+                    "email": "paolag@expansion.com.mx",
+                    "gender": "FEMALE",
+                    "id": "c4af6c48-aa36-4af7-b9dd-6d5056f586b2",
+                    "name": "KARLA PAOLA"
+                }
+            }
+
         
 ## Upload an avatar [/v1/people/uploadAvatar]
 
@@ -4171,5 +4221,6 @@ Register a complaint about a post, the user won't see the post in their timeline
                     //Post structure goes here
                 }
             }
+
 
 
