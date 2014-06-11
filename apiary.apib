@@ -189,6 +189,7 @@ This send a mail with instructions to reset the password, not for user logged th
 
 ## Change password [/v1/people/$personId/changePassword]
 ### POST
+When a user get a mail with instructions to recovery his password, it has the id of the user and the token required to change the password. 
 + Request (application/json)
     + Headers
 
@@ -206,7 +207,7 @@ This send a mail with instructions to reset the password, not for user logged th
                 "msg": "Password changed",
                 "person": {
                     "birthdate": "1978-02-10T00:00:00.000-06:00",
-                    "email": "paolag@expansion.com.mx",
+                    "email": "paolag@test.com.mx",
                     "gender": "FEMALE",
                     "id": "c4af6c48-aa36-4af7-b9dd-6d5056f586b2",
                     "name": "KARLA PAOLA"
