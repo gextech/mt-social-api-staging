@@ -38,8 +38,40 @@ This resource is the first. Use it to log into the API.
  
     + Body
 
-            {"token":"8ckoqbsr1ae90sfd8jvkfp4bqq4r80ac","person":{"id":"7d3c28b7-9d42-45d5-8a71-ad285842505b","name":"Tomas Salazar","email":"tsalazar@expansion.com.mx","age":null,"gender":null,  "avatarUrl": "http://graph.facebook.com/100008095927316/picture?type=square"}}
-
+            {
+              "person": {
+                  "avatarUrl": "https://mtfan-dev.s3.amazonaws.com/e7bcbde7-acf1-4811-94e7-d04743bb5b93-gextech.png",
+                  "badges": [
+                      {
+                          "id": "4d46efd8-a2bf-4e7e-ab8f-b35a2a39e6c7",
+                          "name": "canchero",
+                          "urlImage": "http://mtfan-app.s3.amazonaws.com/badge/BADGES-MT_canchero.png"
+                      },
+                      {
+                          "id": "c7e88f24-357e-4083-9272-e5ce08ef1dde",
+                          "name": "debut",
+                          "urlImage": "http://mtfan-app.s3.amazonaws.com/badge/BADGES-MT_debut.png"
+                      },
+                      {
+                          "id": "c0275314-d242-4fda-bb67-1c5b73c575e7",
+                          "name": "trotamundos",
+                          "urlImage": "http://mtfan-app.s3.amazonaws.com/badge/BADGES-MT_trotamundos.png"
+                      }
+                  ],
+                  "birthdate": "1913-01-01T00:00:00.000-06:36:36",
+                  "email": "tsalazar@expansion.com.mx",
+                  "followerCount": 0,
+                  "following": null,
+                  "followingCount": 4,
+                  "gender": "MALE",
+                  "id": "ffafc94d-a4f4-41d3-8b70-5a97826e504d",
+                  "media": null,
+                  "name": "Tomas Salazar",
+                  "recentActivity": null,
+                  "type": null
+              },
+              "token": "82gvlv1gtcduv42uu7icefiij025ti9a"
+            }
 
 ## Check if token is still valid [/api/validate]
 Basic service to validate token, this is for testing.
@@ -260,7 +292,7 @@ The request has the following parameters:
 
 - **type** (Optional) It is the type of the followers. It can be: [ *person* | *team* | *match* ] If not specified then returns all following of any type
 - **max** (Optional) For pagination, number of elements
-- **offset** (Optional) For pagination, result offset 
+- **offset** (Optional) For pagination, result offset 
 
 
 `Please use your MTSocial API account credentials for API calls.`
@@ -322,7 +354,7 @@ The request has the following parameters:
 
 - **type** Optional. It is the type of the followings. It can be: [ *person* | *team* | *match* ] If not specified then returns all following of any type
 - **max** (Optional) For pagination, number of elements
-- **offset** (Optional) For pagination, result offset 
+- **offset** (Optional) For pagination, result offset 
 
 
 `Please use your MTSocial API account credentials for API calls.`
@@ -382,7 +414,7 @@ The request has the following parameters:
 
 - **type** (Optional) It is the type of the followers. It can be: [ *person* | *team* | *match* ] If not specified then returns all following of any type
 - **max** (Optional) For pagination, number of elements
-- **offset** (Optional) For pagination, result offset 
+- **offset** (Optional) For pagination, result offset 
 
 
 `Please use your MTSocial API account credentials for API calls.`
@@ -444,7 +476,7 @@ The request has the following parameters:
 
 - **type** Optional. It is the type of the followings. It can be: [ *person* | *team* | *match* ] If not specified then returns all following of any type
 - **max** (Optional) For pagination, number of elements
-- **offset** (Optional) For pagination, result offset 
+- **offset** (Optional) For pagination, result offset 
 
 
 `Please use your MTSocial API account credentials for API calls.`
@@ -616,7 +648,7 @@ This resource gets the list of persons who likes the specified post.
 
 - **postId** The id of the post
 - **max** (Optional) For pagination, number of elements
-- **offset** (Optional) For pagination, result offset 
+- **offset** (Optional) For pagination, result offset 
 
 `Please use your MTSocial API account credentials for API calls.`
 
@@ -4139,4 +4171,5 @@ Register a complaint about a post, the user won't see the post in their timeline
                     //Post structure goes here
                 }
             }
+
 
