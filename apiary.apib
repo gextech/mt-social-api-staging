@@ -4567,5 +4567,21 @@ Register a complaint about a post, the user won't see the post in their timeline
                 }
             }
 
+# Group Search
+        
+## Search for people, teams and matches [/v1/search{?peopleOffset,peopleMax,teamOffset,teamMax,matchOffset,matchMax}]
+### POST
+
+Search for people, teams and matches according a query. It is an aggregated of individual services to find people, matches and teams
+
+The request has the following parameters:
+
+- **query** Required, it is a string with the query base, example: "mexico"
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Response 200 (application/json)
+ 
+
 
 
