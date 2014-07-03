@@ -4604,4 +4604,30 @@ The request has the following parameters:
 + Response 200 (application/json)
  
 
+## Search for teams [/v1/search/team{?offset,max}]
+### POST
+
+Search for teams matching a query.
+
+The request has the following parameters:
+
+- **query** Required, it is a string with the query to search teams. It can match parcially the team name. Example "Cruz Az"
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Response 200 (application/json)
+
+
+## Search for matches [/v1/search/matches{?offset,max}]
+### POST
+
+Search for matches matching a query.
+
+The request has the following parameters:
+
+- **query** Required, it is a string with the query to search matches. It can match parcially the match name. Example "Cruz Azul VS"
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Response 200 (application/json)
 
