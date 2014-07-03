@@ -4582,6 +4582,26 @@ The request has the following parameters:
 
 + Response 200 (application/json)
  
+    + Body
 
+            {
+                "post": {
+                    //Post structure goes here
+                }
+            }
+
+## Search for people [/v1/search/people{?offset,max}]
+### POST
+
+Search for people matching a query.
+
+The request has the following parameters:
+
+- **query** Required, it is a string with the query to search people. It can match parcially the name, or the whole nickname or the whole email. Examples: "Ana", "tsunllly", "aemail@gmail.com"
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Response 200 (application/json)
+ 
 
 
