@@ -4574,20 +4574,38 @@ Register a complaint about a post, the user won't see the post in their timeline
 
 Search for people, teams and matches according a query. It is an aggregated of individual services to find people, matches and teams
 
+`Please use your MTSocial API account credentials for API calls`
+
 The request has the following parameters:
 
+- **peopleMax, teamMax, matchMax** (Optional) For pagination, number of elements
+- **peopleOffset, teamOffset, matchOffset** (Optional) For pagination, result offset
 - **query** Required, it is a string with the query base, example: "mexico"
 
-`Please use your MTSocial API account credentials for API calls.`
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {"query":"ame"}
+
 
 + Response 200 (application/json)
  
     + Body
 
             {
-                "post": {
-                    //Post structure goes here
-                }
+                "people": {
+                    //List with people structure
+                },
+                "teams": {
+                    //List with team structure
+                },
+                "matches": {
+                    //List with match structure
+                },
             }
 
 ## Search for people [/v1/search/people{?offset,max}]
@@ -4595,39 +4613,91 @@ The request has the following parameters:
 
 Search for people matching a query.
 
+`Please use your MTSocial API account credentials for API calls.`
+
 The request has the following parameters:
 
+- **max** (Optional) For pagination, number of elements
+- **offset** (Optional) For pagination, result offset
 - **query** Required, it is a string with the query to search people. It can match parcially the name, or the whole nickname or the whole email. Examples: "Ana", "tsunllly", "aemail@gmail.com"
 
-`Please use your MTSocial API account credentials for API calls.`
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {"query":"edu"}
+
 
 + Response 200 (application/json)
  
+    + Body
+
+            {
+                //List with people structure
+            }
+
 
 ## Search for teams [/v1/search/team{?offset,max}]
 ### POST
 
 Search for teams matching a query.
 
-The request has the following parameters:
-
-- **query** Required, it is a string with the query to search teams. It can match parcially the team name. Example "Cruz Az"
-
 `Please use your MTSocial API account credentials for API calls.`
 
-+ Response 200 (application/json)
+The request has the following parameters:
 
+- **max** (Optional) For pagination, number of elements
+- **offset** (Optional) For pagination, result offset
+- **query** Required, it is a string with the query to search teams. It can match parcially the team name. Example "Cruz Az"
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {"query":"barcelo"}
+
+
++ Response 200 (application/json)
+ 
+    + Body
+
+            {
+                //List with team structure
+            }
 
 ## Search for matches [/v1/search/matches{?offset,max}]
 ### POST
 
 Search for matches matching a query.
 
-The request has the following parameters:
-
-- **query** Required, it is a string with the query to search matches. It can match parcially the match name. Example "Cruz Azul VS"
-
 `Please use your MTSocial API account credentials for API calls.`
 
-+ Response 200 (application/json)
+The request has the following parameters:
 
+- **max** (Optional) For pagination, number of elements
+- **offset** (Optional) For pagination, result offset
+- **query** Required, it is a string with the query to search matches. It can match parcially the match name. Example "Cruz Azul VS"
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {"query":"cruz azul vs ame"}
+
+
++ Response 200 (application/json)
+ 
+    + Body
+
+            {
+                //List with match structure
+            }
