@@ -2779,6 +2779,13 @@ It returns activity where the publisher is the specified actor or activity where
 - **actorId** (Optional) Publish content to this actor's id
 - **actorType** (Optional) Required when actorId is set. Actor type, (PERSON, EVENT, PARTICIPANT for instance)
 
+The comment may contain a "lolmention", which is a mention, it needs a very special format:
+
+    [(person|match|team)|actorId|lolname]
+    
+This expressions will be analyzed, and actions executed accordingly, in the end every post in the timeline will include a mentions
+property which will include mentioned users.
+
 + Request
 
     + Headers
