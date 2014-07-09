@@ -2769,6 +2769,42 @@ It returns activity where the publisher is the specified actor or activity where
             }
         ]
 
+
+## List all posts containing with the specified hashtag [/v1/timeline/hashtag/{hashtag}{?max,offset}]
+
+### You can list all posts with the specified hashtag, by default returns 10 elements [GET]
+
+- **hashtag** Required, it is a word, the hashtag. Example: chocolates, mexicoCampeon, ...
+- **max**  Optional, for pagination. Number of elements. Default 10
+- **offser** Optional, for pagination. Lower bound. Default 0
+
+
++ Request
+
+    + Headers
+    
+            X-Auth-Token: {token}
+
+
++ Response 200 (application/json)
+        
+        [
+            {
+                // Post 1 
+            }, 
+            {
+                // Post 2
+            }, 
+            {
+                // ...
+            },
+            {
+                // Post n
+            }
+        ]
+
+
+
 ## Publish a post with only a comment [/v1/timeline/publish]
 
 ### Send a new post, it can be a an original comment or a comment in other post [POST]
