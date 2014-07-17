@@ -3693,12 +3693,15 @@ Registers a device for push messages, we expect your token and the type, could b
         
         
 # Group Checkin
-## Venues [/v1/venues{?longitude}&{?latitude}]
+## Venues [/v1/venues{?longitude}&{?latitude}&{?query}&{?radius}]
 ### Search venues by lattide and longitude [GET]
 
-- **longitude** Double
-- **latitude** Double
+Results are sorted by distance. First the nearest.
 
+- **longitude** RequiredDouble 
+- **latitude**  Required. Double
+- **query** Optional. A search term to be applied against venue name. Example: donuts
+- **radius** Optional. Limit results to venues within this many meters of the specified location. Default is 1000 meters
 
 + Request
 
