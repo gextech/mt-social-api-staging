@@ -356,7 +356,7 @@ The request has the following parameters:
 
 
 
-## Returns all followers of the current user [/v1/follow/followers{?max,offset,type}]
+## Returns all followers of the current user [/v1/follow/followers{?max,offset,type,fullResponse,includeStats,compatibleOldVersion}]
 ### GET
 This resource get all followers of the current user
 
@@ -365,6 +365,9 @@ The request has the following parameters:
 - **type** (Optional) It is the type of the followers. It can be: [ *person* | *team* | *match* ] If not specified then returns all following of any type
 - **max** (Optional) For pagination, number of elements
 - **offset** (Optional) For pagination, result offset 
+- **includeStats** (Optional)Default is true. Counter details are added to response: following, followingCount, followingDetail, followerCount, followersDetail.
+- **fullResponse** (Optional)Default is true. The response include full details as stadium, goals, etc. If *false* then only responds  basic info as url, id and name.
+- **compatibleOldVersion** (Optional )Default is true, the response has duplicated fields in order to preserve compatability. It is HIGHLY recommended to use with compatibleOldVersion = *false* in order to obtain a cleaner response.
 
 
 `Please use your MTSocial API account credentials for API calls.`
@@ -418,7 +421,7 @@ The request has the following parameters:
 
 
 
-## Returns all following of the current user [/v1/follow/following{?max,offset,type}]
+## Returns all following of the current user [/v1/follow/following{?max,offset,type,fullResponse,includeStats,compatibleOldVersion}]
 ### GET
 This resource get all following of the current user
 
@@ -427,6 +430,9 @@ The request has the following parameters:
 - **type** Optional. It is the type of the followings. It can be: [ *person* | *team* | *match* ] If not specified then returns all following of any type
 - **max** (Optional) For pagination, number of elements
 - **offset** (Optional) For pagination, result offset 
+- **includeStats** (Optional)Default is true. Counter details are added to response: following, followingCount, followingDetail, followerCount, followersDetail.
+- **fullResponse** (Optional)Default is true. The response include full details as stadium, goals, etc. If *false* then only responds  basic info as url, id and name.
+- **compatibleOldVersion** (Optional )Default is true, the response has duplicated fields in order to preserve compatability. It is HIGHLY recommended to use with compatibleOldVersion = *false* in order to obtain a cleaner response.
 
 
 `Please use your MTSocial API account credentials for API calls.`
@@ -478,7 +484,7 @@ The request has the following parameters:
                 }
             ]
 
-## Returns all followers of an actor [/v1/follow/followers/${actorType}/${actorId}{?max,offset,type}]
+## Returns all followers of an actor [/v1/follow/followers/${actorType}/${actorId}{?max,offset,type,fullResponse,includeStats,compatibleOldVersion}]
 ### GET
 This resource get all followers of the specified actor
 
@@ -487,6 +493,9 @@ The request has the following parameters:
 - **type** (Optional) It is the type of the followers. It can be: [ *person* | *team* | *match* ] If not specified then returns all following of any type
 - **max** (Optional) For pagination, number of elements
 - **offset** (Optional) For pagination, result offset 
+- **includeStats** (Optional)Default is true. Counter details are added to response: following, followingCount, followingDetail, followerCount, followersDetail.
+- **fullResponse** (Optional)Default is true. The response include full details as stadium, goals, etc. If *false* then only responds  basic info as url, id and name.
+- **compatibleOldVersion** (Optional )Default is true, the response has duplicated fields in order to preserve compatability. It is HIGHLY recommended to use with compatibleOldVersion = *false* in order to obtain a cleaner response.
 
 
 `Please use your MTSocial API account credentials for API calls.`
@@ -540,7 +549,7 @@ The request has the following parameters:
 
 
 
-## Returns all following of an actor  [/v1/follow/following/${actorType}/${actorId}{?max,offset,type}]
+## Returns all following of an actor  [/v1/follow/following/${actorType}/${actorId}{?max,offset,type,fullResponse,includeStats,compatibleOldVersion}]
 ### GET
 This resource get all following of the specified actor
 
@@ -549,6 +558,10 @@ The request has the following parameters:
 - **type** Optional. It is the type of the followings. It can be: [ *person* | *team* | *match* ] If not specified then returns all following of any type
 - **max** (Optional) For pagination, number of elements
 - **offset** (Optional) For pagination, result offset 
+- **includeStats** (Optional)Default is true. Counter details are added to response: following, followingCount, followingDetail, followerCount, followersDetail.
+- **fullResponse** (Optional)Default is true. The response include full details as stadium, goals, etc. If *false* then only responds  basic info as url, id and name.
+- **compatibleOldVersion** (Optional )Default is true, the response has duplicated fields in order to preserve compatability. It is HIGHLY recommended to use with compatibleOldVersion = *false* in order to obtain a cleaner response.
+
 
 
 `Please use your MTSocial API account credentials for API calls.`
