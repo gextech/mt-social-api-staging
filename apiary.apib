@@ -3659,9 +3659,10 @@ To make a checkin with media the following parameter must be provided:
 
         ['facebook', 'twitter']
     
-## Suggested friends [/v1/people/suggested]
-
+## Suggested friends [/v1/people/suggested{?compatibleOldVersion}]
 ### Return suggested friends from social and app[GET]
+
+- **compatibleOldVersion** Default is true, the response has duplicated fields in order to preserve compatability. It is HIGHLY recommended to use with compatibleOldVersion = *false* in order to obtain a cleaner response.
 
 + Request
 
@@ -3674,14 +3675,11 @@ To make a checkin with media the following parameter must be provided:
         {
             "socialFriends": [],
             "suggested": [
-            {
-                "avatarUrl": "http://graph.facebook.com/100008095927316/picture?type=square",
-                "birthdate": "2014-04-08T09:05:39.675-05:00",
-                "email": "follow1@expansion.com.mx",
-                "gender":  "FEMALE",
-                "id": "2ec66081-3100-4be1-a6aa-cda1ebdf844d",
-                 "name": "Follow1"
-                }
+                match: {// data of match or null},
+                team: { //data of team or null},
+                person: { // data of person or null},
+                type: person or team or match
+                //Some other repeated fields in order to maintain compatability with old versions. They are not included if compatibleOldVersion=false
             ]
         }
         
