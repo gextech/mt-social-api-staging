@@ -93,10 +93,10 @@ Use the token retrive from login call as header X-Auth-Token.
 
     
 ## Lists allowed people [/v1/people/]
-
+### GET
 Get basic info for logged person 
 
-### Person details [GET]
+
 + Response 200 (application/json)
 
             {"id":1,"name":"Domingo Suarez Torres","email":"dsuarez@expansion.com.mx"}
@@ -252,7 +252,26 @@ This is a normal FORM!
             "uuid": "28e3eb32-a7d4-419c-8e0b-fd68b7a9ff27"
         }
         
-        
+   
+          
+## Delete user account [/v1/people]
+### DELETE
+This resource delete all data related to the current user. Use carefully. 
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request 
+    + Headers
+    
+            Accept: application/json
+    
+    + Body 
+    
+            {
+            }
+
++ Response 204
+
 
 # Group Follow
         
