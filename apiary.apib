@@ -119,7 +119,7 @@ Remember that TT Token has **limited validity**. Once you received 401 Unauthori
 - genre (string)    : Optional User's genre (FEMALE, MALE)
 - birthdate   (logn)    : Optional User's age
 
-## Create a user [/v1/people]
+## Create or delete a user [/v1/people]
 ### POST
 This resource register new user into MTSocial API and login
 
@@ -140,6 +140,25 @@ This resource register new user into MTSocial API and login
     + Body
     
             {"person":{"id":"8132259c-92ff-4568-908a-ce6445a07ed1","name":"Testing test","email":"test-in@expansion.com.mx"},"token":"3onh61e2ci6s6vk57qve4b5taarkndge"}
+
+
+### DELETE
+This resource delete all data related to the current user. Use carefully. 
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request 
+    + Headers
+    
+            Accept: application/json
+    
+    + Body 
+    
+            {
+            }
+
++ Response 204
+
 
 ## Login with social API [/v1/people/loginSocial]
 ### POST
@@ -253,24 +272,7 @@ This is a normal FORM!
         }
         
    
-          
-## Delete user account [/v1/people]
-### DELETE
-This resource delete all data related to the current user. Use carefully. 
-
-`Please use your MTSocial API account credentials for API calls.`
-
-+ Request 
-    + Headers
-    
-            Accept: application/json
-    
-    + Body 
-    
-            {
-            }
-
-+ Response 204
+         
 
 
 # Group Follow
