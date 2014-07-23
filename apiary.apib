@@ -3181,6 +3181,31 @@ To make a checkin with media the following parameter must be provided:
             "timestamp": "2014-04-07T10:02:21.129-05:00"
         }
 
+## Share a post, not social [/v1/timeline/socialShare/post/{postId}]
+### Share an existing post on social networks [POST]
+
+- **postId**  This is the id of the shared post
+
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request 
+    + Headers
+    
+            Accept: application/json
+    
+    + Body 
+    
+            {
+                "shareWith": ["twitter", "facebook"]
+            }
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+            }
 
 ## Share a post, not social [/v1/timeline/share/post/{postId}]
 
