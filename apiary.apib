@@ -240,8 +240,12 @@ You should also use this service if you want to refresh social network tokens.
  
     + Body
 
-            {}
-            
+            {
+                "providerId": "facebook", 
+                "providerUserId": "100003544803563", 
+                "userId": "3"
+            }
+                        
             
 
 
@@ -4513,6 +4517,22 @@ Get a match poll data
             }
 
 # Group Notifications
+
+## List notification preferences [/v1/mobile/preferences]
+### GET
+
+This resource returns all notification preferences for the current user
+
+`Please use your MTSocial API account credentials for API calls.`
+
+
++ Response 200 (application/json)
+ 
+    + Body
+
+            [
+                
+            ]
         
 ## List notifications [/v1/mobile/notifications?{offset,max}]
 ### GET
