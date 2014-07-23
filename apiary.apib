@@ -164,6 +164,14 @@ This resource delete all data related to the current user. Use carefully.
 ### POST
 This resource log in user or register a new user into MTSocial API and login
 
+You can send your social network's accessToken, and secret in the case of twitter, three providers are supported now:
+
+* twitter
+* facebook
+* google
+
+In case the user doesn't exist you will get a 404 message with a userError
+
 `Please use your MTSocial API account credentials for API calls.`
 
 + Request (application/json)
@@ -174,13 +182,20 @@ This resource log in user or register a new user into MTSocial API and login
 
     + Body
 
-            {"uid":"zdadzsdaae"}
+            {"accessToken":"zdadzsdaae", "secret":"SOLOENELCASODETWITTER", "provider":"twitter"}
 
 + Response 200 (application/json)
  
     + Body
 
             {"person":{"id":"8132259c-92ff-4568-908a-ce6445a07ed1","name":"Testing test","email":"test-in@expansion.com.mx"},"token":"3onh61e2ci6s6vk57qve4b5taarkndge"}
+
++ Response 404 (application/json)
+ 
+    + Body
+
+            {}
+
 
 ## Request password recovery [/v1/people/passwordRecovery/$mail]
 ### GET
