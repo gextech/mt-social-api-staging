@@ -4530,9 +4530,160 @@ This resource returns all notification preferences for the current user
  
     + Body
 
-            [
-                
-            ]
+            {
+                "preferences": [
+                    {
+                        "enabled": true, 
+                        "name": "matchStarted"
+                    }, 
+                    {
+                        "enabled": true, 
+                        "name": "endTimeT1"
+                    }, 
+                    {
+                        "enabled": true, 
+                        "name": "startTimeT2"
+                    }, 
+                    {
+                        "enabled": true, 
+                        "name": "endTimeT2"
+                    }, 
+                    {
+                        "enabled": true, 
+                        "name": "startTimeTE1"
+                    }, 
+                    {
+                        "enabled": true, 
+                        "name": "endTimeTE1"
+                    }, 
+                    {
+                        "enabled": true, 
+                        "name": "startTimeTE2"
+                    }, 
+                    {
+                        "enabled": true, 
+                        "name": "endTimeTE2"
+                    }, 
+                    {
+                        "enabled": true, 
+                        "name": "goal"
+                    }, 
+                    {
+                        "enabled": true, 
+                        "name": "ownGoal"
+                    }, 
+                    {
+                        "enabled": true, 
+                        "name": "comment"
+                    }, 
+                    {
+                        "enabled": true, 
+                        "name": "like"
+                    }, 
+                    {
+                        "enabled": true, 
+                        "name": "follow"
+                    }, 
+                    {
+                        "enabled": true, 
+                        "name": "checkin"
+                    }
+                ]
+            }
+        
+### POST
+
+This resource returns all notification preferences for the current user. You can update all events or just some events.
+
+`Please use your MTSocial API account credentials for API calls.`
+
+
++ Request
+ 
+    + Body
+
+            {
+                "preferences": [
+                    {
+                        "enabled": true, 
+                        "name": "matchStarted"
+                    }, 
+                    {
+                        "enabled": true, 
+                        "name": "endTimeT1"
+                    }, 
+                    {
+                        "enabled": false, 
+                        "name": "startTimeT2"
+                    }
+                ]
+            }
+            
++ Response 200 (application/json)
+ 
+    + Body
+
+            {
+                "preferences": [
+                    {
+                        "enabled": true, 
+                        "name": "matchStarted"
+                    }, 
+                    {
+                        "enabled": true, 
+                        "name": "endTimeT1"
+                    }, 
+                    {
+                        "enabled": false, 
+                        "name": "startTimeT2"
+                    }, 
+                    {
+                        "enabled": true, 
+                        "name": "endTimeT2"
+                    }, 
+                    {
+                        "enabled": true, 
+                        "name": "startTimeTE1"
+                    }, 
+                    {
+                        "enabled": true, 
+                        "name": "endTimeTE1"
+                    }, 
+                    {
+                        "enabled": true, 
+                        "name": "startTimeTE2"
+                    }, 
+                    {
+                        "enabled": true, 
+                        "name": "endTimeTE2"
+                    }, 
+                    {
+                        "enabled": true, 
+                        "name": "goal"
+                    }, 
+                    {
+                        "enabled": true, 
+                        "name": "ownGoal"
+                    }, 
+                    {
+                        "enabled": true, 
+                        "name": "comment"
+                    }, 
+                    {
+                        "enabled": true, 
+                        "name": "like"
+                    }, 
+                    {
+                        "enabled": true, 
+                        "name": "follow"
+                    }, 
+                    {
+                        "enabled": true, 
+                        "name": "checkin"
+                    }
+                ]
+            }
+
         
 ## List notifications [/v1/mobile/notifications?{offset,max}]
 ### GET
