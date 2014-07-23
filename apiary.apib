@@ -172,6 +172,8 @@ You can send your social network's accessToken, and secret in the case of twitte
 
 In case the user doesn't exist you will get a 404 message with a userError
 
+You should also use this service if you want to refresh social network tokens.
+
 `Please use your MTSocial API account credentials for API calls.`
 
 + Request (application/json)
@@ -209,6 +211,38 @@ In case the user doesn't exist you will get a 404 message with a userError
                     "validationErrors": null
                 }
             }
+
+## Login with social API [/v1/people/addSocialConnection]
+### POST
+This services allows to add a new social network to the same user, you have to send plain normal social tokens.
+
+* twitter
+* facebook
+* google
+
+In case the user doesn't exist you will get a 404 message with a userError
+
+You should also use this service if you want to refresh social network tokens.
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            X-Auth-Token: {token}
+
+    + Body
+
+            {"accessToken":"zdadzsdaae", "secret":"SOLOENELCASODETWITTER", "provider":"twitter"}
+
++ Response 200 (application/json)
+ 
+    + Body
+
+            {}
+            
+            
 
 
 ## Request password recovery [/v1/people/passwordRecovery/$mail]
