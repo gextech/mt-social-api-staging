@@ -1825,10 +1825,14 @@ This resource gets the list of life matches
 
 
 # Group Tournaments, leagues and teams
-## List of leagues [/v1/leagues]
+## List of leagues [/v1/leagues{?visible}]
 
 ### GET
 This resource get the list of the active leagues: their ids and names.
+
+Parameters:
+
+- **visible**  Optional. Boolean. True or false. Filter by visibility. If no present then return both, visible and invisible.
 
 `Please use your MTSocial API account credentials for API calls.`
 
@@ -1846,30 +1850,26 @@ This resource get the list of the active leagues: their ids and names.
 
         {
             "leagues": [
+                  {
+                    "abbreviation": "Primera Divisi?n Mexicana",
+                    "displayName": "Primera Divisi?n Mexicana",
+                    "id": 1,
+                    "name": "Primera Divisi?n Mexicana",
+                    "orderNumber": 1,
+                    "visible": true
+                },
                 {
-                    "abbreviation": "Zon Sagres", 
-                    "id": "78", 
-                    "name": "Zon Sagres"
-                }, 
-                {
-                    "abbreviation": "Copa MX", 
-                    "id": "68", 
-                    "name": "Copa MX"
-                }, 
-                {
-                    "abbreviation": "Eredivisie", 
-                    "id": "55", 
-                    "name": "Eredivisie"
-                }, 
-                {
-                    "abbreviation": "Primera Divisi?n Argentina", 
-                    "id": "17", 
-                    "name": "Primera Divisi?n Argentina"
+                    "abbreviation": "Brasil",
+                    "displayName": "Copa mundial",
+                    "id": 9,
+                    "name": "Brasil",
+                    "orderNumber": 9,
+                    "visible": false
                 }
             ]
         }
 
-## List of leagues and their teams [/v1/leagues/teams{?max,offset}]
+## List of leagues and their teams [/v1/leagues/teams{?max,offset,visible}]
 
 ### GET
 This resource get the list of the active leagues and its respective teams.
@@ -1878,6 +1878,7 @@ Parameters:
 
 - **max**  Optional, for pagination. Number of elements
 - **offset** Optional, for pagination. Elements offset
+- **visible** Optional. Boolean. True or false. Filter by visibility. If no present then return both, visible and invisible.
 
 `Please use your MTSocial API account credentials for API calls.`
 
@@ -1899,6 +1900,9 @@ Parameters:
                         "abbreviation": "Zon Sagres",
                         "id": "78",
                         "name": "Zon Sagres",
+                        "displayName": "Zon Sagres :)",
+                        "orderNumber": 5,
+                        "visible": true,
                         "teams": [
                             {
                                 "id": 228,
@@ -1918,6 +1922,9 @@ Parameters:
                         "abbreviation": "Copa MX",
                         "id": "68",
                         "name": "Copa MX",
+                        "displayName": "Copa mexicana",
+                        "orderNumber": 1,
+                        "visible": true
                         "teams": [
                             {
                                 "id": 15,
@@ -1977,6 +1984,52 @@ This resource gets the list of teams from the specified league
                     }
                 ]
             }
+
+## Update league   [/v1/leagues/${league_id}]
+
+### PUT
+You can update displayName, visibility or orderNumber of the specified league
+(Changes happens next time filler job "general" run - 1 hr approximately)
+
+`Please use your MTSocial API account credentials for API calls.`
+
+
+Parameters:
+
+- **displayName**  Optional. This is the name of the league you want to display
+- **visible**   Optional. Boolean: true, false
+- **orderNumber**   Optional. Integer: specifies the order of display
+
+If a parameter is not specified, then no updated are applied to the correspnding fields
+
+
++ Request 
+    + Headers
+    
+            Accept: application/json
+    
+    + Body
+    
+            {
+                "displayName":"The name of the league you want to display",
+                "visible": true,
+                "orderNumber": 1
+            }
+
+
+
++ Response 200 (application/json)
+
+
+            {
+                "abbreviation": "Brasil",
+                "displayName": "Copa mundial",
+                "id": "9",
+                "name": "Brasil",
+                "orderNumber": 1,
+                "visible": false
+            }
+
 
             
 ## List of tournaments [/v1/tournaments]
