@@ -4484,6 +4484,132 @@ The response is similar to a post but this contains checkin data
               "timestamp": "2014-05-15T18:28:15.533-05:00"
             }
             
+## Question  [/v1/question]
+### POST
+This resource posts a question (Vioozer integration)
+
+The request has the following parameters:
+
+- **lon** Required, logitud
+- **lan** Required, latitud
+- **externalId** Required. This is the id of the question
+- **externalProvider** Required. Name of the provider, example Vioozer
+- **expression** Required, Question. Example: How many kittens make a man happy?
+
+The response is similar to a post but this contains question data
+
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+    + Body
+    
+            {
+            }
+
++ Response 200 (application/json)
+ 
+    + Body
+
+            {
+                "checkin": null,
+                "comment": "How many kittens make a man happy?",
+                "follow": null,
+                "id": "6928fcba-6762-456c-b034-0514c1e14640",
+                "like": null,
+                "match": null,
+                "media": null,
+                "mentions": [],
+                "parentId": null,
+                "postedToActor": null,
+                "publisher": {
+                    "avatarUrl": "",
+                    "id": "5282377d-c831-42e4-bd50-af0dade3c6bc",
+                    "name": "Anallely Olivares",
+                    "nickname": null,
+                    "type": "person"
+                },
+                "question": {
+                    "expression": "How many kittens make a man happy?",
+                    "id": "ad1ff941-42b6-4cde-82f6-d378e7d2ac87",
+                    "lat": 19.4258885,
+                    "lng": -99.1922858
+                },
+                "share": null,
+                "sharedId": null,
+                "timestamp": "2014-08-14T15:35:37.629-05:00"
+            }
+
+
+## Answer [/v1/answer]
+### POST
+This resource posts an answer to a certain question (Vioozer integration)
+
+The request has the following parameters:
+
+- **lon** Required, logitud
+- **lan** Required, latitud
+- **externalId** Required. This is the id of the answer
+- **externalProvider** Required. Name of the provider, example Vioozer
+- **expression** Required, Answer. Example: There is never enought
+- **externalQuestionId** Required, This is the id of the original question 
+
+The response is similar to a post but this contains answer data
+
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+    + Body
+    
+            {
+            }
+
++ Response 200 (application/json)
+ 
+    + Body
+
+            {
+                "answer": {
+                    "expression": "How many kittens make a man happy?",
+                    "id": "59b98696-7520-49a1-b896-8735ce4b0ae2",
+                    "lat": 19.4258885,
+                    "lng": -99.1922858,
+                    "question": {
+                        "expression": "How many kittens make a man happy?",
+                        "id": "a83843fa-a0dc-457d-9fc6-cae03997a9c7",
+                        "lat": 19.4258885,
+                        "lng": -99.1922858
+                    }
+                },
+                "checkin": null,
+                "comment": "How many kittens make a man happy?",
+                "follow": null,
+                "id": "f3c2adf5-0c3d-4599-a06e-e0c6a44c758b",
+                "like": null,
+                "match": null,
+                "media": null,
+                "mentions": [],
+                "parentId": null,
+                "postedToActor": null,
+                "publisher": {
+                    "avatarUrl": "",
+                    "id": "5282377d-c831-42e4-bd50-af0dade3c6bc",
+                    "name": "Anallely Olivares",
+                    "nickname": null,
+                    "type": "person"
+                },
+                "share": null,
+                "sharedId": null,
+                "timestamp": "2014-08-14T15:47:20.181-05:00"
+            }
+
 # Group Poll
         
 ## Vote for a match [/v1/poll/match/${matchId}]
