@@ -2235,8 +2235,6 @@ It returns following activity
 
 Parameters:
 
-- **actorType** Required, It is the Type of the stuff to be seen. It can be: [ *person* | *team* | *match* ]
-- **actorId** The id of the stuff to be seen.
 - **sinceId** Optional, for pagination. Id of the post taken as lower bound.
 - **maxId**  Optional, for pagination. Id of the post taken as upper bound.
 - **count** Optional, Number of wished elements, by default 10
@@ -2374,7 +2372,38 @@ Parameters:
             }
         ]
 
-## List general timeline activity  for the current user [/v1/timeline/public{?sinceId,maxId,count}]
+## List general noisy timeline activity for the current user [/v1/timeline/noisy{?sinceId,maxId,count}]
+
+### You can list all noisy activity followed by current user: FOLLOWs and LIKES. By default it returns 10 elements [GET]
+It returns following activity
+
+- Activity where the current user is publisher
+- Activity of the user followings (other actors)
+- Activity where the user is related
+
+Parameters:
+
+- **sinceId** Optional, for pagination. Id of the post taken as lower bound.
+- **maxId**  Optional, for pagination. Id of the post taken as upper bound.
+- **count** Optional, Number of wished elements, by default 10
+
+
++ Request
+
+    + Headers
+    
+            X-Auth-Token: {token}
+
+
++ Response 200 (application/json)
+        
+        [
+            // The list of POSTS. It includes only posts of type FOLLOW and LIKE 
+        ]
+
+
+
+## List general public timeline [/v1/timeline/public{?sinceId,maxId,count}]
 
 ### You can list all activity followed by current user, by default returns 10 elements [GET]
 It returns the activity of everyone!
