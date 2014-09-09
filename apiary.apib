@@ -119,7 +119,7 @@ Remember that TT Token has **limited validity**. Once you received 401 Unauthori
 - genre (string)    : Optional User's genre (FEMALE, MALE)
 - birthdate   (logn)    : Optional User's age
 
-## Create or delete a user [/v1/people]
+## Create a user [/v1/people]
 ### POST
 This resource register new user into MTSocial API and login
 
@@ -142,22 +142,59 @@ This resource register new user into MTSocial API and login
             {"person":{"id":"8132259c-92ff-4568-908a-ce6445a07ed1","name":"Testing test","email":"test-in@expansion.com.mx"},"token":"3onh61e2ci6s6vk57qve4b5taarkndge"}
 
 
-### DELETE
-This resource delete all data related to the current user. Use carefully. 
+# Group Delete
+<a id="delete" ></a>
+
+## Delete a user (asynch) [/v1/people/deleteAsynch]
+###  DELETE
+
+This resource deletes the account of current user. This is an asynchronous operation. It is mandatory to CLOSE THE SESSION after this operation is executed. If the user attempts to login again it does not allow due to the user is unabled.
+Some users (system users are not allowed to be deleted)
 
 `Please use your MTSocial API account credentials for API calls.`
 
-+ Request 
++ Request (application/json)
     + Headers
-    
-            Accept: application/json
-    
-    + Body 
-    
-            {
-            }
 
-+ Response 204
+            X-Auth-Token: {token}
+            Accept: application/json
+
+    + Body
+
+            {}
+
++ Response 200 (application/json)
+         
+           {
+                "extraInfo": null,
+                "person": "16991450-3fdf-42f3-9d6b-1652db5a0162",
+                "status": "SUCCESSFUL_FINISHED"
+           }
+
+* Other posible status are: IN_PROGRESS and FINISHED_WITH_ERROR 
+
+## Get the current status (asynch) [/v1/people/deleteAsynch/{person_id}]
+###  GET
+This resource get the status of the asinchronous operation of deletion
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request (application/json)
+    + Headers
+
+            X-Auth-Token: {token}
+            Accept: application/json
+
+    + Body
+
+            {}
+
++ Response 204 (application/json)
+ 
+    + 
+
+
+
 
 
 ## Login with social API [/v1/people/loginSocial]
