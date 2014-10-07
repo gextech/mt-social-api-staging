@@ -32,7 +32,7 @@ API de MT Fan
                 }
             }
             
-## **Register a user - Problems with data**  Validations errors is an array with field with error and its explanation. For example, repeated email
+## **Register a user - Problems with data**  Validations errors is an array of fields with its error and its explanation. For example, repeated email
 
 + Response 422 (application/json)
             
@@ -607,6 +607,72 @@ This is a normal FORM!
 
 
 # Group Follow
+
+## Follow multiple things at once [/v1/follow]
+### POST
+
+This resource marks a Follow between the current user and the actors specified in the json map input. See request body for input structure.
+
+`Please use your MTSocial API account credentials for API calls.`
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+    + Body
+    
+            {
+                "people": [
+                    "363f6cf8-4bcf-4d84-a33e-15a01657885b",
+                    "363f6cf8-4bcf-4d84-a33e-15a01657885c"
+                ],
+                "teams": [
+                    "IdInexistente123",
+                    "AnotherId"
+                ],
+                "matches": [
+                    "IdIntexistenteABC",
+                    "AnotherId"
+                ]
+            }
+            
++ Response 200 (application/json)
+ 
+    + Body
+
+            {
+                "matches": [
+                    {
+                        "id": "IdIntexistenteABC",
+                        "status": "FAIL"
+                    },
+                    {
+                        "id": "AnotherId",
+                        "status": "OK"
+                    }
+                ],
+                "people": [
+                    {
+                        "id": "363f6cf8-4bcf-4d84-a33e-15a01657885b",
+                        "status": "OK"
+                    },
+                    {
+                        "id": "363f6cf8-4bcf-4d84-a33e-15a01657885c",
+                        "status": "OK"
+                    }
+                ],
+                "teams": [
+                    {
+                        "id": "IdInexistente123",
+                        "status": "FAIL"
+                    },
+                    {
+                        "id": "AnotherId",
+                        "status": "OK"
+                    }
+                ]
+            }
+
         
 ## Follow something [/v1/follow/${followedType}/${followedId}]
 ### POST
