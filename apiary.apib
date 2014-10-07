@@ -255,15 +255,10 @@ Some users (system users are not allowed to be deleted)
 
             {}
 
-+ Response 200 (application/json)
-         
-           {
-                "extraInfo": null,
-                "person": "16991450-3fdf-42f3-9d6b-1652db5a0162",
-                "status": "SUCCESSFUL_FINISHED"
-           }
++ Response 204 (application/json)
+ 
+    + 
 
-* Other posible status are: IN_PROGRESS and FINISHED_WITH_ERROR 
 
 ## Get the current status (asynch) [/v1/people/deleteAsynch/{person_id}]
 ###  GET
@@ -281,9 +276,17 @@ This resource get the status of the asinchronous operation of deletion
 
             {}
 
-+ Response 204 (application/json)
- 
-    + 
+    
++ Response 200 (application/json)
+         
+           {
+                "extraInfo": null,
+                "person": "16991450-3fdf-42f3-9d6b-1652db5a0162",
+                "status": "SUCCESSFUL_FINISHED"
+           }
+
+* Other posible status are: IN_PROGRESS and FINISHED_WITH_ERROR 
+
 
 
 
