@@ -59,7 +59,7 @@ API de MT Fan
 
 ## **Bad requests**  Errors 400 are generated when some parameter in request is invalid.
  
-All share same structure as follows, where message specifies the type of error and extraData gives additional info.
+All share same structure as follows, where message specifies the type of error and extraData gives additional info if present.
 
 + Response 400 (application/json)
     
@@ -75,7 +75,35 @@ All share same structure as follows, where message specifies the type of error a
                     "validationErrors": null
                 }
             }
-            
+
+
++ Response 400 (application/json)
+
+                {
+                    "userError": {
+                        "extraData": null,
+                        "message": "El usuario a?n no ha votado en este partido",
+                        "validationErrors": null
+                    }
+                }
+
+                
+## **Not found**  Errors 404 
+This errors happens when trying to make an operation over an  inxistent resource
+
++ Response 404 (application/json)
+
+                {
+                    "userError": {
+                        "extraData": null,
+                        "message": "La liga 78 no existe en la BD, es probable que el filler no haya corrido a?n",
+                        "validationErrors": null
+                    }
+                }
+
+**Login with social API** throws an 404 response but with extra data expecifying that the person was not found on MTFan, but some data are getted from social network, so it returns suggered fields as unique nickname, name, etc in order to agilize register process.
+See Login with social API for more detail
+
             
 # Group Login
 <a id="login" ></a>
@@ -335,13 +363,25 @@ You should also use this service if you want to refresh social network tokens.
 
     + Body
 
-            {"accessToken":"zdadzsdaae", "secret":"SOLOENELCASODETWITTER", "provider":"twitter"}
+            {
+                "accessToken":"zdadzsdaae", 
+                "secret":"SOLOENELCASODETWITTER", 
+                "provider":"twitter"
+            }
 
 + Response 200 (application/json)
  
     + Body
 
-            {"person":{"id":"8132259c-92ff-4568-908a-ce6445a07ed1","name":"Testing test","email":"test-in@expansion.com.mx"},"token":"3onh61e2ci6s6vk57qve4b5taarkndge"}
+            {
+                "person":{  
+                    "id":
+                    "8132259c-92ff-4568-908a-ce6445a07ed1",
+                    "name":"Testing test",
+                    "email":"test-in@expansion.com.mx"
+                    },
+                "token":"3onh61e2ci6s6vk57qve4b5taarkndge"
+            }
 
 + Response 404 (application/json)
  
@@ -362,6 +402,47 @@ You should also use this service if you want to refresh social network tokens.
                     "validationErrors": null
                 }
             }
+            
++ Response 400 (application/json) 
+ 
+    + Body
+
+            {
+                "userError": {
+                    "extraData": {
+                        "errorCode": "socialNotAuthorized",
+                        "provider": "facebook",
+                    },
+                    "message": "El token no es valido, o ha expirado por favor revisalo",
+                    "validationErrors": null
+                }
+            }
+    
+            or
+
+            {
+                "userError": {
+                    "extraData": {
+                        "errorCode": "socialRateExceeded",
+                        "provider": "facebook",
+                    },
+                    "message": "Se ha excedido el límite de peticiones",
+                    "validationErrors": null
+                }
+            }
+            
+            or
+
+            {
+                "userError": {
+                    "extraData": null,
+                    "message": "No se encontró un proveedor especificado (provider)",
+                    "validationErrors": null
+                }
+            }
+            
+            
+            
 
 ## Login with social API [/v1/people/addSocialConnection]
 ### POST
