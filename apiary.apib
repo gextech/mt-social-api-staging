@@ -7,7 +7,7 @@ API de MT Fan
 
 # Group Errors
 
-### **Every service** used with an inexistent token will return an error 403 as follows
+## **Every service** used with an inexistent token will return an error 403 as follows
 
 + Invalid token 403 (application/json)
 
@@ -20,7 +20,7 @@ API de MT Fan
         }
         
 
-### **Login-Bad credentials** Used when email or password is invalid at login
+## **Login-Bad credentials** Used when email or password is invalid at login
 
 + Response 403 (application/json)
 
@@ -32,7 +32,7 @@ API de MT Fan
                 }
             }
             
-### **Register a user - Problems with data**  Validations errors is an array with field with error and its explanation. For example, repeated email
+## **Register a user - Problems with data**  Validations errors is an array with field with error and its explanation. For example, repeated email
 
 + Response 422 (application/json)
             
@@ -54,6 +54,25 @@ API de MT Fan
                             "rejectedValue": "5567"
                         }
                     ]
+                }
+            }
+
+## **Bad requests**  Errors 400 are generated when some parameter in request is invalid.
+ 
+All share same structure as follows, where message specifies the type of error and extraData gives additional info.
+
++ Response 400 (application/json)
+    
+            {
+                "userError": {
+                    "extraData": {
+                        "followedId": "3231342",
+                        "followedType": "PARTICIPANT",
+                        "followerId": "2",
+                        "followerType": "PERSON"
+                    },
+                    "message": "No es posible realizar el follow.",
+                    "validationErrors": null
                 }
             }
             
