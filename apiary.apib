@@ -281,6 +281,38 @@ This resource register new user into MTSocial API and login
             }
 
 
+## Validate the availability of some fields [/v1/people/validate]
+
+### POST
+This resource returns the availability of nickname or email. If nickname is invalid it return an unique valid nickname.
+
+`Please use your MTSocial API account credentials for API calls.`
+
+- nickname (string) : Nickname to check (optional)
+- email (string)    : Email to check (optional)
+
++ Request (application/json)
+    + Headers
+
+            X-Auth-Token: {token}
+            Accept: application/json
+
+    + Body
+
+            {"nickname":"tsunllly", "email":"anaoko@gmail.com" }
+            
+
++ Response 200 (application/json)
+ 
+    + Body
+    
+            {
+                "emailAvailable": false,
+                "nicknameAvailable": true,
+                "suggestedNickname": null
+            }
+
+
 # Group Delete
 <a id="delete" ></a>
 
