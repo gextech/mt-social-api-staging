@@ -79,7 +79,14 @@ This resource is the first. Use it to log into the API.
             
 + Response 403 (application/json)
 
-            {"userError":{"validationErrors":null,"message":"Bad credentials","extraData":null}}
+            {
+                "userError": {
+                "extraData": null,
+                "message": "Bad credentials",
+                "validationErrors": null
+                }
+            }
+            
 
 ## Check if token is still valid [/api/validate]
 Basic service to validate token, this is for testing.
