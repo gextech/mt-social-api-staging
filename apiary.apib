@@ -4,13 +4,42 @@ HOST: http://staging.api.mtfan.mediotiempo.com
 # MTSocial API Staging services ready
 API de MT Fan 
 
+
+# Group Errors
+
+### **Every service** used with an inexistent token will return an error 403 as follows
+
++ Invalid token 403 (application/json)
+
+        {
+            "userError": {
+                "extraData": null,
+                "message": "Token 2h9qj263t8rmbrvvcb0ts9ngpop3rlax is not valid,",
+                "validationErrors": null
+            }
+        }
+        
+
+### **Login-Bad credentials** Used when email or password is invalid at login
+
++ Response 403 (application/json)
+
+            {
+                "userError": {
+                    "extraData": null,
+                    "message": "Bad credentials",
+                    "validationErrors": null
+                }
+            }
+
+
 # Group Login
 <a id="login" ></a>
 
 To login into the MTSocial API API, use following calls:
 
-- 1. `POST` your credentials in JSON body to the *login* resource. An **token** is returned back.
-- 2. Use the **token** in your API calls header **X-Auth-Token**.
+1. `POST` your credentials in JSON body to the *login* resource. An **token** is returned back.
+2. Use the **token** in your API calls header **X-Auth-Token**.
 
 Remember that TT Token has **limited validity**. Once you received 401 Unauthorized Response, you need to GET new TT Token.
 
