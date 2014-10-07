@@ -31,8 +31,33 @@ API de MT Fan
                     "validationErrors": null
                 }
             }
+            
+### **Register a user - Problems with data**  Validations errors is an array with field with error and its explanation. For example, repeated email
 
-
++ Response 422 (application/json)
+            
+            {
+                "userError": {
+                    "extraData": null,
+                    "message": "Problemas de datos",
+                    "validationErrors": [
+                        {
+                            "field": "email",
+                            "message": "Property [email] of class [class gex.mediotiempo.fan.security.Person] with value [anaoko@gmail.com] must be unique",
+                            "object": "gex.mediotiempo.fan.security.Person",
+                            "rejectedValue": "anaoko@gmail.com"                        
+                        },
+                        {
+                            "field": "password",
+                            "message": "Property [password] of class [class gex.mediotiempo.fan.security.Person] with value [5567] is less than the minimum size of [6]",
+                            "object": "gex.mediotiempo.fan.security.Person",
+                            "rejectedValue": "5567"
+                        }
+                    ]
+                }
+            }
+            
+            
 # Group Login
 <a id="login" ></a>
 
@@ -184,6 +209,29 @@ This resource register new user into MTSocial API and login
     + Body
     
             {"person":{"id":"8132259c-92ff-4568-908a-ce6445a07ed1","name":"Testing test","email":"test-in@expansion.com.mx"},"token":"3onh61e2ci6s6vk57qve4b5taarkndge"}
+
++ Response 422 (application/json)
+            
+            {
+                "userError": {
+                    "extraData": null,
+                    "message": "Problemas de datos",
+                    "validationErrors": [
+                        {
+                            "field": "email",
+                            "message": "Property [email] of class [class gex.mediotiempo.fan.security.Person] with value [anaoko@gmail.com] must be unique",
+                            "object": "gex.mediotiempo.fan.security.Person",
+                            "rejectedValue": "anaoko@gmail.com"                        
+                        },
+                        {
+                            "field": "password",
+                            "message": "Property [password] of class [class gex.mediotiempo.fan.security.Person] with value [5567] is less than the minimum size of [6]",
+                            "object": "gex.mediotiempo.fan.security.Person",
+                            "rejectedValue": "5567"
+                        }
+                    ]
+                }
+            }
 
 
 # Group Delete
