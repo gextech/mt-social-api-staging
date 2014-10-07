@@ -39,7 +39,11 @@ This resource is the first. Use it to log into the API.
     + Body
 
             {
-              "person": {
+                "authorities": [
+                  "ROLE_ADMIN",
+                    "ROLE_ROOT"
+                ],
+                "person": {
                   "avatarUrl": "https://mtfan-dev.s3.amazonaws.com/e7bcbde7-acf1-4811-94e7-d04743bb5b93-gextech.png",
                   "badges": [
                       {
