@@ -4087,10 +4087,14 @@ To make a checkin with media the following parameter must be provided:
 
         ['facebook', 'twitter']
     
-## Suggested friends [/v1/people/suggested{?compatibleOldVersion}]
+## Suggested friends [/v1/people/suggested{?compatibleOldVersion,socialOffset,socialMax,suggestedOffset,suggestedMax}]
 ### Return suggested friends from social and app[GET]
 
 - **compatibleOldVersion** Default is true, the response has duplicated fields in order to preserve compatability. It is HIGHLY recommended to use with compatibleOldVersion = *false* in order to obtain a cleaner response.
+- **socialOffset** Offset for social suggested friends. Optional. Default is 0
+- **socialMax**    Max for social suggested friends. Optional. Default is 20
+- **suggestedOffset** Offset for mtfan internal suggested friends. Optional. Default is 0
+- **suggestedMax** Max for mtfan internal suggested friends. Optional. Default is 20
 
 + Request
 
