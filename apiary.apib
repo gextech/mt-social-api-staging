@@ -1458,8 +1458,21 @@ This resource get the calendar of matches for the specified team. (Yean and mont
             }
 
 
-# Group Matches
 
+# Group Event matches
+
+## Documentation on Einfluss and Opta events
+
++ Invalid token 403 (application/json)
+
+        {
+            "userError": {
+                "extraData": null,
+                "message": "Token 2h9qj263t8rmbrvvcb0ts9ngpop3rlax is not valid,",
+                "validationErrors": null
+            }
+        }
+        
 
 ## Match profile [/v1/matches/${matchId}/profile{?count}]
 
@@ -2002,6 +2015,47 @@ This resource gets the medias of specified match (photos)
                     "type": "photo"
                 }
             ]
+
+
+# Group Matches Events
+## To calculate the current time on a match
+
+There are two sources for match events:
+
+1. Matches with editorial assisment, from  Einfluss  (important and outstanding matches)
+2. Matches with no editorial assisment (From provider Opta)
+
+----------
+Einfluss 
+----------
+It throws following events:
+
+* startTimeT1  : Inicia el primer tiempo
+* endTimeT1    : Finaliza 1er Tiempo
+* startTimeT2  : Inicia 2do Tiempo
+* endTimeT2    : Finaliza 2do Tiempo
+* startTimeTE1 : Inicia 1er Tiempo extra
+* endTimeTE1   : Finaliza 1er Tiempo extra
+* startTimeTE2 : Inicia 1er Tiempo extra
+* endTimeTE2   : Finaliza 2do Tiempo extra
+
+----------
+Opta
+-----------
+
+It throws following events:
+
+* matchStarted    (Siempre al inicio)  
+* halfTime        (Inicia el medio tiempo)
+* secondHalf      (Inicia el segundo tiempo)
+* extraTime       (Inicia el tiempo extra. Este evento no aplica para todos los partidos)
+* matchEnded      (Fnaliza el partido)
+
+Based on this events it is possible to determinate the current minute/state for a match:
+
+** Example (Einfluss): **
+
+If startTimeT1 is 2014-08-27T16:33:09Z and the current time is 2014-08-27T16:43:09Z    ... the match is at T1, minute 10
 
 
 # Group Tournaments, leagues and teams
