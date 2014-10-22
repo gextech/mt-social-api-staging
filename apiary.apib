@@ -1863,6 +1863,40 @@ This resource gets the list of all matches featured by Editorial
                     //  
                 }]
             }
+            
+            
+## List of future matches [/v1/matches/sinceToday{?count,includeFavourites}]
+
+### GET
+This resource gets a list of N matches from today to the future
+
+
+`Please use your MTSocial API account credentials for API calls.`
+
+- **count** Default is 20, It is an integer with the number of wished matches
+- **includeFavourites** Optional, default is false. If true it includes the list of all matches followed by user or matches where plays a team followed by the user, although it is not a featured match.
+
++ Request 
+    + Headers
+    
+            Accept: application/json
+
++ Response 200 (application/json)
+
+            {
+                "matches": [
+                {
+                    //Match structure, 
+                    //...
+                    featured: true 
+                },
+                {
+                    // Match structure, this is a favourite, because it doesnt includes flag featured
+                    //...
+                    //  
+                }]
+            }
+
 
 ## List of all FAVOURITE matches [/v1/matches/favourites/{?from,to}]
 
