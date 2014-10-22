@@ -1831,7 +1831,7 @@ This resource gets the profile of specified match, this includes recent activity
 
 
 
-## List of all FEATURED matches [/v1/matches/{?offset,max,from,to,includeFavourites}]
+## List of all FEATURED matches [/v1/matches/{?from,to,includeFavourites}]
 
 ### GET
 This resource gets the list of all matches featured by Editorial 
@@ -1841,8 +1841,6 @@ This resource gets the list of all matches featured by Editorial
 
 - **from** An iso8601 date, returns matche from this date
 - **to** An iso8601 date, returns matches to this date
-- **offset** From with element, by default is is 0 (no offset)
-- **max** Max number of elements, by default 20
 - **includeFavourites** Optional, default is false. If true it includes the list of all matches followed by user or matches where plays a team followed by the user, although it is not a featured match.
 
 + Request 
@@ -1866,7 +1864,7 @@ This resource gets the list of all matches featured by Editorial
                 }]
             }
 
-## List of all FAVOURITE matches [/v1/matches/favourites/{?offset,max,from,to}]
+## List of all FAVOURITE matches [/v1/matches/favourites/{?from,to}]
 
 ### GET
 This resource gets the list of all matches followed by user or matches where plays a team followed by the user
@@ -1876,8 +1874,6 @@ This resource gets the list of all matches followed by user or matches where pla
 
 - **from** An iso8601 date, returns matche from this date
 - **to** An iso8601 date, returns matches to this date
-- **offset** From with element, by default is is 0 (no offset)
-- **max** Max number of elements, by default 20
 
 + Request 
     + Headers
