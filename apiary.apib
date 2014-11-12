@@ -5434,7 +5434,7 @@ Register a complaint about a post, the user won't see the post in their timeline
 
 # Group Search
         
-## Search for people, teams and matches [/v1/search{?peopleOffset,peopleMax,teamOffset,teamMax,matchOffset,matchMax}]
+## Search for people, teams and matches [/v1/search{?peopleOffset,peopleMax,teamOffset,teamMax,matchOffset,matchMax,detailedMatch}]
 ### POST
 
 Search for people, teams and matches according a query. It is an aggregated of individual services to find people, matches and teams
@@ -5445,6 +5445,7 @@ The request has the following parameters:
 
 - **peopleMax, teamMax, matchMax** (Optional) For pagination, number of elements
 - **peopleOffset, teamOffset, matchOffset** (Optional) For pagination, result offset
+- **detailedMatch** (Optional) Default is false. It shows additional data for teams on matches (localAvatar and visitorAvatar)
 - **query** Required, it is a string with the query base, example: "mexico"
 
 + Request (application/json)
